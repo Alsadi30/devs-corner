@@ -1,16 +1,23 @@
-import { Request, Response } from "express"
-
 require('dotenv').config()
+import { Request, Response } from "express"
+const routes = require("./router")
+
 const express = require('express')
-const AppDataSource = require('./config/database')
+const MyDataSource = require('./config/database')
 const app = express()
+
+app.use(express.json());
 const port = 3000
 
 app.get('/', (req:Request , res:Response) => {
   res.send('ok')
 })
 
-AppDataSource.initialize()
+
+app.use(routes);
+
+
+MyDataSource.initialize()
     .then(() => {
         // here you can start to work with your database
       console.log("database initialized successfully")
