@@ -6,14 +6,13 @@ import { createTheme } from '@mui/material/styles'
 export const Theme = createTheme( {
     palette: {
         primary: {
-            main: '#252537',
+            main: '#5b598b',
             light: '#1E1E23',
             dark: '#1E1E23',
 
         },
         secondary: {
-            main: '#5b598b',
-
+            main: '#252537',
         },
         error: {
             main: '#F44336',
@@ -33,7 +32,7 @@ export const Theme = createTheme( {
             secondary: '#6663a5',
         },
         background: {
-            default: '#252537',
+            default: '#fff',
             paper:'#252537'
         },
 
