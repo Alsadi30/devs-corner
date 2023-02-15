@@ -6,6 +6,7 @@ import { TextField } from '@mui/material'
 import Cont from '../../material-ui/src/Atoms/Container/index';
 import Input from '../../material-ui/src/Atoms/InputG/index';
 import { useForm } from 'react-hook-form';
+import SectionBody from '../../material-ui/src/Atoms/SectionBody/index';
 function App() {
   const [count, setCount] = useState(0)
   const { control, handleSubmit, formState: { errors }, } = useForm({
@@ -19,13 +20,14 @@ function App() {
   })
   return (
     <Cont>
-      <div>Heoolo</div>
-      <PrimaryButton />
-      <Text />
-      <FormContaineer>
-        <Input item={{ name: 'username', type: 'text', }} control={control} />
-      </FormContaineer>
-
+      <SectionBody>
+        <div>Heoolo</div>
+        <PrimaryButton />
+        <Text />
+        <FormContaineer>
+          <Input item={{ name: 'username', type: 'text', }} control={control} />
+        </FormContaineer>
+      </SectionBody>
     </Cont>
   )
 }
