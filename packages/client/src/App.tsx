@@ -7,6 +7,7 @@ import Cont from '../../material-ui/src/Atoms/Container/index';
 import Input from '../../material-ui/src/Atoms/InputG/index';
 import { useForm } from 'react-hook-form';
 import SectionBody from '../../material-ui/src/Atoms/SectionBody/index';
+import SectionHead from '../../material-ui/src/Molecules/SectionHead/index';
 function App() {
   const [count, setCount] = useState(0)
   const { control, handleSubmit, formState: { errors }, } = useForm({
@@ -20,6 +21,7 @@ function App() {
   })
   return (
     <Cont>
+      <SectionHead title='Skills' />
       <SectionBody>
         <div>Heoolo</div>
         <PrimaryButton />
