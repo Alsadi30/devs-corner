@@ -1,17 +1,17 @@
-import { useState } from 'react'
-import PrimaryButton from '../../material-ui/src/Atoms/PrimaryButton/index';
-import Text from '../../material-ui/src/Atoms/Text'
-import FormContaineer from '../../material-ui/src/Atoms/FormContainer/index';
-import { TextField } from '@mui/material'
-import Cont from '../../material-ui/src/Atoms/Container/index';
-import Input from '../../material-ui/src/Atoms/InputG/index';
+import { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import SectionBody from '../../material-ui/src/Atoms/SectionBody/index';
-import SectionHead from '../../material-ui/src/Molecules/SectionHead/index';
-import NavBar from '../../material-ui/src/Organisms/NavBar/NavBar';
-import ImageAvatar from '../../material-ui/src/Atoms/Avatars/ImageAvatar';
-import photo from './assets/avatar.jpg'
-import Copyright from '../../material-ui/src/Atoms/Copyright/index';
+import Cont from '../../material-ui/src/Atoms/Container/index';
+
+import Section from '../../material-ui/src/Organisms/Section/index';
+import Login from './pages/Login';
+import Register from './pages/Register';
+import RepositoryItem from '../../material-ui/src/Organisms/RepositoryItem/index';
+
+
+
+
+
+
 function App() {
   const [count, setCount] = useState(0);
   const {
@@ -28,27 +28,31 @@ function App() {
     },
   });
   return (
-    <Cont>
-      <SectionHead title='Skills' />
+    <>
+      <Login />
+      <RepositoryItem title='Repository 1' description='A short description of the project' gitlink='dlkfjasdkljf' livelink='dlsflksadklfjdskl' />
+    </>
+    // <Cont>
+    //   {/* <SectionHead title='Skills' />
 
 
-      <NavBar />
+    //   <NavBar />
 
-      <SectionBody>
-        <ImageAvatar Src={photo} Txt="Name" Size={150} />
-        <div>Heoolo</div>
-        <PrimaryButton />
-        <Text />
-        <FormContaineer>
-          <Input item={{ name: 'username', type: 'text', }} control={control} />
-        </FormContaineer>
-      </SectionBody>
+    //   <SectionBody>
+
+    //     <ImageAvatar Src={photo} Txt="Name" Size={150} />
+    //     <div>Heoolo</div>
+    //     <PrimaryButton />
+    //     <Text /> */}
+    //   {/* < Register /> */}
+    //   {/* <Login /> */}
+    //   <Section title='About' text='I am a front end developer ,I am very pasionate to my work' />
 
 
-      <Copyright />
-    </Cont>
+    //   {/* <Copyright /> */}
+    // </Cont>
 
-  );
+  )
 }
 
 export default App;
