@@ -1,6 +1,6 @@
-import { Button, Grid, Typography } from '@mui/material'
+
 import AddIcon from '@mui/icons-material/Add';
-import React from 'react'
+import { Button, Grid, Typography } from '@mui/material';
 
 export interface SectionHeadProps {
   title: string,
@@ -16,4 +16,6 @@ const SectionHead = ({ title, handleClick }: SectionHeadProps) => {
   )
 }
 
-export default SectionHead
+
+
+export default SectionHead;
