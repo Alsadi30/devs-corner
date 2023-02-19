@@ -1,27 +1,23 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import Cont from '../../material-ui/src/Atoms/Container/index';
-import Login from './pages/Login';
-function App() {
-  const [count, setCount] = useState(0);
-  const {
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      username: "",
-      email: "",
-      phone: "",
-      password: "",
-      confirmPassword: "",
-    },
-  });
-  return (
-    <>
-      <Login />
 
-    </>)
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { router } from './routes';
+function App() {
+	return (
+		<Router>
+			<Routes>
+				{router.map((route, index) => {
+					return (
+						<Route
+							key={index}
+							path={route.path}
+							element={<route.component />}
+						/>
+					);
+				})}
+			</Routes>
+		</Router>
+	);
+
 }
 
 export default App;
