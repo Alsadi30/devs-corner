@@ -73,7 +73,7 @@ const Login = () => {
                     </FormContainer>
                 </Grid>
             </Grid>
-            <RepositoryItem title='Repository 1' description='A short description of the project' gitlink='dlkfjasdkljf' livelink='dlsflksadklfjdskl' />
+            {/* <RepositoryItem title='Repository 1' description='A short description of the project' gitlink='dlkfjasdkljf' livelink='dlsflksadklfjdskl' /> */}
 
         </Layout>
     )

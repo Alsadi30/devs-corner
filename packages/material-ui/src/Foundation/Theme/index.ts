@@ -82,13 +82,13 @@ export const Theme = createTheme( {
             letterSpacing: '0.0075em',
         },
         subtitle1: {
-            fontSize: '1rem',
+            fontSize: '.75rem',
             fontWeight: 400,
             lineHeight: 1.2,
             letterSpacing: '0.00938em',
         },
         subtitle2: {
-            fontSize: '0.875rem',
+            fontSize: '0.7rem',
             fontWeight: 400,
             lineHeight: 1,
             letterSpacing: '0.00714em',
