@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import ImageAvatar from "../../material-ui/src/Atoms/Avatars/ImageAvatar";
 import Cont from "../../material-ui/src/Atoms/Container/index";
 import Copyright from "../../material-ui/src/Atoms/Copyright/index";
 import FormContaineer from "../../material-ui/src/Atoms/FormContainer/index";
@@ -8,6 +7,7 @@ import Input from "../../material-ui/src/Atoms/InputG/index";
 import PrimaryButton from "../../material-ui/src/Atoms/PrimaryButton/index";
 import SectionBody from "../../material-ui/src/Atoms/SectionBody/index";
 import Text from "../../material-ui/src/Atoms/Text";
+import BasicProfile from "../../material-ui/src/Organisms/BasicProfile/index";
 import NavBar from "../../material-ui/src/Organisms/NavBar/NavBar";
 import photo from "./assets/avatar.jpg";
 function App() {
@@ -30,10 +30,13 @@ function App() {
       {/* <SectionHead title='Skills' /> */}
 
       <NavBar />
-
       <SectionBody>
-        <ImageAvatar Src={photo} Txt="Name" Size={150} />
-        <div>Heoolo</div>
+        <BasicProfile
+          Photo={photo}
+          Name="MD. Ariful Islam"
+          Position="Software Engineer"
+          Location="Dhaka, Bangladesh"
+        />
         <PrimaryButton />
         <Text />
         <FormContaineer>
