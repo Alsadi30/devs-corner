@@ -1,3 +1,4 @@
+
 import AddIcon from '@mui/icons-material/Add';
 import { Button, Grid, Typography } from '@mui/material';
 
@@ -17,6 +18,7 @@ const SectionHead = ({ title, handleClick }: SectionHeadProps) => {
 			</Button>
 		</Grid>
 	);
+
 };
 
 export default SectionHead;

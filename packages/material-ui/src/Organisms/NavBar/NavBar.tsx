@@ -1,6 +1,7 @@
 import { AppBar, Container, Toolbar, Typography } from "@mui/material";
+import LogoPath from "../../../../client/src/assets/Devs'Corner.svg";
+import Logo from "../../Atoms/Logo";
 import AvatarMenu from "../../Molecules/AvatarMenu/AvatarMenu";
-
 const NavBar = () => {
   return (
     <AppBar position="sticky">
@@ -11,10 +12,7 @@ const NavBar = () => {
             component="h2"
             sx={{ display: "flex", alignItems: "center" }}
           >
-            <Typography variant="h1" component="h1">
-              ۞
-            </Typography>
-            Devs' Corner
+            <Logo Src={LogoPath} Txt="D" Size={33} /> Devs' Corner
           </Typography>
           <AvatarMenu />
         </Container>
