@@ -28,11 +28,11 @@ export const Theme = createTheme( {
             contrastText: '#fff',
         },
         text: {
-            primary: '#FFFFFF',
+            primary: '#252537',
             secondary: '#6663a5',
         },
         background: {
-            default: '#fff',
+            default: '#ffffff',
             paper:'#252537'
         },
 
@@ -46,12 +46,14 @@ export const Theme = createTheme( {
         h1: {
             fontSize: '2rem',
             fontWeight: 700,
+            color:'#ffffff',
             lineHeight: 1.2,
             letterSpacing: '-0.01562em',
         },
         h2: {
             fontSize: '1.75rem',
             fontWeight: 700,
+            color:'#ffffff',
             lineHeight: 1.2,
             letterSpacing: '-0.00833em',
         },
@@ -59,6 +61,7 @@ export const Theme = createTheme( {
             fontSize: '1.4rem',
             fontWeight: 500,
             lineHeight: 1.2,
+            color:'#ffffff',
             letterSpacing: '0em',
         },
         h4: {

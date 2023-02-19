@@ -36,7 +36,7 @@ const Input: React.FC<InputFieldProps> = ({ item, control }) => {
           name={name}
           label={label}
           size={"small"}
-          variant="outlined"
+          variant="filled"
           error={!!error?.message}
           helperText={isValid ? "" : error?.message}
         />

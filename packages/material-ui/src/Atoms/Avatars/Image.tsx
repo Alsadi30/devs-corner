@@ -1,4 +1,5 @@
-const Image = (Src: string, Txt: string, Height: number, Width: number) => {
+type ImageProps = { Src: string; Txt: string; Height: string; Width: string };
+const Image = ({ Src, Txt, Height, Width }: ImageProps) => {
   return <img src={Src} height={Height} width={Width} alt={Txt} />;
 };
 
