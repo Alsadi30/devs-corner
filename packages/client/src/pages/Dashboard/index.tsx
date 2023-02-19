@@ -1,12 +1,14 @@
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import ImageAvatar from '../../../../material-ui/src/Atoms/Avatars/ImageAvatar';
 import Cont from '../../../../material-ui/src/Atoms/Container';
 import Copyright from '../../../../material-ui/src/Atoms/Copyright';
+import KeyValue from '../../../../material-ui/src/Atoms/KeyValue/index';
 import PrimaryButton from '../../../../material-ui/src/Atoms/PrimaryButton';
 import Text from '../../../../material-ui/src/Atoms/Text';
+import IconWithText from '../../../../material-ui/src/Molecules/IconWithText/index';
 import SectionHead from '../../../../material-ui/src/Molecules/SectionHead';
-import NavBar from '../../../../material-ui/src/Organisms/NavBar/NavBar';
 import photo from '../../assets/avatar.jpg';
 
 type Props = {};
@@ -31,14 +33,16 @@ const Dashboard = ({ }: Props) => {
         <Cont>
             <SectionHead title='Skills' />
 
-            <NavBar />
-
+            <KeyValue property='CGPA' value='5.343' />
 
             <ImageAvatar Src={photo} Txt='Name' Size={150} />
-            <div>Heoolo</div>
+
             <PrimaryButton />
             <Text />
 
+            <IconWithText text='Github Link' >
+                <GitHubIcon color='info' fontSize='inherit' />
+            </IconWithText>
 
 
             <Copyright />

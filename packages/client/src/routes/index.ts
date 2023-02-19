@@ -1,7 +1,7 @@
-import Dashboard from '../pages/Dashboard';
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
-import Register from '../pages/Register';
+import Dashboard from '../pages/DashBoard/index';
+import Register from '../pages/Register/index';
 
 export const router = [
 	{
