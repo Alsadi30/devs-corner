@@ -12,18 +12,18 @@ type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
     value?: string;
     style?: object;
   };
-  control: any;
+  other: any;
 };
 
-const Input: React.FC<InputFieldProps> = ({ item, control }) => {
-  const { name, type, isRequired, fullWidth, value, style } = item;
+const Input: React.FC<InputFieldProps> = ({ item, other }) => {
+  const { name, type, isRequired, fullWidth = true, value, style } = item;
 
   let label = name.charAt(0).toUpperCase() + name.slice(1);
 
   return (
     <Controller
       name={name}
-      control={control}
+      control={other}
       defaultValue={value ? value : ""}
       render={({ field, fieldState: { error }, formState: { isValid } }) => (
         <TextField
