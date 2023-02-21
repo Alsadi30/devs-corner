@@ -14,7 +14,7 @@ const RepositoryItem = ({ title, description, gitlink, livelink }: RepositoryIte
         <Grid container flexDirection={'column'} >
             <Typography mb={.5} variant='body1' color={'info.dark'} > Title </Typography>
             <Typography mb={.5} variant='body2' color={'info.light'}  >Paragraph</Typography>
-            {/* <Link to={'githum.com'}>Hooloo</Link> */}
+            {/* <Link to={'githum.com'}></Link> */}
             <>
 
             </>
