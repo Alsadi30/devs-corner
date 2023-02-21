@@ -12,17 +12,17 @@ export class Socialmedia {
 
     @Column({
         type: "text",
-        nullable:false
+        nullable: false
     })
     url: string
 
     @Column({
         type: "text",
-        nullable:false
+        nullable: false
     })
-    thumbnail: string
+    type: string
 
     @ManyToOne(() => User, (user) => user.socialmedia)
     user: User
-    
+
 }

@@ -1,18 +1,20 @@
 import { Box, Grid } from "@mui/material";
 import ImageAvatar from "../../Atoms/Avatars/ImageAvatar";
 import PrimaryButton from "../../Atoms/PrimaryButton";
-import CoverPhoto from "../../Molecules/CoverPhoto";
+import CoverPhoto, { CoverPhotoProps } from "../../Molecules/CoverPhoto";
 import Intro from "../../Molecules/Intro";
-type BasicInfoProps = {
-  Photo: string;
-  Name: string;
-  Position: string;
-  Location: string;
+
+
+interface BasicInfoProps extends CoverPhotoProps {
+  Photo: string
+  Name: string
+  Position: string
+  Location: string
 };
-const BasicProfile = ({ Photo, Name, Position, Location }: BasicInfoProps) => {
+const BasicProfile = ({ Photo, Name, Position, Location, CoverPath }: BasicInfoProps) => {
   return (
     <Box>
-      <CoverPhoto />
+      <CoverPhoto CoverPath={CoverPath} />
       <Box>
         <Grid container spacing={0}>
           <Grid item xs={4}></Grid>

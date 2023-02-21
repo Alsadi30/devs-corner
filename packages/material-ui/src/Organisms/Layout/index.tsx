@@ -13,7 +13,7 @@ const Layout = ({ children }: LayoutProps) => {
             <NavBar />
             <Cont>
                 {children}
-                <Copyright />
+                {/* <Copyright /> */}
             </Cont>
         </>
     )

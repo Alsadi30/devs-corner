@@ -12,23 +12,29 @@ export class Education {
 
     @Column({
         type: "text",
-        nullable:false
+        nullable: false
     })
     title: string
 
     @Column({
         type: "float",
-        nullable:false
+        nullable: false
     })
     result: number
 
     @Column({
         type: "date",
-        nullable:false
+        nullable: false
     })
     passingyear: number
 
+    @Column({
+        type: "text",
+        nullable: false
+    })
+    institute: string
+
     @ManyToOne(() => User, (user) => user.education)
     user: User
-    
+
 }

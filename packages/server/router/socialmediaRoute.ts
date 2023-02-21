@@ -1,35 +1,35 @@
-
+const { createSocialController,
+    deleteSocialController } = require('../controller/socialMediaController')
 const router = require('express').Router();
 /**
  * Get  by id 
  */
-router.get('/:Id', );
+router.get('/:Id',);
 
 // /**
 //  * Update  by id
 //  * @method PUT
 //  */
-router.put('/:Id', );
+router.put('/:Id',);
 
 // /**
-//  * Update  by id
-//  * @method PATCH
+//  * @method POST
 //  */
-router.patch('/:Id', );
+router.post('/', createSocialController);
 
 // /**
 //  * Delete  by id
 //  */
-router.delete('/:Id', );
+router.delete('/:Id', deleteSocialController);
 
 // /**
 //  * Get all , include
 
-router.get('/', );
+router.get('/',);
 
 
 
 module.exports = router;
 
 
-export{}
+export { }

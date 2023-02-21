@@ -1,35 +1,38 @@
-
+const {
+    createCredentialController,
+    deleteCredentialController
+} = require('../controller/credentialController')
+const upload = require('../middleware/multer')
 const router = require('express').Router();
 /**
  * Get  by id 
  */
-router.get('/:Id', );
+router.get('/:Id',);
 
 // /**
 //  * Update  by id
 //  * @method PUT
 //  */
-router.put('/:Id', );
+router.put('/:Id',);
 
 // /**
-//  * Update  by id
-//  * @method PATCH
+//  * @method POST
 //  */
-router.patch('/:Id', );
+router.post('/', upload.single('image'), createCredentialController);
 
 // /**
 //  * Delete  by id
 //  */
-router.delete('/:Id', );
+router.delete('/:Id', deleteCredentialController);
 
 // /**
 //  * Get all , include
 
-router.get('/', );
+router.get('/',);
 
 
 
 module.exports = router;
 
 
-export{}
+export { }
