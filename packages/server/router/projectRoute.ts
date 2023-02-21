@@ -1,35 +1,35 @@
-
+const { createProjectController,
+    deleteProjectController } = require('../controller/projectController')
 const router = require('express').Router();
 /**
  * Get  by id 
  */
-router.get('/:Id', );
+router.get('/:Id',);
 
 // /**
 //  * Update  by id
 //  * @method PUT
 //  */
-router.put('/:Id', );
+router.put('/:Id',);
 
 // /**
-//  * Update  by id
-//  * @method PATCH
+//  * @method POST
 //  */
-router.patch('/:Id', );
+router.post('/', createProjectController);
 
 // /**
 //  * Delete  by id
 //  */
-router.delete('/:Id', );
+router.delete('/:Id', deleteProjectController);
 
 // /**
 //  * Get all , include
 
-router.get('/', );
+router.get('/',);
 
 
 
 module.exports = router;
 
 
-export{}
+export { }
