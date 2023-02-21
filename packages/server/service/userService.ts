@@ -6,7 +6,7 @@ const MyDataSource = require('../config/database')
 
 
 const userRepository = MyDataSource.getRepository(User)
-// const error = require('../utils/error');
+
 
 const findUsers = async () => {
 
@@ -23,7 +23,7 @@ const findUserByProperty =async (key, value) => {
 		return userRepository.findOneBy({id:value});
 	}
 	let user = await userRepository.findOneBy({ [key]: value });
-	return user?user : false
+	return user? user : false
 };
 
 const createNewUser = ({ username, email, phone,password, role, isVarified }) => {

@@ -1,15 +1,18 @@
-export{}
+const { User } = require('../models/user')
+const MyDataSource = require('../config/database')
 const userService = require('../service/userService');
+
+
+
+const userRepository = MyDataSource.getRepository(User)
+
 
 const error = require('../utils/error');
 
 const getUsers = async (req, res, next) => {
-	/**
-	 * TODO: filter, sort, pagination, select
-	 */
+
 	try {
 		const users = await userService.findUsers();
-		console.log(users)
 		return res.status(200).json(users);
 	} catch (e) {
 		console.log(e)
@@ -90,12 +93,21 @@ const deleteUserById = async (req, res, next) => {
 			throw error('User not found', 404);
 		}
 
-		await user.remove();
+		await userRepository.remove(user);
 		return res.status(203).send();
 	} catch (e) {
 		next(e);
 	}
 };
+
+
+
+
+
+
+
+
+
 
 module.exports = {
 	getUsers,
@@ -104,3 +116,6 @@ module.exports = {
 	patchUserById,
 	deleteUserById,
 };
+
+
+export { }

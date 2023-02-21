@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn, OneToMany } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn, OneToMany, ManyToMany, JoinTable } from 'typeorm';
 import { Profile } from './profile';
 import { Skill } from "./skill";
 import { Experience } from "./experience";
@@ -44,7 +44,7 @@ export class User {
 
     @Column("boolean")
     isVarified: boolean
-  
+
     @Column({
         type: "enum",
         enum: UserRole,
@@ -52,12 +52,9 @@ export class User {
     })
     role: UserRole
 
-    @OneToOne(() => Profile, (profile) => profile.user) 
+    @OneToOne(() => Profile, (profile) => profile.user)
     @JoinColumn()
     profile: Profile
-
-    @OneToMany(() => Skill, (skill) => skill.user)
-    skill: Skill[]
 
     @OneToMany(() => Experience, (experience) => experience.user)
     experience: Experience[]
@@ -67,10 +64,17 @@ export class User {
 
     @OneToMany(() => Credentials, (credentials) => credentials.user)
     credentials: Credentials[]
-    
+
     @OneToMany(() => Socialmedia, (socialmedia) => socialmedia.user)
     socialmedia: Socialmedia[]
 
     @OneToMany(() => Education, (education) => education.user)
     education: Education[]
+
+    @ManyToMany(() => Skill, {
+        cascade: true,
+        eager: true
+    })
+    @JoinTable()
+    skills: Skill[]
 }
