@@ -16,7 +16,10 @@ const findUsers = async () => {
 				skills: true,
 				experience: true,
 				projects: true,
-				socialmedia: true
+				socialmedia: true,
+				credentials: true,
+				profile: true,
+				education: true
 			}
 		})
 		return user
