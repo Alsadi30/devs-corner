@@ -51,7 +51,7 @@ const Register = () => {
 		if (responseError?.data) {
 			console.log(responseError.data);
 		}
-		if (data?.accessToken && data?.user) {
+		if (data?.token && data?.user) {
 			navigate('/dashboard');
 		}
 	}, [data, responseError, navigate]);

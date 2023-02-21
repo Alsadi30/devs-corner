@@ -36,7 +36,7 @@ const Login = () => {
 		if (responseError?.data) {
 			console.log('Err' + responseError?.data);
 		}
-		if (data?.accessToken && data?.user) {
+		if (data?.token && data?.user) {
 			navigate('/dashboard');
 			console.log('U data' + data?.user);
 		}
