@@ -1,4 +1,4 @@
-import Dashboard from '../pages/Dashboard/index';
+import Dashboard from '../pages/DashBoard/index';
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import Register from '../pages/Register/index';
