@@ -30,7 +30,20 @@ const findUsers = async () => {
 
 const findUserByProperty = async (key, value) => {
 	if (key === 'id') {
-		return userRepository.findOneBy({ id: value });
+		return userRepository.find({
+			where: {
+				id: value
+			},
+			relations: {
+				skills: true,
+				experience: true,
+				projects: true,
+				socialmedia: true,
+				credentials: true,
+				profile: true,
+				education: true
+			}
+		});
 	}
 	let user = await userRepository.findOneBy({ [key]: value });
 	return user ? user : false

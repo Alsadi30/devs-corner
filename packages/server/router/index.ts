@@ -13,7 +13,7 @@ const profileRoutes = require('./profileRoute')
 
 
 router.use('/api/v1/auth', authRoutes);
-router.use('/api/v1/users', userRoutes);
+router.use('/api/v1/users', authenticate, userRoutes);
 router.use('/api/v1/skilltype', skillTypeRoutes)
 router.use('/api/v1/skill', skillRoutes)
 router.use('/api/v1/experience', authenticate, experienceRoutes)

@@ -1,8 +1,7 @@
 import { Box } from "@mui/material";
-// import CoverPath from "../../../../client/src/assets/Cover.jpg";
 import Image from "../../Atoms/Avatars/Image";
 
-interface CoverPhotoProps {
+export interface CoverPhotoProps {
   CoverPath: string;
 }
 

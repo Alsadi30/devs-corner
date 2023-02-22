@@ -10,9 +10,13 @@ interface Props {
 
 const LinkSection = (props: Props) => {
     return (
-        <Grid container flexWrap={'nowrap'} >
-            <IconWithText text='Build Resume' variant={'h3'} color='info.light' > <PostAddIcon color='info' /> </IconWithText>
-            <IconWithText text='Portfolio' variant={'h3'} color='info.light'   > <AttachFileIcon color='info' /> </IconWithText>
+        <Grid container justifyContent={'space-between'} >
+            <Grid item >
+                <IconWithText text='Build Resume' variant={'h3'} color='info.light' > <PostAddIcon color='info' /> </IconWithText>
+            </Grid>
+            <Grid item >
+                <IconWithText text='Portfolio' variant={'h3'} color='info.light'   > <AttachFileIcon color='info' /> </IconWithText>
+            </Grid>
         </Grid>
     )
 }

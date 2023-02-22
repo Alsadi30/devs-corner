@@ -7,12 +7,15 @@ interface MapListItemProps {
 }
 
 const MapListItem = ({ Component, Items, other }: MapListItemProps) => {
+
     return (
         <>
             {
-                Items.length && Items.map((item, i) => (
-                    <Component key={i} item={item} other={other} />
-                ))
+                Items?.map((item, i) => {
+                    return item && <Component key={i} item={item} other={other} />
+
+                }
+                )
             }
         </>
     )
