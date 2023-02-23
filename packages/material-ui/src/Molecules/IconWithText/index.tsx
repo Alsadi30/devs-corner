@@ -11,7 +11,7 @@ interface IconWithTextProps {
 const IconWithText = ({ children, text, variant = 'subtitle1', color = 'info.dark' }: PropsWithChildren<IconWithTextProps>) => {
     return (
         <Grid container >
-            <Grid item color='info' p={.5} >{children}</Grid>
+            <Grid item color='info' pt={.5} >{children}</Grid>
             <Typography p={.6} variant={variant} color={color}>{text}</Typography>
         </Grid>
     )

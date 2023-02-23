@@ -18,9 +18,9 @@ export interface SkillItemProps extends ItemtitleProps {
 const SkillItem: React.FunctionComponent<SkillItemProps> = ({ item, other }: SkillItemProps) => {
 
     const filterSkill = other.filter((i: item) => i.type === item.name)
-    // maxWidth={'33%'}
+    // 
     return (
-        <Grid container px={2} pt={1.7} flexWrap={'wrap'}   >
+        <Grid container px={2} pt={1.7} flexWrap={'wrap'} >
             < ItemTitle title={item?.name} />
             <Grid container flexDirection={'row'} >
                 <MapListItem Component={Skill} Items={filterSkill} />

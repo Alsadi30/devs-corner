@@ -6,13 +6,14 @@ import OurButton from '../../Atoms/Button';
 
 export interface ItemtitleProps {
     title: string
+    color?: string
 }
 
-const ItemTitle = ({ title }: ItemtitleProps) => {
+const ItemTitle = ({ title, color = 'info.dark' }: ItemtitleProps) => {
     return (
         <Grid container justifyContent={'space-between'} pb={.5} >
             <Grid item >
-                <Typography mb={.5} variant='h5' color={'info.dark'} > {title} </Typography>
+                <Typography mb={.5} variant='h5' color={color} > {title} </Typography>
             </Grid>
             <Grid item  >
                 <OurButton>

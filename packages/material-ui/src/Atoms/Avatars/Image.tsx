@@ -4,7 +4,7 @@ type ImageProps = {
 
 const Image = ({ Src, Txt, Height, Width }: ImageProps) => {
 
-  return <img src={Src} height='auto' width='100%' alt={Txt} />;
+  return <img src={Src} height={Height} width={Width} alt={Txt} />;
 
 };
 

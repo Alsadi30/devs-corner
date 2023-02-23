@@ -14,7 +14,7 @@ interface SkillProps {
 const Skill = ({ item }: SkillProps) => {
 
   return (
-    <Grid container item p={1}  >
+    <Grid container item p={.5}  >
       <Grid pr={1} >
         <ImageAvatar Size={15} Txt='JS' Src={item.thumbnail} />
       </Grid>
