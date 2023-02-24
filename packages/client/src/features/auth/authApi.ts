@@ -1,3 +1,4 @@
+import jwt_token_data from 'jwt-decode';
 import { apiSlice } from '../api/apiSlice';
 import { userLoggedIn } from './authSlice';
 
@@ -12,19 +13,19 @@ export const authApi = apiSlice.injectEndpoints({
 			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const result = await queryFulfilled;
+					const tokenData = jwt_token_data(result.data.token);
 
 					localStorage.setItem(
 						'auth',
 						JSON.stringify({
-							accessToken: result.data.accessToken,
-							user: result.data.user,
+							token: result.data.token,
 						})
 					);
 
 					dispatch(
 						userLoggedIn({
-							accessToken: result.data.accessToken,
-							user: result.data.user,
+							token: result.data.token,
+							user: tokenData,
 						})
 					);
 				} catch (err) {
@@ -42,19 +43,19 @@ export const authApi = apiSlice.injectEndpoints({
 			async onQueryStarted(arg, { queryFulfilled, dispatch }) {
 				try {
 					const result = await queryFulfilled;
+					const tokenData = jwt_token_data(result.data.token);
 
 					localStorage.setItem(
 						'auth',
 						JSON.stringify({
-							accessToken: result.data.accessToken,
-							user: result.data.user,
+							token: result.data.token,
 						})
 					);
 
 					dispatch(
 						userLoggedIn({
-							accessToken: result.data.accessToken,
-							user: result.data.user,
+							token: result.data.token,
+							user: tokenData,
 						})
 					);
 				} catch (err) {

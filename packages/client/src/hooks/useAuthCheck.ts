@@ -1,3 +1,4 @@
+import jwt_token_data from 'jwt-decode';
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { userLoggedIn } from '../features/auth/authSlice';
@@ -11,11 +12,13 @@ export default function useAuthCheck() {
 
 		if (localAuth) {
 			const auth = JSON.parse(localAuth);
-			if (auth?.accessToken && auth?.user) {
+			if (auth?.token && auth?.user) {
+				const tokenData = jwt_token_data(auth?.token);
+
 				dispatch(
 					userLoggedIn({
-						accessToken: auth.accessToken,
-						user: auth.user,
+						token: auth.token,
+						user: tokenData,
 					})
 				);
 			}

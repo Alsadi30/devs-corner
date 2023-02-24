@@ -36,9 +36,9 @@ const Login = () => {
 		if (responseError?.data) {
 			console.log('Err' + responseError?.data);
 		}
-		if (data?.accessToken && data?.user) {
-			navigate('/dashboard');
+		if (data?.token && data?.user) {
 			console.log('U data' + data?.user);
+			navigate('/dashboard');
 		}
 	}, [data, responseError, navigate]);
 
@@ -55,9 +55,8 @@ const Login = () => {
 		resolver: yupResolver(loginSchema),
 	});
 
-	const onSubmit: SubmitHandler<LoginFormInput> = async (data2) => {
-		console.log(data2);
-		login(data2);
+	const onSubmit: SubmitHandler<LoginFormInput> = async (LoginData) => {
+		login(LoginData);
 	};
 
 	return (
