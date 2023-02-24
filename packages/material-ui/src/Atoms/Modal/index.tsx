@@ -1,4 +1,5 @@
 import CloseIcon from "@mui/icons-material/Close";
+import { Box, Modal } from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -8,6 +9,7 @@ import IconButton from "@mui/material/IconButton";
 import { styled } from "@mui/material/styles";
 import Typography from "@mui/material/Typography";
 import * as React from "react";
+import { style } from "./Modal.style";
 
 // Not optimized, there is a lot of confusion
 
@@ -18,6 +20,7 @@ const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   "& .MuiDialogActions-root": {
     padding: theme.spacing(1),
   },
+  minWidth: '400px'
 }));
 
 export interface DialogTitleProps {
@@ -26,11 +29,11 @@ export interface DialogTitleProps {
   onClose: () => void;
 }
 
-function BootstrapDialogTitle(props: DialogTitleProps) {
+function ModalTitle(props: DialogTitleProps) {
   const { children, onClose, ...other } = props;
 
   return (
-    <DialogTitle sx={{ m: 0, p: 2 }} {...other}>
+    <DialogTitle sx={{ m: 0, p: 0 }} {...other}>
       {children}
       {onClose ? (
         <IconButton
@@ -38,8 +41,8 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
           onClick={onClose}
           sx={{
             position: "absolute",
-            right: 8,
-            top: 8,
+            right: 0,
+            top: 1,
             color: (theme) => theme.palette.grey[500],
           }}
         >
@@ -50,55 +53,32 @@ function BootstrapDialogTitle(props: DialogTitleProps) {
   );
 }
 
-export default function CustomizedDialogs() {
-  const [open, setOpen] = React.useState(false);
+interface DialogProps {
+  open: boolean
+  children: React.ReactNode
+  handleSubmit?: () => void
+  handleClose: () => void
+  title: string
+}
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
+
+export default function CustomizedDialogs({ open, title, children, handleSubmit, handleClose }: DialogProps) {
+
 
   return (
-    <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open dialog
-      </Button>
-      <BootstrapDialog
-        onClose={handleClose}
-        aria-labelledby="customized-dialog-title"
-        open={open}
-      >
-        <BootstrapDialogTitle
-          id="customized-dialog-title"
-          onClose={handleClose}
-        >
-          Modal title
-        </BootstrapDialogTitle>
-        <DialogContent dividers>
-          <Typography gutterBottom>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta
-            ac consectetur ac, vestibulum at eros.
-          </Typography>
-          <Typography gutterBottom>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur et.
-            Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor
-            auctor.
-          </Typography>
-          <Typography gutterBottom>
-            Aenean lacinia bibendum nulla sed consectetur. Praesent commodo
-            cursus magna, vel scelerisque nisl consectetur et. Donec sed odio
-            dui. Donec ullamcorper nulla non metus auctor fringilla.
-          </Typography>
-        </DialogContent>
-        <DialogActions>
-          <Button autoFocus onClick={handleClose}>
-            Save changes
-          </Button>
-        </DialogActions>
-      </BootstrapDialog>
-    </div>
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="parent-modal-title"
+      aria-describedby="parent-modal-description"
+      sx={{ zIndex: 99 }}
+    >
+      <Box sx={{ ...style, width: 400 }}>
+        <ModalTitle onClose={handleClose} id="parent-modal-title">
+          <Typography variant="h4" color={'info.light'} >{title}</Typography>
+        </ModalTitle>
+        {children}
+      </Box>
+    </Modal>
   );
 }

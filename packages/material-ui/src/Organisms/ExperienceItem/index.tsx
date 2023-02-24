@@ -3,7 +3,7 @@ import { Grid, Typography } from '@mui/material';
 import ItemTitle from '../../Molecules/ItemTitleWithIcon';
 import KeyValue from '../../Atoms/KeyValue';
 
-interface ExperienceProps {
+export interface ExperienceProps {
     item: {
         position: string
         companyName: string

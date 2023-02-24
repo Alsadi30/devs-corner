@@ -6,12 +6,12 @@ const Types = [{ name: "Language" }, { name: "Tools" }, { name: "Library" }, { n
 
 type Props = {
     Items: Array<object>
-
+    handleClick: () => void
 }
 
-const SkillSection = ({ Items }: Props) => {
+const SkillSection = ({ Items, handleClick }: Props) => {
     return (
-        <Section title='Skill' Component={SkillItem} Items={Types} other={Items} />
+        <Section title='Skill' handleClick={handleClick} Component={SkillItem} Items={Types} other={Items} />
     )
 }
 
