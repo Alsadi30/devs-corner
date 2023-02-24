@@ -5,6 +5,6 @@ export const FormContaineerStyle = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    margin: '40px 0px',
+    margin: '20px 0px',
     // boxShadow: '#1f1f2f 0px 3px 8px',
 } 

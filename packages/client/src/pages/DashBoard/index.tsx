@@ -21,6 +21,7 @@ import SkillModal from '../../../../material-ui/src/Organisms/ModalItems/SkillMo
 import ProjectModal from '../../../../material-ui/src/Organisms/ModalItems/ProjectModal/index';
 import CredentialModel from '../../../../material-ui/src/Organisms/ModalItems/CredentialModal/index';
 import EducationModal from '../../../../material-ui/src/Organisms/ModalItems/EducationModal/index';
+import ExperienceModal from '../../../../material-ui/src/Organisms/ModalItems/ExperienceModal/index';
 
 const Items = [
     {
@@ -183,6 +184,8 @@ const Dashboard = ({ }: Props) => {
     const [repoopen, setRepoOpen] = React.useState(false);
     const [credopen, setCredOpen] = React.useState(false);
     const [eduopen, setEduOpen] = React.useState(false);
+    const [expopen, setExpOpen] = React.useState(false);
+
 
     const handleAbout = () => {
         setAOpen(!aboutopen)
@@ -204,6 +207,10 @@ const Dashboard = ({ }: Props) => {
         setEduOpen(!eduopen)
     }
 
+    const handleExperience = () => {
+        setExpOpen(!expopen)
+    }
+
     return (
         <Layout>
             <BasicProfile CoverPath={CoverPath} Location="Sylhet" Name="Sadi" Photo={ProfilePic} Position="Front End Developer" />
@@ -213,7 +220,7 @@ const Dashboard = ({ }: Props) => {
             <Section title="Repositories" Component={RepositoryItem} Items={repo} direction="column" handleClick={handleRepo} />
             <Section title="Credentials" Component={CredentialItem} Items={Cred} handleClick={handleCredential} />
             <Section title="Education" Component={EducationItem} Items={Edu} handleClick={handleEducation} />
-            <Section title="Experience" Component={ExperienceItem} Items={Exp} />
+            <Section title="Experience" Component={ExperienceItem} Items={Exp} handleClick={handleExperience} />
             <SocialMedia items={Social} />
             <CustomizedDialogs title="About" open={aboutopen} handleClose={handleAbout}  >
                 <AboutModal />
@@ -229,6 +236,9 @@ const Dashboard = ({ }: Props) => {
             </CustomizedDialogs>
             <CustomizedDialogs title="Add Education" open={eduopen} handleClose={handleEducation}  >
                 <EducationModal />
+            </CustomizedDialogs>
+            <CustomizedDialogs title="Add Experience" open={expopen} handleClose={handleExperience}  >
+                <ExperienceModal />
             </CustomizedDialogs>
         </Layout>
     );
