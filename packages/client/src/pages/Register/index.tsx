@@ -49,10 +49,12 @@ const Register = () => {
 
 	useEffect(() => {
 		if (responseError?.data) {
-			console.log(responseError.data);
+			console.log('Err' + responseError?.data);
 		}
-		if (data?.token && data?.user) {
-			navigate('/dashboard');
+		if (data) {
+			// console.log('U data' + JSON.stringify(data?.user));
+			// @TODO: if token will come we don't have to redirect "LOGIN" page
+			navigate('/login');
 		}
 	}, [data, responseError, navigate]);
 
@@ -72,10 +74,11 @@ const Register = () => {
 		resolver: yupResolver(registerSchema),
 	});
 
-	const onSubmit: SubmitHandler<RegisterFormInput> = async (data2) => {
-		if (data2?.password === data2?.confirmPassword) {
-			console.log(data2);
-			register(data2);
+	const onSubmit: SubmitHandler<RegisterFormInput> = async (
+		RegistrationData
+	) => {
+		if (RegistrationData?.password === RegistrationData?.confirmPassword) {
+			register(RegistrationData);
 		} else {
 			alert("Password don't match with confirm password");
 		}
