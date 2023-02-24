@@ -12,7 +12,7 @@ export default function useAuthCheck() {
 
 		if (localAuth) {
 			const auth = JSON.parse(localAuth);
-			if (auth?.token && auth?.user) {
+			if (auth?.token) {
 				const tokenData = jwt_token_data(auth?.token);
 
 				dispatch(
