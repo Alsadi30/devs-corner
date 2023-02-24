@@ -7,9 +7,9 @@ const MyDataSource = require('../config/database')
 const skillTypeRepository = MyDataSource.getRepository(SkillType)
 
 const createSkillTypeController = async (req, res, next) => {
-    console.log(req.body)
+
     const { name } = req.body;
-    console.log(name)
+
     try {
         const skillType = new SkillType()
         skillType.name = name

@@ -1,35 +1,38 @@
-
+const {
+    createProfileController,
+    deleteProfileController
+} = require('../controller/profileController')
+const upload = require('../middleware/multer')
 const router = require('express').Router();
 /**
  * Get  by id 
  */
-router.get('/:Id', );
+router.get('/:Id',);
 
 // /**
 //  * Update  by id
 //  * @method PUT
 //  */
-router.put('/:Id', );
+router.put('/:Id',);
 
 // /**
-//  * Update  by id
-//  * @method PATCH
+//  * @method POST
 //  */
-router.patch('/:Id', );
+router.post('/', upload.fields([{ name: 'profilePic', maxCount: 1 }, { name: 'coverPic', maxCount: 1 }]), createProfileController);
 
 // /**
 //  * Delete  by id
 //  */
-router.delete('/:Id', );
+router.delete('/:Id', deleteProfileController);
 
 // /**
 //  * Get all , include
 
-router.get('/', );
+router.get('/',);
 
 
 
 module.exports = router;
 
 
-export{}
+export { }

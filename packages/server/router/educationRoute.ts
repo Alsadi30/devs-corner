@@ -1,35 +1,38 @@
-
+const {
+    createEducationController,
+    deleteEducationController
+} = require('../controller/educationController')
 const router = require('express').Router();
 /**
  * Get  by id 
  */
-router.get('/:Id', );
+router.get('/:Id',);
 
 // /**
 //  * Update  by id
 //  * @method PUT
 //  */
-router.put('/:Id', );
+router.put('/:Id',);
 
 // /**
 //  * Update  by id
 //  * @method PATCH
 //  */
-router.patch('/:Id', );
+router.post('/', createEducationController);
 
 // /**
 //  * Delete  by id
 //  */
-router.delete('/:Id', );
+router.delete('/:Id', deleteEducationController);
 
 // /**
 //  * Get all , include
 
-router.get('/', );
+router.get('/',);
 
 
 
 module.exports = router;
 
 
-export{}
+export { }

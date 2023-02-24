@@ -9,7 +9,7 @@ interface SectionProps extends SectionBodyProps, SectionHeadProps {
 
 const Section = ({ title, handleClick, text, Component, Items, other }: SectionProps) => {
     return (
-        <Grid>
+        <Grid pt={3} >
             <SectionHead title={title} handleClick={handleClick} />
             <SectionBody text={text} Component={Component} Items={Items} other={other} />
         </Grid>

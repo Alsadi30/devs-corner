@@ -3,18 +3,19 @@ import { Typography, Grid } from '@mui/material';
 
 interface KeyValueProps {
     property: string
-    value: string
+    value: string | number
     small?: boolean
+    sx?: object
 }
 
-const KeyValue = ({ property, value, small = false }: KeyValueProps) => {
+const KeyValue = ({ property, value, small = false, sx }: KeyValueProps) => {
 
     return (
-        <Grid container >
+        <Grid container pt={.5} sx={sx} >
             <Typography variant={small ? "subtitle1" : "body1"} color={'info.light'}  > {property}  </Typography>
             <Typography variant={small ? "subtitle1" : "body1"} pl={.3} pr={.3} color={'info.light'}  >  -  </Typography>
 
-            <Typography variant={small ? "subtitle2" : "body2"} color={'info.dark'}  >  {value}</Typography>
+            <Typography variant={small ? "subtitle1" : "body2"} color={'info.dark'}  >  {value}</Typography>
         </Grid>
     )
 }

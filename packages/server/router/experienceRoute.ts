@@ -1,35 +1,35 @@
 
 const router = require('express').Router();
+const { createExperienceController, deleteExperienceController, getExperienceController } = require('../controller/experienceController')
 /**
  * Get  by id 
  */
-router.get('/:Id', );
+router.get('/:Id',);
 
 // /**
 //  * Update  by id
 //  * @method PUT
 //  */
-router.put('/:Id', );
+router.put('/:Id',);
 
 // /**
-//  * Update  by id
-//  * @method PATCH
+//  * @method POST
 //  */
-router.patch('/:Id', );
+router.post('/', createExperienceController);
 
 // /**
 //  * Delete  by id
 //  */
-router.delete('/:Id', );
+router.delete('/:Id', deleteExperienceController);
 
 // /**
 //  * Get all , include
 
-router.get('/', );
+router.get('/', getExperienceController);
 
 
 
 module.exports = router;
 
 
-export{}
+export { }
