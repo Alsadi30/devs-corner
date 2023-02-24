@@ -14,6 +14,13 @@ import CredentialItem from '../../../../material-ui/src/Organisms/CredentialItem
 import EducationItem from '../../../../material-ui/src/Organisms/EducationItem/index';
 import ExperienceItem from '../../../../material-ui/src/Organisms/ExperienceItem/index';
 import SocialMedia from '../../../../material-ui/src/Organisms/SocialMediaSection/index';
+import * as React from 'react';
+import CustomizedDialogs from '../../../../material-ui/src/Atoms/Modal/index';
+import AboutModal from '../../../../material-ui/src/Organisms/ModalItems/AboutModal/index';
+import SkillModal from '../../../../material-ui/src/Organisms/ModalItems/SkillModal/index';
+import ProjectModal from '../../../../material-ui/src/Organisms/ModalItems/ProjectModal/index';
+import CredentialModel from '../../../../material-ui/src/Organisms/ModalItems/CredentialModal/index';
+import EducationModal from '../../../../material-ui/src/Organisms/ModalItems/EducationModal/index';
 
 const Items = [
     {
@@ -171,19 +178,58 @@ type Props = {};
 
 const Dashboard = ({ }: Props) => {
 
+    const [aboutopen, setAOpen] = React.useState(false);
+    const [skillopen, setSOpen] = React.useState(false);
+    const [repoopen, setRepoOpen] = React.useState(false);
+    const [credopen, setCredOpen] = React.useState(false);
+    const [eduopen, setEduOpen] = React.useState(false);
 
+    const handleAbout = () => {
+        setAOpen(!aboutopen)
+    }
+
+    const handleSkill = () => {
+        setSOpen(!skillopen)
+    }
+
+    const handleRepo = () => {
+        setRepoOpen(!repoopen)
+    }
+
+    const handleCredential = () => {
+        setCredOpen(!credopen)
+    }
+
+    const handleEducation = () => {
+        setEduOpen(!eduopen)
+    }
 
     return (
         <Layout>
             <BasicProfile CoverPath={CoverPath} Location="Sylhet" Name="Sadi" Photo={ProfilePic} Position="Front End Developer" />
             <LinkSection />
-            <Section title="About" text="I am front end developer" />
-            <SkillSection Items={Items} />
-            <Section title="Repositories" Component={RepositoryItem} Items={repo} direction="column" />
-            <Section title="Credentials" Component={CredentialItem} Items={Cred} />
-            <Section title="Education" Component={EducationItem} Items={Edu} />
+            <Section title="About" text="I am front end developer" handleClick={handleAbout} />
+            <SkillSection Items={Items} handleClick={handleSkill} />
+            <Section title="Repositories" Component={RepositoryItem} Items={repo} direction="column" handleClick={handleRepo} />
+            <Section title="Credentials" Component={CredentialItem} Items={Cred} handleClick={handleCredential} />
+            <Section title="Education" Component={EducationItem} Items={Edu} handleClick={handleEducation} />
             <Section title="Experience" Component={ExperienceItem} Items={Exp} />
             <SocialMedia items={Social} />
+            <CustomizedDialogs title="About" open={aboutopen} handleClose={handleAbout}  >
+                <AboutModal />
+            </CustomizedDialogs>
+            <CustomizedDialogs title="Skill" open={skillopen} handleClose={handleSkill}  >
+                <SkillModal />
+            </CustomizedDialogs>
+            <CustomizedDialogs title="Add Repository" open={repoopen} handleClose={handleRepo}  >
+                <ProjectModal />
+            </CustomizedDialogs>
+            <CustomizedDialogs title="Add Credential" open={credopen} handleClose={handleCredential}  >
+                <CredentialModel />
+            </CustomizedDialogs>
+            <CustomizedDialogs title="Add Education" open={eduopen} handleClose={handleEducation}  >
+                <EducationModal />
+            </CustomizedDialogs>
         </Layout>
     );
 };

@@ -3,9 +3,12 @@ import React from 'react'
 import MapListItem from '../MapListItem'
 import { GridDirection } from '@mui/material/Grid/index'
 import { SkillItemProps } from '../../Organisms/SkillItem';
+import { EducationProps } from '../../Organisms/EducationItem';
+import { RepositoryItemProps } from '../../Organisms/RepositoryItem';
+import { CredentialProps } from '../../Organisms/CredentialItem';
 
 export interface SectionBodyProps {
-    Component?: React.ReactNode | React.FunctionComponent<SkillItemProps>
+    Component?: React.ReactNode | React.FunctionComponent<SkillItemProps | EducationProps | RepositoryItemProps | CredentialProps>
     Items?: Array<object>
     other?: any
     text?: string

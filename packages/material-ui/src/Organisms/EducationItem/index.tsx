@@ -3,7 +3,7 @@ import { Grid, Typography } from '@mui/material';
 import KeyValue from '../../Atoms/KeyValue';
 import ItemTitle from '../../Molecules/ItemTitleWithIcon';
 
-interface EducationProps {
+export interface EducationProps {
     item: {
         title: string
         result: string
@@ -17,7 +17,7 @@ const EducationItem = ({ item }: EducationProps) => {
     const { title, institute, passingyear, result } = item
 
     return (
-        <Grid container p={2} >
+        <Grid container p={2} justifyContent={'space-between'} >
             <Grid minWidth={'20%'} >
                 <ItemTitle title={title} color={'info.light'} />
                 <Typography variant='body2' color={'info.dark'}  >

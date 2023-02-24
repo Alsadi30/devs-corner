@@ -6,7 +6,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import AttachFileIcon from '@mui/icons-material/AttachFile';
 import ItemTitle from '../../Molecules/ItemTitleWithIcon';
 
-interface RepositoryItemProps {
+export interface RepositoryItemProps {
     item: {
         title: string
         description: string

@@ -4,7 +4,7 @@ import ItemTitle from '../../Molecules/ItemTitleWithIcon';
 import Image from '../../Atoms/Avatars/Image';
 import KeyValue from '../../Atoms/KeyValue';
 
-interface CredentialProps {
+export interface CredentialProps {
     item: {
         title: string
         institution: string
