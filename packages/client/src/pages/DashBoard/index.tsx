@@ -15,6 +15,9 @@ import RepositoryItem from '../../../../material-ui/src/Organisms/RepositoryItem
 import Section from '../../../../material-ui/src/Organisms/Section/index';
 import SkillSection from '../../../../material-ui/src/Organisms/SkillSection/index';
 import SocialMedia from '../../../../material-ui/src/Organisms/SocialMediaSection/index';
+import ProfilePic from '../../assets/avatar.jpg';
+import CoverPath from '../../assets/Cover.jpg';
+import JS from '../../assets/JS.webp';
 
 const Items = [
 	{
