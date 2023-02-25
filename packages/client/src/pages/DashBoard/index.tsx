@@ -16,7 +16,6 @@ import RepositoryItem from '../../../../material-ui/src/Organisms/RepositoryItem
 import Section from '../../../../material-ui/src/Organisms/Section/index';
 import SkillSection from '../../../../material-ui/src/Organisms/SkillSection/index';
 import SocialMedia from '../../../../material-ui/src/Organisms/SocialMediaSection/index';
-import ProfilePic from '../../assets/avatar.jpg';
 import CoverPath from '../../assets/Cover.jpg';
 import JS from '../../assets/JS.webp';
 import ExperienceModal from '../../../../material-ui/src/Organisms/ModalItems/ExperienceModal/index';
@@ -169,16 +168,13 @@ const Social = [
 
 type Props = {};
 
-
 const Dashboard = ({ }: Props) => {
-
     const [aboutopen, setAOpen] = React.useState(false);
     const [skillopen, setSOpen] = React.useState(false);
     const [repoopen, setRepoOpen] = React.useState(false);
     const [credopen, setCredOpen] = React.useState(false);
     const [eduopen, setEduOpen] = React.useState(false);
     const [expopen, setExpOpen] = React.useState(false);
-
 
 
 	const handleAbout = () => {
