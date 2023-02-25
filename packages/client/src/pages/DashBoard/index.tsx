@@ -9,7 +9,7 @@ import LinkSection from '../../../../material-ui/src/Organisms/LinkSection/index
 import AboutModal from '../../../../material-ui/src/Organisms/ModalItems/AboutModal/index';
 import CredentialModel from '../../../../material-ui/src/Organisms/ModalItems/CredentialModal/index';
 import EducationModal from '../../../../material-ui/src/Organisms/ModalItems/EducationModal/index';
-
+import ExperienceModal from '../../../../material-ui/src/Organisms/ModalItems/ExperienceModal/index';
 import ProjectModal from '../../../../material-ui/src/Organisms/ModalItems/ProjectModal/index';
 import SkillModal from '../../../../material-ui/src/Organisms/ModalItems/SkillModal/index';
 import RepositoryItem from '../../../../material-ui/src/Organisms/RepositoryItem';
