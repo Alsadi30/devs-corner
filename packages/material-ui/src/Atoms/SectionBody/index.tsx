@@ -6,9 +6,10 @@ import { SkillItemProps } from '../../Organisms/SkillItem';
 import { EducationProps } from '../../Organisms/EducationItem';
 import { RepositoryItemProps } from '../../Organisms/RepositoryItem';
 import { CredentialProps } from '../../Organisms/CredentialItem';
+import { ExperienceProps } from '../../Organisms/ExperienceItem';
 
 export interface SectionBodyProps {
-    Component?: React.ReactNode | React.FunctionComponent<SkillItemProps | EducationProps | RepositoryItemProps | CredentialProps>
+    Component?: React.ReactNode | React.FunctionComponent<SkillItemProps> | React.FunctionComponent<EducationProps> | React.FunctionComponent<RepositoryItemProps> | React.FunctionComponent<CredentialProps> | React.FunctionComponent<ExperienceProps>
     Items?: Array<object>
     other?: any
     text?: string

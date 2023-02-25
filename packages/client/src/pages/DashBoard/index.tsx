@@ -236,7 +236,6 @@ const Dashboard = ({ }: Props) => {
             </CustomizedDialogs>
         </Layout>
     );
-
 };
 
 export default Dashboard;
