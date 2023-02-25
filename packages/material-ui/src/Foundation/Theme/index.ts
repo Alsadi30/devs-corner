@@ -36,7 +36,6 @@ export const Theme = createTheme( {
             paper:'#252537'
         },
 
-
     },
     typography: {
         fontFamily: [
@@ -83,15 +82,15 @@ export const Theme = createTheme( {
             letterSpacing: '0.0075em',
         },
         subtitle1: {
-            fontSize: '1rem',
+            fontSize: '.75rem',
             fontWeight: 400,
             lineHeight: 1.2,
             letterSpacing: '0.00938em',
         },
         subtitle2: {
-            fontSize: '0.875rem',
+            fontSize: '0.7rem',
             fontWeight: 400,
-            lineHeight: 1.2,
+            lineHeight: 1,
             letterSpacing: '0.00714em',
         },
         body1: {
@@ -104,7 +103,7 @@ export const Theme = createTheme( {
             fontSize: '0.85rem',
             fontWeight: 400,
             lineHeight: 1.2,
-            letterSpacing: '0.01071em',
+            letterSpacing: '0.00938em',
         },
 
 

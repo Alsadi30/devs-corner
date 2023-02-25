@@ -1,4 +1,6 @@
 export const ContStyle = {
     backgroundColor: 'secondary.main',
-    height: '100%'
+    minHeight: '100vh',
+    display: 'flex',
+    flexDirection: 'column'
 }

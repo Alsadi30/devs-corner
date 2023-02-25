@@ -1,6 +1,10 @@
 
 export const FormContaineerStyle = {
-    '& .MuiTextField-root': { m: 1 },
     padding: '20px',
-    margin: '10px'
+    borderRadius: '5px',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    margin: '20px 0px',
+    // boxShadow: '#1f1f2f 0px 3px 8px',
 } 
