@@ -1,5 +1,5 @@
 export const InputStyle = {
-  margin: "5px",
+  margin: "7px 0",
   backgroundColor: "#ffffff",
   borderRadius: "3px",
 };

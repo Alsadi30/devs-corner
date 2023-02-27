@@ -73,7 +73,7 @@ export default function CustomizedDialogs({ open, title, children, handleSubmit,
       aria-describedby="parent-modal-description"
       sx={{ zIndex: 99 }}
     >
-      <Box sx={{ ...style, width: 400 }}>
+      <Box sx={{ ...style, minWidth: 500 }}>
         <ModalTitle onClose={handleClose} id="parent-modal-title">
           <Typography variant="h4" color={'info.light'} >{title}</Typography>
         </ModalTitle>

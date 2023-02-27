@@ -4,7 +4,7 @@ import Logo from "../../Atoms/Logo";
 import AvatarMenu from "../../Molecules/AvatarMenu/AvatarMenu";
 const NavBar = () => {
   return (
-    <AppBar position="sticky">
+    <AppBar position="sticky" sx={{ zIndex: '90' }} >
       <Toolbar sx={{ display: "flex", alignItems: "center" }}>
         <Container sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography

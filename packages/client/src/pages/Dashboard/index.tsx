@@ -19,6 +19,8 @@ import SocialMedia from '../../../../material-ui/src/Organisms/SocialMediaSectio
 import CoverPath from '../../assets/Cover.jpg';
 import JS from '../../assets/JS.webp';
 import ProfilePic from '../../assets/avatar.jpg';
+import { useState } from 'react';
+import ProfileModal from '../../../../material-ui/src/Organisms/ModalItems/ProfileModal/index';
 
 const Items = [
     {
@@ -169,13 +171,13 @@ const Social = [
 type Props = {};
 
 const Dashboard = ({ }: Props) => {
-    const [aboutopen, setAOpen] = React.useState(false);
-    const [skillopen, setSOpen] = React.useState(false);
-    const [repoopen, setRepoOpen] = React.useState(false);
-    const [credopen, setCredOpen] = React.useState(false);
-    const [eduopen, setEduOpen] = React.useState(false);
-    const [expopen, setExpOpen] = React.useState(false);
-
+    const [aboutopen, setAOpen] = useState(false);
+    const [skillopen, setSOpen] = useState(false);
+    const [repoopen, setRepoOpen] = useState(false);
+    const [credopen, setCredOpen] = useState(false);
+    const [eduopen, setEduOpen] = useState(false);
+    const [expopen, setExpOpen] = useState(false);
+    const [profileopen, setProfileOpen] = useState(false)
 
     const handleAbout = () => {
         setAOpen(!aboutopen);
@@ -201,6 +203,10 @@ const Dashboard = ({ }: Props) => {
         setExpOpen(!expopen);
     };
 
+    const handleProfile = () => {
+        setProfileOpen(!profileopen)
+    }
+
 
     return (
         <Layout>
@@ -210,6 +216,7 @@ const Dashboard = ({ }: Props) => {
                 Name='Sadi'
                 Photo={ProfilePic}
                 Position='Front End Developer'
+                handleClick={handleProfile}
             />
             <LinkSection />
             <Section
@@ -285,6 +292,14 @@ const Dashboard = ({ }: Props) => {
                 handleClose={handleExperience}
             >
                 <ExperienceModal />
+            </CustomizedDialogs>
+
+            <CustomizedDialogs
+                title='Update Profile'
+                open={profileopen}
+                handleClose={handleProfile}
+            >
+                <ProfileModal />
             </CustomizedDialogs>
         </Layout>
     );

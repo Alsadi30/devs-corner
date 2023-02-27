@@ -10,8 +10,9 @@ interface BasicInfoProps extends CoverPhotoProps {
   Name: string
   Position: string
   Location: string
+  handleClick: () => void
 };
-const BasicProfile = ({ Photo, Name, Position, Location, CoverPath }: BasicInfoProps) => {
+const BasicProfile = ({ Photo, Name, Position, Location, CoverPath, handleClick }: BasicInfoProps) => {
   return (
     <Box>
       <CoverPhoto CoverPath={CoverPath} />
@@ -24,8 +25,8 @@ const BasicProfile = ({ Photo, Name, Position, Location, CoverPath }: BasicInfoP
               <Intro Name={Name} Position={Position} Location={Location} />
             </center>
           </Grid>
-          <Grid item xs={4} sx={{ textAlign: "right" }}>
-            <PrimaryButton></PrimaryButton>
+          <Grid item xs={4} sx={{ textAlign: "right", marginTop: '10px' }}>
+            <PrimaryButton handleClick={handleClick} title="Edit Profile" />
           </Grid>
         </Grid>
       </Box>
