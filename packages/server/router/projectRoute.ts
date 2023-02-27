@@ -1,5 +1,5 @@
 const { createProjectController,
-    deleteProjectController } = require('../controller/projectController')
+    deleteProjectController, updateProjectController } = require('../controller/projectController')
 const router = require('express').Router();
 /**
  * Get  by id 
@@ -10,7 +10,7 @@ router.get('/:Id',);
 //  * Update  by id
 //  * @method PUT
 //  */
-router.put('/:Id',);
+router.put('/:Id', updateProjectController);
 
 // /**
 //  * @method POST
