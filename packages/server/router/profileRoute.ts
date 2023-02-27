@@ -1,6 +1,7 @@
 const {
     createProfileController,
-    deleteProfileController
+    deleteProfileController,
+    editProfileController
 } = require('../controller/profileController')
 const upload = require('../middleware/multer')
 const router = require('express').Router();
@@ -13,7 +14,7 @@ router.get('/:Id',);
 //  * Update  by id
 //  * @method PUT
 //  */
-router.put('/:Id',);
+router.put('/:Id', editProfileController);
 
 // /**
 //  * @method POST
