@@ -49,7 +49,7 @@ const ExperienceModal = (props: Props) => {
 
 
     return (
-        <FormContainer
+        <FormContainer maxWidth='700px'
             handleSubmit={handleSubmit(onSubmit)}
         >
             <MapListItem Component={Input} Items={items} other={control} />

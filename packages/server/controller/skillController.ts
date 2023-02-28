@@ -11,11 +11,7 @@ const createSkillController = async (req, res, next) => {
 
     const thumbnail = req.file.filename
 
-
-
     const skillType = await getSingleSkillType(Type)
-
-
 
     if (skillType) {
         try {
@@ -33,6 +29,7 @@ const createSkillController = async (req, res, next) => {
     }
 
 };
+
 
 
 const getAllSkill = async (req, res, next) => {
@@ -95,10 +92,10 @@ const addSkilltoUser = async (req, res, next) => {
 
 
 
-const removeSkilltoUser = async (req, res, next) => {
+const removeSkillFromUser = async (req, res, next) => {
 
     const { skillId } = req.params
-    console.log(req.user)
+
     const userId = req.user.id
 
     const skill = await skillRepository.findOneBy({ id: skillId })
@@ -125,11 +122,7 @@ const removeSkilltoUser = async (req, res, next) => {
     } catch (e) {
         console.log(e)
     }
-
-
 }
-
-
 
 
 
@@ -138,7 +131,7 @@ module.exports = {
     deleteSkillController,
     addSkilltoUser,
     getAllSkill,
-    removeSkilltoUser
+    removeSkillFromUser
 }
 
 

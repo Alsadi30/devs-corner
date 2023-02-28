@@ -28,13 +28,34 @@ const createExperienceController = async (req, res, next) => {
 
     try {
         const newExperience = await experienceRepository.save(experience)
-        return res.status(200).json(newExperience)
+        return res.status(201).json(newExperience)
     } catch (e) {
         console.log(e)
     }
 
 
 }
+
+
+
+const updateExperienceController = async (req, res, next) => {
+
+    const id = req.params.id
+    const { position, companyName, startAt, endAt } = req.body
+    try {
+        const newExperience = await experienceRepository.update(id, {
+            position, companyName, startAt, endAt
+        })
+        return res.status(202).json(newExperience)
+    } catch (e) {
+        console.log(e)
+    }
+
+
+}
+
+
+
 
 const deleteExperienceController = async (req, res, next) => {
 
@@ -73,7 +94,8 @@ const getExperienceController = async (req, res, next) => {
 module.exports = {
     createExperienceController,
     deleteExperienceController,
-    getExperienceController
+    getExperienceController,
+    updateExperienceController
 }
 
 

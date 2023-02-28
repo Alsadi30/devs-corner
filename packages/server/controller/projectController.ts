@@ -33,8 +33,29 @@ const createProjectController = async (req, res, next) => {
         console.log(e)
     }
 
+}
+
+
+
+
+const updateProjectController = async (req, res, next) => {
+    const id = req.params.Id
+    const { name, description, repoUrl, liveUrl } = req.body
+
+    try {
+        const newProject = await projectRepository.update(id, {
+            name, description, repoUrl, liveUrl
+        })
+        return res.status(200).json(newProject)
+    } catch (e) {
+        console.log(e)
+    }
+
 
 }
+
+
+
 
 const deleteProjectController = async (req, res, next) => {
 
@@ -72,7 +93,8 @@ const deleteProjectController = async (req, res, next) => {
 
 module.exports = {
     createProjectController,
-    deleteProjectController
+    deleteProjectController,
+    updateProjectController
 }
 
 

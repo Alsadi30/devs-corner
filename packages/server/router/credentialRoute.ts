@@ -1,6 +1,7 @@
 const {
     createCredentialController,
-    deleteCredentialController
+    deleteCredentialController,
+    updateCredentialController
 } = require('../controller/credentialController')
 const upload = require('../middleware/multer')
 const router = require('express').Router();
@@ -10,10 +11,10 @@ const router = require('express').Router();
 router.get('/:Id',);
 
 // /**
-//  * Update  by id
+//  * Update  by id 
 //  * @method PUT
 //  */
-router.put('/:Id',);
+router.put('/:Id', updateCredentialController);
 
 // /**
 //  * @method POST

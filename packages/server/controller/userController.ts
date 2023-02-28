@@ -40,12 +40,12 @@ const getUserByID = async (req, res, next) => {
 
 
 const putUserById = async (req, res, next) => {
-	const { userId } = req.params;
-	const { name, email, role, isVarified, phone } = req.body;
+	const { Id } = req.params;
+	const { username, email, phone, role, isVarified } = req.body;
 
 	try {
-		const user = await userService.updateUser(userId, {
-			name,
+		const user = await userService.updateUser(Id, {
+			username,
 			email,
 			role,
 			isVarified,
@@ -62,27 +62,7 @@ const putUserById = async (req, res, next) => {
 	}
 };
 
-const patchUserById = async (req, res, next) => {
-	const { userId } = req.params;
-	const { name, role, isVarified } = req.body;
 
-	try {
-		const user = await userService.findUserByProperty('id', userId);
-
-		if (!user) {
-			throw error('User not found', 404);
-		}
-
-		user.username = name ?? user.username;
-		user.role = role ?? user.role;
-		user.isVarified = isVarified ?? user.isVarified;
-
-		await user.save();
-		return res.status(200).json(user);
-	} catch (e) {
-		next(e);
-	}
-};
 
 const deleteUserById = async (req, res, next) => {
 	const { userId } = req.params;
@@ -114,7 +94,6 @@ module.exports = {
 	getUsers,
 	getUserByID,
 	putUserById,
-	patchUserById,
 	deleteUserById,
 };
 

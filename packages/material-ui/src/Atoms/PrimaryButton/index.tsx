@@ -2,11 +2,14 @@ import { Button } from '@mui/material'
 import React from 'react'
 import { primaryButtonStyle } from './PrimaryButton.style'
 
-type Props = {}
+interface PrimaryButtonProps {
+    title: string
+    handleClick: () => void
+}
 
-const PrimaryButton = (props: Props) => {
+const PrimaryButton = ({ title, handleClick }: PrimaryButtonProps) => {
     return (
-        <Button variant='contained' sx={primaryButtonStyle} >Primary Button</Button>
+        <Button variant='contained' onClick={handleClick} sx={primaryButtonStyle} >{title}</Button>
     )
 }
 
