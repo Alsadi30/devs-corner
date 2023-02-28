@@ -82,9 +82,10 @@ const ProfileModal = () => {
         }, resolver: yupResolver(profileSchema)
     });
 
-    const [createProfile, { isSuccess: isCreateProfileSuccess }] =
+    const [createProfile, { isSuccess: isCreateProfileSuccess, data: ProfileData }] =
         useCreateProfileMutation();
 
+    console.log(ProfileData)
 
     const onSubmit = (data: object) => {
         console.log(data)
@@ -98,9 +99,6 @@ const ProfileModal = () => {
             handleSubmit={handleSubmit(onSubmit)}
         >
             <MapListItem Component={Input} Items={items} other={control} />
-
-
-
 
             <Button
                 variant="contained"

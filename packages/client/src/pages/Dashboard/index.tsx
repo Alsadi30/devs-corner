@@ -20,7 +20,8 @@ import CoverPath from '../../assets/Cover.jpg';
 import JS from '../../assets/JS.webp';
 import ProfilePic from '../../assets/avatar.jpg';
 import { useState } from 'react';
-import ProfileModal from '../../../../material-ui/src/Organisms/ModalItems/ProfileModal/index';
+import ProfileModal from '../../components/ProfileModal';
+
 
 const Items = [
     {
