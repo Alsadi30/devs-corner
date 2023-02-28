@@ -69,17 +69,15 @@ const items = [
 // }
 
 const ProfileModal = () => {
-    const { control, handleSubmit, formState: { errors }, } = useForm({
+    const { control, handleSubmit, formState: { errors }, register } = useForm({
         defaultValues: {
             displayname: '',
             bio: '',
             about: '',
-            profilePic: '',
-            coverPic: '',
-            dateofBirth: '',
             nationality: '',
             location: '',
-            gender: ''
+            gender: '',
+            profilePic: null
         }, resolver: yupResolver(profileSchema)
     });
 
@@ -94,6 +92,9 @@ const ProfileModal = () => {
             handleSubmit={handleSubmit(onSubmit)}
         >
             <MapListItem Component={Input} Items={items} other={control} />
+
+
+
 
             <Button
                 variant="contained"

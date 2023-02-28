@@ -9,7 +9,7 @@ type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
     type: string;
     isRequired?: boolean;
     fullWidth?: boolean;
-    value?: string;
+    value?: string | File | Date | number | null;
     style?: object;
   };
   other: any;
@@ -20,26 +20,38 @@ const Input: React.FC<InputFieldProps> = ({ item, other }) => {
 
   let label = name.charAt(0).toUpperCase() + name.slice(1);
 
+
+
+
   return (
     <Controller
       name={name}
       control={other}
-      defaultValue={value ? value : ""}
+      defaultValue={value && value}
       render={({ field, fieldState: { error }, formState: { isValid } }) => (
-        <TextField
-          color="secondary"
-          sx={{ ...style, ...InputStyle }}
-          type={type}
-          fullWidth={fullWidth}
-          required={isRequired}
-          {...field}
-          name={name}
-          label={label}
-          size={"small"}
-          variant="filled"
-          error={!!error?.message}
-          helperText={isValid ? "" : error?.message}
-        />
+        type === 'file' ?
+          (
+            <div style={{ width: '100%', color: '#6663a5', textAlign: 'start', display: 'flex', backgroundColor: '#E8E8E8', margin: '5px 0px', borderRadius: '3px' }} >
+              <label style={{ padding: '13px 10px', color: '#6663a5', textAlign: 'start' }} htmlFor={name} >{label}</label>
+              <input style={{ padding: '13px 0px', }} type="file" name={name} onChange={(e) =>
+                field.onChange({ target: { value: e.target.files[0], name: field.name } })} />
+            </div>) :
+          <TextField
+            color="secondary"
+            sx={{ ...style, ...InputStyle }}
+            type={type}
+            fullWidth={fullWidth}
+            required={isRequired}
+            {...field}
+            value={value}
+            name={name}
+            label={label}
+            size={"small"}
+            variant="filled"
+            error={!!error?.message}
+            helperText={isValid ? "" : error?.message}
+          />
+
       )}
     />
   );
