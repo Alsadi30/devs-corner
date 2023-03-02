@@ -1,3 +1,4 @@
+import React from 'react'
 import { yupResolver } from '@hookform/resolvers/yup';
 import { Button } from '@mui/material';
 import { useForm } from 'react-hook-form';
@@ -8,43 +9,48 @@ import { useCreateProfileMutation } from '../../../features/profile/profileApi';
 import { profileSchema } from '../../../utils/validation/profileValidation';
 
 const items = [
-	{
-		name: 'displayname',
-		type: 'text',
-	},
-	{
-		name: 'bio',
-		type: 'text',
-	},
-	{
-		name: 'about',
-		type: 'text',
-	},
-	{
-		name: 'profilePic',
-		type: 'file',
-	},
-	{
-		name: 'coverPic',
-		type: 'file',
-	},
-	{
-		name: 'nationality',
-		type: 'text',
-	},
-	{
-		name: 'location',
-		type: 'text',
-	},
-	{
-		name: 'gender',
-		type: 'text',
-	},
-	{
-		name: 'dateofBirth',
-		type: 'date',
-	},
-];
+    {
+        name: 'displayname',
+        type: 'text'
+    },
+    {
+        name: 'bio',
+        type: 'text'
+    },
+    {
+        name: 'about',
+        type: 'text'
+    },
+    {
+        name: 'profilePic',
+        type: 'file'
+    },
+    {
+        name: 'coverPic',
+        type: 'file'
+    },
+    {
+        name: 'nationality',
+        type: 'text'
+    },
+    {
+        name: 'location',
+        type: 'text'
+    },
+    {
+        name: 'gender',
+        type: 'text'
+    },
+    {
+        name: 'dateofBirth',
+        type: 'date'
+    }
+
+]
+
+
+
+
 
 // interface ProfileProps {
 //     displayname: string
@@ -59,54 +65,56 @@ const items = [
 // }
 
 const ProfileModal = () => {
-	const {
-		control,
-		handleSubmit,
-		formState: { errors },
-		register,
-	} = useForm({
-		defaultValues: {
-			displayname: '',
-			bio: '',
-			about: '',
-			nationality: '',
-			location: '',
-			gender: '',
-			profilePic: null,
-		},
-		resolver: yupResolver(profileSchema),
-	});
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+        register,
+    } = useForm({
+        defaultValues: {
+            displayname: '',
+            bio: '',
+            about: '',
+            nationality: '',
+            location: '',
+            gender: '',
+            profilePic: null,
+        },
+        resolver: yupResolver(profileSchema),
+    });
 
-	const [
-		createProfile,
-		{ isSuccess: isCreateProfileSuccess, data: ProfileData },
-	] = useCreateProfileMutation();
+    const [
+        createProfile,
+        { isSuccess: isCreateProfileSuccess, data: ProfileData },
+    ] = useCreateProfileMutation();
 
-	console.log('ProfileData: ' + ProfileData);
+    const formData = new FormData()
 
-	const onSubmit = async (data: object) => {
-		console.log(data);
-		await createProfile(data);
-	};
+    const onSubmit = (data: object) => {
+        for (const [key, value] of Object.entries(data)) {
+            formData.append(key, value)
+        }
+        createProfile(formData)
 
-	return (
-		<FormContainer handleSubmit={handleSubmit(onSubmit)}>
-			<MapListItem Component={Input} Items={items} other={control} />
+    };
 
-			<Button
-				variant='contained'
-				fullWidth={true}
-				sx={{
-					margin: '10px 0px 0px 0px',
-					bgcolor: 'primary.main',
-					color: 'white',
-				}}
-				type='submit'
-			>
-				Submit
-			</Button>
-		</FormContainer>
-	);
-};
+
+    return (
+        <FormContainer
+            handleSubmit={handleSubmit(onSubmit)}
+        >
+            <MapListItem Component={Input} Items={items} other={control} />
+
+            <Button
+                variant="contained"
+                fullWidth={true}
+                sx={{
+                    margin: '10px 0px 0px 0px', bgcolor: 'primary.main', color: 'white',
+                }} type="submit">Submit</Button>
+
+        </FormContainer>
+    )
+}
+
 
 export default ProfileModal;
