@@ -35,24 +35,40 @@ const Input: React.FC<InputFieldProps> = ({ item, other }) => {
               <label style={{ padding: '13px 10px', color: '#6663a5', textAlign: 'start' }} htmlFor={name} >{label}</label>
               <input style={{ padding: '13px 0px', }} type="file" name={name} onChange={(e) =>
                 field.onChange({ target: { value: e.target.files[0], name: field.name } })} />
-            </div>) :
-          <TextField
-            color="secondary"
-            sx={{ ...style, ...InputStyle }}
-            type={type}
-            fullWidth={fullWidth}
-            required={isRequired}
-            {...field}
-            value={value}
-            name={name}
-            label={label}
-            multiline
-            size={"small"}
-            variant="filled"
-            error={!!error?.message}
-            helperText={isValid ? "" : error?.message}
-            maxRows={3}
-          />
+            </div>) : type === 'date' ? (
+              <TextField
+                color="secondary"
+                sx={{ ...style, ...InputStyle }}
+                type={type}
+                fullWidth={fullWidth}
+                required={isRequired}
+                {...field}
+                value={value}
+                name={name}
+                label={label}
+                size={"small"}
+                variant="filled"
+                error={!!error?.message}
+                helperText={isValid ? "" : error?.message}
+
+              />) :
+            <TextField
+              color="secondary"
+              sx={{ ...style, ...InputStyle }}
+              type={type}
+              fullWidth={fullWidth}
+              required={isRequired}
+              {...field}
+              value={value}
+              name={name}
+              label={label}
+              multiline
+              size={"small"}
+              variant="filled"
+              error={!!error?.message}
+              helperText={isValid ? "" : error?.message}
+              maxRows={3}
+            />
 
       )}
     />
