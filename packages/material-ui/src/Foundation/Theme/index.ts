@@ -3,7 +3,7 @@ import { createTheme } from '@mui/material/styles'
 
 
 
-export const Theme = createTheme( {
+export const Theme = createTheme({
     palette: {
         primary: {
             main: '#5b598b',
@@ -33,7 +33,7 @@ export const Theme = createTheme( {
         },
         background: {
             default: '#ffffff',
-            paper:'#252537'
+            paper: '#252537'
         },
 
     },
@@ -41,18 +41,18 @@ export const Theme = createTheme( {
         fontFamily: [
             'Inter',
             'sans-serif'
-            ].join(','),
+        ].join(','),
         h1: {
             fontSize: '2rem',
             fontWeight: 700,
-            color:'#ffffff',
+            color: '#ffffff',
             lineHeight: 1.2,
             letterSpacing: '-0.01562em',
         },
         h2: {
             fontSize: '1.75rem',
             fontWeight: 700,
-            color:'#ffffff',
+            color: '#ffffff',
             lineHeight: 1.2,
             letterSpacing: '-0.00833em',
         },
@@ -60,7 +60,7 @@ export const Theme = createTheme( {
             fontSize: '1.4rem',
             fontWeight: 500,
             lineHeight: 1.2,
-            color:'#ffffff',
+            color: '#ffffff',
             letterSpacing: '0em',
         },
         h4: {
@@ -70,7 +70,7 @@ export const Theme = createTheme( {
             letterSpacing: '0.00735em',
         },
         h5: {
-            fontSize: '1rem',
+            fontSize: '1.2rem',
             fontWeight: 400,
             lineHeight: 1.2,
             letterSpacing: '0em',
@@ -108,7 +108,7 @@ export const Theme = createTheme( {
 
 
     },
- 
+
 
 
 })

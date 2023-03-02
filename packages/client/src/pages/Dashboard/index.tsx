@@ -1,26 +1,26 @@
 import * as React from 'react';
 import CustomizedDialogs from '../../../../material-ui/src/Atoms/Modal/index';
 import BasicProfile from '../../../../material-ui/src/Organisms/BasicProfile/index';
-import CredentialItem from '../../../../material-ui/src/Organisms/CredentialItem/index';
-import EducationItem from '../../../../material-ui/src/Organisms/EducationItem/index';
-import ExperienceItem from '../../../../material-ui/src/Organisms/ExperienceItem/index';
 import Layout from '../../../../material-ui/src/Organisms/Layout';
-import LinkSection from '../../../../material-ui/src/Organisms/LinkSection/index';
-import AboutModal from '../../../../material-ui/src/Organisms/ModalItems/AboutModal/index';
-import CredentialModel from '../../../../material-ui/src/Organisms/ModalItems/CredentialModal/index';
-import EducationModal from '../../../../material-ui/src/Organisms/ModalItems/EducationModal/index';
-import ExperienceModal from '../../../../material-ui/src/Organisms/ModalItems/ExperienceModal/index';
-import ProjectModal from '../../../../material-ui/src/Organisms/ModalItems/ProjectModal/index';
-import SkillModal from '../../../../material-ui/src/Organisms/ModalItems/SkillModal/index';
-import RepositoryItem from '../../../../material-ui/src/Organisms/RepositoryItem';
 import Section from '../../../../material-ui/src/Organisms/Section/index';
-import SkillSection from '../../../../material-ui/src/Organisms/SkillSection/index';
-import SocialMedia from '../../../../material-ui/src/Organisms/SocialMediaSection/index';
 import CoverPath from '../../assets/Cover.jpg';
 import JS from '../../assets/JS.webp';
 import ProfilePic from '../../assets/avatar.jpg';
 import { useState } from 'react';
-import ProfileModal from '../../components/ProfileModal';
+import ProfileModal from '../../components/ModalItems/ProfileModal';
+import AboutModal from '../../components/ModalItems/AboutModal';
+import SkillModal from '../../components/ModalItems/SkillModal';
+import ProjectModal from '../../components/ModalItems/ProjectModal';
+import CredentialModel from '../../components/ModalItems/CredentialModal';
+import EducationModal from '../../components/ModalItems/EducationModal';
+import ExperienceModal from '../../components/ModalItems/ExperienceModal';
+import LinkSection from '../../components/SectionItems/LinkSection';
+import SkillSection from '../../components/SectionItems/SkillSection';
+import RepositoryItem from '../../components/SectionItems/RepositoryItem';
+import CredentialItem from '../../components/SectionItems/CredentialItem';
+import EducationItem from '../../components/SectionItems/EducationItem';
+import ExperienceItem from '../../components/SectionItems/ExperienceItem';
+import SocialMedia from '../../components/SectionItems/SocialMediaSection';
 
 
 const Items = [

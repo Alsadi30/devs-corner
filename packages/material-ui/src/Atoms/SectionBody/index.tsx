@@ -2,11 +2,13 @@ import { Box, PropTypes, Typography } from '@mui/material';
 import React from 'react'
 import MapListItem from '../MapListItem'
 import { GridDirection } from '@mui/material/Grid/index'
-import { SkillItemProps } from '../../Organisms/SkillItem';
-import { EducationProps } from '../../Organisms/EducationItem';
-import { RepositoryItemProps } from '../../Organisms/RepositoryItem';
-import { CredentialProps } from '../../Organisms/CredentialItem';
-import { ExperienceProps } from '../../Organisms/ExperienceItem';
+
+import { RepositoryItemProps } from '../../../../client/src/components/SectionItems/RepositoryItem';
+import { CredentialProps } from '../../../../client/src/components/SectionItems/CredentialItem';
+import { SkillItemProps } from '../../../../client/src/components/SectionItems/SkillItem';
+import { EducationProps } from '../../../../client/src/components/SectionItems/EducationItem/index';
+import { ExperienceProps } from '../../../../client/src/components/SectionItems/ExperienceItem/index';
+
 
 export interface SectionBodyProps {
     Component?: React.ReactNode | React.FunctionComponent<SkillItemProps> | React.FunctionComponent<EducationProps> | React.FunctionComponent<RepositoryItemProps> | React.FunctionComponent<CredentialProps> | React.FunctionComponent<ExperienceProps>

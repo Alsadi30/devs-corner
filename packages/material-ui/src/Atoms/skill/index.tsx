@@ -19,7 +19,7 @@ const Skill = ({ item }: SkillProps) => {
         <ImageAvatar Size={15} Txt='JS' Src={item.thumbnail} />
       </Grid>
       <Grid>
-        <Typography variant='body2' color={'info.light'} >{item.name}</Typography>
+        <Typography variant='body1' color={'info.light'} >{item.name}</Typography>
       </Grid>
     </Grid>
   )

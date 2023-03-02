@@ -46,10 +46,12 @@ const Input: React.FC<InputFieldProps> = ({ item, other }) => {
             value={value}
             name={name}
             label={label}
+            multiline
             size={"small"}
             variant="filled"
             error={!!error?.message}
             helperText={isValid ? "" : error?.message}
+            maxRows={3}
           />
 
       )}
