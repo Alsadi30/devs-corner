@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
 import CustomizedDialogs from '../../../../material-ui/src/Atoms/Modal/index';
 import BasicProfile from '../../../../material-ui/src/Organisms/BasicProfile/index';
 import Layout from '../../../../material-ui/src/Organisms/Layout';
@@ -180,15 +179,8 @@ const Dashboard = ({}: Props) => {
 	const [expopen, setExpOpen] = useState(false);
 	const [profileopen, setProfileOpen] = useState(false);
 
-	//================== It wil be User not profile =========================
-	const auth = useSelector((state) => state?.auth);
-	const {
-		data: userData,
-		isError,
-		isLoading,
-	} = useGetUserQuery(auth.user.id);
+	const { data: userData, isError, isLoading } = useGetUserQuery();
 	console.log(userData);
-	//===========================================
 
 	const handleAbout = () => {
 		setAOpen(!aboutopen);
