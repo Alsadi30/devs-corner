@@ -1,33 +1,38 @@
-import { useState } from 'react'
-import PrimaryButton from '../../material-ui/src/Atoms/PrimaryButton/index';
-import Text from '../../material-ui/src/Atoms/Text'
-import FormContaineer from '../../material-ui/src/Atoms/FormContainer/index';
-import { TextField } from '@mui/material'
-import Cont from '../../material-ui/src/Atoms/Container/index';
-import Input from '../../material-ui/src/Atoms/InputG/index';
-import { useForm } from 'react-hook-form';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute';
+import PublicRoute from './components/PublicRoute';
+import useAuthCheck from './hooks/useAuthCheck';
+import { router } from './routes';
 function App() {
-  const [count, setCount] = useState(0)
-  const { control, handleSubmit, formState: { errors }, } = useForm({
-    defaultValues: {
-      username: '',
-      email: '',
-      phone: '',
-      password: '',
-      confirmPassword: ''
-    }
-  })
-  return (
-    <Cont>
-      <div>Heoolo</div>
-      <PrimaryButton />
-      <Text />
-      <FormContaineer>
-        <Input item={{ name: 'username', type: 'text', }} control={control} />
-      </FormContaineer>
+	const authChecked = useAuthCheck();
 
-    </Cont>
-  )
+	return !authChecked ? (
+		<div>Checking authentication....</div>
+	) : (
+		<Router>
+			<Routes>
+				{router.map((route, index) => {
+					return (
+						<Route
+							key={index}
+							path={route.path}
+							element={
+								route.public ? (
+									<PublicRoute>
+										{<route.component />}
+									</PublicRoute>
+								) : (
+									<PrivateRoute>
+										<route.component />
+									</PrivateRoute>
+								)
+							}
+						/>
+					);
+				})}
+			</Routes>
+		</Router>
+	);
 }
 
-export default App
+export default App;

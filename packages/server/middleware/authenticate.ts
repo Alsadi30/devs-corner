@@ -1,5 +1,5 @@
 const jwt = require('jsonwebtoken');
-const {User} = require('../models/user')
+const { User } = require('../models/user')
 const MyDataSource = require('../config/database')
 
 
@@ -15,7 +15,7 @@ async function authenticate(req, res, next) {
 		token = token.split(' ')[1];
 		const decoded = jwt.verify(token, 'secret-key');
 
-        const user = await  userRepository.findOneBy({id:decoded.id});
+		const user = await userRepository.findOneBy({ id: decoded.id });
 		if (!user) {
 			return res.status(401).json({ message: 'Unauthorized' });
 		}
@@ -28,3 +28,4 @@ async function authenticate(req, res, next) {
 }
 
 module.exports = authenticate;
+

@@ -4,18 +4,22 @@ import { FormContaineerStyle } from './FormContainer.style'
 
 type FormContainerProps = {
     children: React.ReactNode,
-    style?: object
+    style?: object,
+    handleSubmit: () => void,
+    maxWidth?: string
 }
 
-const FormContaineer = ({ children, style }: FormContainerProps) => {
+const FormContainer = ({ maxWidth, children, style, handleSubmit }: FormContainerProps) => {
     return (
         <Box component="form"
-            sx={{ ...style, ...FormContaineerStyle }}
+            sx={{ maxWidth: { maxWidth }, ...style, ...FormContaineerStyle }}
             noValidate
-            autoComplete="off" >
+            autoComplete="off"
+            onSubmit={handleSubmit}
+        >
             {children}
         </Box>
     )
 }
 
-export default FormContaineer
+export default FormContainer
