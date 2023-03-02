@@ -1,4 +1,5 @@
-import * as React from 'react';
+import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import CustomizedDialogs from '../../../../material-ui/src/Atoms/Modal/index';
 import BasicProfile from '../../../../material-ui/src/Organisms/BasicProfile/index';
 import Layout from '../../../../material-ui/src/Organisms/Layout';
@@ -6,7 +7,6 @@ import Section from '../../../../material-ui/src/Organisms/Section/index';
 import CoverPath from '../../assets/Cover.jpg';
 import JS from '../../assets/JS.webp';
 import ProfilePic from '../../assets/avatar.jpg';
-import { useState } from 'react';
 import ProfileModal from '../../components/ModalItems/ProfileModal';
 import AboutModal from '../../components/ModalItems/AboutModal';
 import SkillModal from '../../components/ModalItems/SkillModal';
@@ -21,7 +21,7 @@ import CredentialItem from '../../components/SectionItems/CredentialItem';
 import EducationItem from '../../components/SectionItems/EducationItem';
 import ExperienceItem from '../../components/SectionItems/ExperienceItem';
 import SocialMedia from '../../components/SectionItems/SocialMediaSection';
-
+import { useGetProfileQuery } from '../../features/profile/profileApi';
 
 const Items = [
     {
@@ -178,7 +178,17 @@ const Dashboard = ({ }: Props) => {
     const [credopen, setCredOpen] = useState(false);
     const [eduopen, setEduOpen] = useState(false);
     const [expopen, setExpOpen] = useState(false);
-    const [profileopen, setProfileOpen] = useState(false)
+    const [profileopen, setProfileOpen] = useState(false);
+
+    //================== It wil be User not profile =========================
+    const auth = useSelector((state) => state?.auth);
+    const {
+        data: profileData,
+        isError,
+        isLoading,
+    } = useGetProfileQuery(auth.user.id);
+    console.log(profileData);
+    //===========================================
 
     const handleAbout = () => {
         setAOpen(!aboutopen);
@@ -205,9 +215,8 @@ const Dashboard = ({ }: Props) => {
     };
 
     const handleProfile = () => {
-        setProfileOpen(!profileopen)
-    }
-
+        setProfileOpen(!profileopen);
+    };
 
     return (
         <Layout>
