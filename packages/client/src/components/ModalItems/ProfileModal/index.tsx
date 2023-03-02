@@ -1,18 +1,12 @@
 import React from 'react'
+import { yupResolver } from '@hookform/resolvers/yup';
+import { Button } from '@mui/material';
+import { useForm } from 'react-hook-form';
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
 import Input from '../../../../../material-ui/src/Atoms/InputG';
-import { Button } from '@mui/material';
 import MapListItem from '../../../../../material-ui/src/Atoms/MapListItem';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
-import { profileSchema } from '../../../utils/validation/profileValidation';
 import { useCreateProfileMutation } from '../../../features/profile/profileApi';
-import CoverPhoto from '../../../../../material-ui/src/Molecules/CoverPhoto/index';
-
-
-
-
-
+import { profileSchema } from '../../../utils/validation/profileValidation';
 
 const items = [
     {
@@ -71,7 +65,12 @@ const items = [
 // }
 
 const ProfileModal = () => {
-    const { control, handleSubmit, formState: { errors }, register } = useForm({
+    const {
+        control,
+        handleSubmit,
+        formState: { errors },
+        register,
+    } = useForm({
         defaultValues: {
             displayname: '',
             bio: '',
@@ -80,28 +79,24 @@ const ProfileModal = () => {
             location: '',
             gender: '',
             profilePic: null,
-            coverPic: null,
-            date: null
-
-        }, resolver: yupResolver(profileSchema)
+        },
+        resolver: yupResolver(profileSchema),
     });
+
+    const [
+        createProfile,
+        { isSuccess: isCreateProfileSuccess, data: ProfileData },
+    ] = useCreateProfileMutation();
 
     const formData = new FormData()
 
-    const [createProfile, { isSuccess: isCreateProfileSuccess, data: ProfileData }] = useCreateProfileMutation();
-
-
-
     const onSubmit = (data: object) => {
         for (const [key, value] of Object.entries(data)) {
-            console.log(`${key}: ${value}`)
             formData.append(key, value)
         }
-        console.log(data)
         createProfile(formData)
+
     };
-
-
 
 
     return (
@@ -121,4 +116,5 @@ const ProfileModal = () => {
     )
 }
 
-export default ProfileModal
+
+export default ProfileModal;
