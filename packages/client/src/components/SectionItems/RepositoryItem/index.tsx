@@ -9,20 +9,25 @@ import ProjectModal from '../../ModalItems/ProjectModal';
 import CustomizedDialogs from '../../../../../material-ui/src/Atoms/Modal';
 import { useState } from 'react';
 
+
 export interface RepositoryItemProps {
     item: {
-        title: string
+        id: string
+        name: string
         description: string
-        gitlink: string
-        livelink: string
+        repoUrl: string
+        liveUrl: string
     }
 }
 
 const RepositoryItem = ({ item }: RepositoryItemProps) => {
 
+    console.log(item)
+    const { liveUrl, name, repoUrl, description } = item
+
     const [repoopen, setRepoOpen] = useState(false);
 
-    const { title, description, gitlink, livelink } = item
+
 
     const handleProject = () => {
         setRepoOpen(!repoopen);
@@ -34,16 +39,20 @@ const RepositoryItem = ({ item }: RepositoryItemProps) => {
 
     return (
         <Grid container flexDirection={'column'} p={2} >
-            <ItemTitle title={title} handleDelete={handleProjectDelete} handleEdit={handleProject} />
+            <ItemTitle title={name} handleDelete={handleProjectDelete} handleEdit={handleProject} />
             <Typography mb={.5} variant='body1' color={'info.light'}  >{description}</Typography>
 
             <Grid container  >
-                <Grid pr={5} >
-                    <IconWithText text='Github' > <GitHubIcon fontSize='12px' color='info' />  </IconWithText>
-                </Grid>
-                <Grid>
-                    <IconWithText text='Live URL' > <AttachFileIcon fontSize='12px' color='info' />  </IconWithText>
-                </Grid>
+                <Link to={repoUrl} target='_blank' >
+                    <Grid pr={5} >
+                        <IconWithText text='Github' > <GitHubIcon fontSize='12px' color='info' />  </IconWithText>
+                    </Grid>
+                </Link>
+                <Link to={liveUrl} target='_blank' >
+                    <Grid>
+                        <IconWithText text='Live URL' > <AttachFileIcon fontSize='12px' color='info' />  </IconWithText>
+                    </Grid>
+                </Link>
             </Grid>
             <CustomizedDialogs
                 title='Update Project'
