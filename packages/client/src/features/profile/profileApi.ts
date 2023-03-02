@@ -2,18 +2,13 @@ import { apiSlice } from '../api/apiSlice';
 
 export const profileApi = apiSlice.injectEndpoints({
 	endpoints: (builder) => ({
-		getProfile: builder.query({
-			query: (id) => `/users/${id}`,
-			providesTags: ['profile'],
-		}),
-
 		createProfile: builder.mutation({
 			query: (data) => ({
 				url: '/profile',
 				method: 'POST',
 				body: data,
 			}),
-			invalidatesTags: ['profile'],
+			invalidatesTags: ['user'],
 
 			/**
 			 *
@@ -34,4 +29,4 @@ export const profileApi = apiSlice.injectEndpoints({
 	}),
 });
 
-export const { useGetProfileQuery, useCreateProfileMutation } = profileApi;
+export const { useCreateProfileMutation } = profileApi;
