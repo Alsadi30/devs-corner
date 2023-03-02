@@ -179,8 +179,27 @@ const Dashboard = ({}: Props) => {
 	const [expopen, setExpOpen] = useState(false);
 	const [profileopen, setProfileOpen] = useState(false);
 
-	const { data: userData, isError, isLoading } = useGetUserQuery();
-	console.log(userData);
+	const auth = useSelector((state) => state?.auth);
+	const {
+		data: userData,
+		isError,
+		isLoading,
+	} = useGetUserQuery(auth.user.id);
+
+	if (isLoading) {
+		return <div>...Loading</div>;
+	}
+
+	const {
+		profile,
+		projects,
+		skills,
+		credentials,
+		education,
+		experience,
+		socialmedia,
+	} = userData[0];
+	console.log(userData[0]);
 
 	const handleAbout = () => {
 		setAOpen(!aboutopen);
@@ -230,7 +249,7 @@ const Dashboard = ({}: Props) => {
 			<Section
 				title='Projects'
 				Component={RepositoryItem}
-				Items={repo}
+				Items={projects}
 				direction='column'
 				handleClick={handleRepo}
 			/>
