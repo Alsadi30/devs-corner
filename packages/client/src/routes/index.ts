@@ -26,7 +26,7 @@ export const router = [
     public: true,
   },
   {
-    path: "/resume/:id",
+    path: "/resume",
     component: Resume,
     public: true,
   },

@@ -1,5 +1,7 @@
+import BasicTemplate from "../../components/ResumeComponents";
+
 const Resume = () => {
-  return <div></div>;
+  return <BasicTemplate />;
 };
 
 export default Resume;
