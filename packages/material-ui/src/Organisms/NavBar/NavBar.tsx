@@ -2,7 +2,12 @@ import { AppBar, Container, Toolbar, Typography } from "@mui/material";
 import LogoPath from "../../../../client/src/assets/Devs'Corner.svg";
 import Logo from "../../Atoms/Logo";
 import AvatarMenu from "../../Molecules/AvatarMenu/AvatarMenu";
-const NavBar = () => {
+
+interface NavBarProps {
+  profilePic: string
+}
+
+const NavBar = ({ profilePic }: NavBarProps) => {
   return (
     <AppBar position="sticky" sx={{ zIndex: '90' }} >
       <Toolbar sx={{ display: "flex", alignItems: "center" }}>
@@ -14,7 +19,7 @@ const NavBar = () => {
           >
             <Logo Src={LogoPath} Txt="D" Size={33} /> Devs' Corner
           </Typography>
-          <AvatarMenu />
+          <AvatarMenu profilePic={profilePic} />
         </Container>
       </Toolbar>
     </AppBar>

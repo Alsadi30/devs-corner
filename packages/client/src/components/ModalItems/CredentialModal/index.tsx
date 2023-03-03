@@ -6,6 +6,7 @@ import { credentialSchema } from '../../../../../client/src/utils/validation/cre
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
 import MapListItem from '../../../../../material-ui/src/Atoms/MapListItem';
 import Input from '../../../../../material-ui/src/Atoms/InputG/index';
+import { CredentialProps } from '../../SectionItems/CredentialItem';
 
 
 const items = [
@@ -35,18 +36,18 @@ const items = [
 ]
 
 
-type Props = {}
 
-const CredentialModel = (props: Props) => {
+const CredentialModel = ({ item: data }: CredentialProps) => {
+
     const { control, handleSubmit, formState: { errors }, } = useForm({
-        defaultValues: {
-            title: '',
-            image: '',
-            institution: '',
-            cartificateUrl: '',
-            cartificateId: '',
-            courseDuration: '',
-            achivedAt: ''
+        defaultValues: data && {
+            title: data.title,
+            image: data.image,
+            institution: data.institution,
+            cartificateUrl: data.cartificateUrl,
+            cartificateId: data.cartificateId,
+            courseDuration: data.courseDuration,
+            achivedAt: data.achivedAt
 
         }, resolver: yupResolver(credentialSchema)
     });

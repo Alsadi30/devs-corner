@@ -61,7 +61,7 @@ const deleteSkillController = async (req, res, next) => {
 const addSkilltoUser = async (req, res, next) => {
 
     const { skillId } = req.params
-    console.log(req.user)
+
     const userId = req.user.id
 
     const skill = await skillRepository.findOneBy({ id: skillId })

@@ -11,14 +11,17 @@ export interface CredentialProps {
     item: {
         title: string
         institution: string
-        src: string
-        achievedAt: string
-        duration: string
+        image: string
+        achivedAt: number
+        courseDuration: string
+        cartificateId: string
+        cartificateUrl: string
     }
 }
 
 const CredentialItem = ({ item }: CredentialProps) => {
-    const { title, institution, src, achievedAt, duration } = item
+
+    const { title, institution, cartificateId, cartificateUrl, image, achivedAt, courseDuration } = item
     const [credopen, setCredOpen] = useState(false);
 
     const handleCredential = () => {
@@ -36,16 +39,16 @@ const CredentialItem = ({ item }: CredentialProps) => {
             <Typography pb={.5} variant='body1' color={'info.light'} >
                 {institution}
             </Typography>
-            <Image Src={src} Height='150px' Width='210px' />
-            <KeyValue property='Achieved At' value={achievedAt} />
-            <KeyValue property='Duration' value={duration} />
+            <Image Src={image} Height='150px' Width='210px' />
+            <KeyValue property='Achieved At' value={achivedAt} />
+            <KeyValue property='Duration' value={courseDuration} />
 
             <CustomizedDialogs
                 title='Update Credential'
                 open={credopen}
                 handleClose={handleCredential}
             >
-                <CredentialModel />
+                <CredentialModel item={item} />
             </CustomizedDialogs>
         </Grid>
     )

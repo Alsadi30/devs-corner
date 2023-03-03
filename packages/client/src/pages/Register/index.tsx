@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import FormContainer from '../../../../material-ui/src/Atoms/FormContainer';
 import Input from '../../../../material-ui/src/Atoms/InputG';
 import MapListItem from '../../../../material-ui/src/Atoms/MapListItem/index';
-import Layout from '../../../../material-ui/src/Organisms/Layout/index';
+import Layout from '../../components/Layout/index';
 import { useRegisterMutation } from '../../features/auth/authApi';
 import { registerSchema } from '../../utils/validation/AuthValidation';
 

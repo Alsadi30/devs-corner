@@ -14,6 +14,7 @@ type Props = {
 }
 
 const SkillSection = ({ Items, handleClick }: Props) => {
+    console.log(Items)
     return (
         <Section title='Skill' handleClick={handleClick} Component={SkillItem} Items={Types} other={Items} />
     )

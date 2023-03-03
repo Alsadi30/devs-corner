@@ -30,14 +30,23 @@ const items = [
 ]
 
 
+interface ExperienceProps {
+    data: {
+        position: string
+        companyName: string
+        startAt: string
+        endAt: string
+    }
+}
 
-const ExperienceModal = (props: Props) => {
+const ExperienceModal = ({ data }: ExperienceProps) => {
+
     const { control, handleSubmit, formState: { errors }, } = useForm({
-        defaultValues: {
-            position: '',
-            companyName: '',
-            startAt: '',
-            endAt: ''
+        defaultValues: data && {
+            position: data.position,
+            companyName: data.companyName,
+            startAt: data.startAt,
+            endAt: data.endAt
 
         }, resolver: yupResolver(experienceSchema)
     });

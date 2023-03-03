@@ -16,8 +16,8 @@ export interface SkillItemProps extends ItemtitleProps {
     other: any
 }
 const SkillItem: React.FunctionComponent<SkillItemProps> = ({ item, other }: SkillItemProps) => {
-
-    const filterSkill = other.filter((i: item) => i.type === item.name)
+    console.log(other)
+    const filterSkill = other.filter((i: item) => i.skilltype.name === item.name)
 
     const handleDeleteSkill = () => {
         console.log(filterSkill)

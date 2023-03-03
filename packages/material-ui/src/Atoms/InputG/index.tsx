@@ -9,25 +9,23 @@ type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
     type: string;
     isRequired?: boolean;
     fullWidth?: boolean;
-    value?: string | File | Date | number | null;
+    defaultValue?: string | File | Date | number | null;
     style?: object;
   };
   other: any;
 };
 
 const Input: React.FC<InputFieldProps> = ({ item, other }) => {
-  const { name, type, isRequired, fullWidth = true, value, style } = item;
+  const { name, type, isRequired, fullWidth = true, defaultValue, style } = item;
 
   let label = name.charAt(0).toUpperCase() + name.slice(1);
-
-
 
 
   return (
     <Controller
       name={name}
       control={other}
-      defaultValue={value && value}
+      defaultValue={defaultValue && defaultValue}
       render={({ field, fieldState: { error }, formState: { isValid } }) => (
         type === 'file' ?
           (
@@ -43,7 +41,7 @@ const Input: React.FC<InputFieldProps> = ({ item, other }) => {
                 fullWidth={fullWidth}
                 required={isRequired}
                 {...field}
-                value={value}
+                defaultValue={defaultValue}
                 name={name}
                 label={label}
                 size={"small"}
@@ -59,7 +57,7 @@ const Input: React.FC<InputFieldProps> = ({ item, other }) => {
               fullWidth={fullWidth}
               required={isRequired}
               {...field}
-              value={value}
+              defaultValue={defaultValue}
               name={name}
               label={label}
               multiline

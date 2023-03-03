@@ -35,13 +35,13 @@ const ExperienceItem = ({ item }: ExperienceProps) => {
             <Typography variant='body1' color={'info.light'} px={2} > . </Typography>
             <Typography variant='body1' color={'info.light'}  > {startAt} </Typography>
             <Typography variant='body1' color={'info.light'} px={1} > - </Typography>
-            <Typography variant='body1' color={'info.light'}  > {endAt} </Typography>
+            <Typography variant='body1' color={'info.light'}  > {endAt ? endAt : 'Till Now'} </Typography>
             <CustomizedDialogs
                 title='Add Experience'
                 open={expopen}
                 handleClose={handleExperience}
             >
-                <ExperienceModal />
+                <ExperienceModal data={item} />
             </CustomizedDialogs>
         </Grid>
     )

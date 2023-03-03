@@ -9,7 +9,7 @@ export interface CoverPhotoProps {
 const CoverPhoto = ({ coverPic }: CoverPhotoProps) => {
   return (
     <Box>
-      <Image Src={`${serverUrl}/uploads/${coverPic}`} Txt="Cover Photo" Height="250" Width="100%" />
+      <Image Src={coverPic} Txt="Cover Photo" Height="250" Width="100%" />
     </Box>
   );
 };

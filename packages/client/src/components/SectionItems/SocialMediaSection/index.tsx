@@ -9,6 +9,7 @@ import SectionHead from '../../../../../material-ui/src/Molecules/SectionHead';
 import SocialMediaModal from '../../ModalItems/SocialMediaModal';
 import CustomizedDialogs from '../../../../../material-ui/src/Atoms/Modal';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 
 type item = {
@@ -21,7 +22,7 @@ interface SocialMediaProps {
 }
 
 const SocialMedia = ({ items }: SocialMediaProps) => {
-
+    console.log(items)
     let facebook: string
     let twitter: string
     let linkedIn: string
@@ -52,21 +53,22 @@ const SocialMedia = ({ items }: SocialMediaProps) => {
     return (
         <Grid container pt={3} justifyContent={'center'} >
             <SectionHead title='Social Media' handleClick={handleSocialMedia} />
-            <Grid p={1}>
-                {github && <GitHubIcon color='info' />}
-            </Grid>
-            <Grid p={1}>
-                {facebook && <FacebookIcon color='info' />}
-            </Grid>
-            <Grid p={1}>
-                {linkedIn && <LinkedInIcon color='info' />}
-            </Grid >
-            <Grid p={1}>
-                {twitter && <TwitterIcon color='info' />}
-            </Grid >
-            <Grid p={1}>
-                {reddit && <RedditIcon color='info' />}
-            </Grid >
+            {github && <Grid p={1}>
+                <Link to={github} target='_blank' >  <GitHubIcon color='info' /></Link>
+            </Grid>}
+            {facebook && <Grid p={1}>
+                <Link to={facebook} target='_blank' > <FacebookIcon color='info' /></Link>
+            </Grid>}
+            {linkedIn && <Grid p={1}>
+                <Link to={linkedIn} target='_blank' >  <LinkedInIcon color='info' /></Link>
+            </Grid >}
+            {twitter &&
+                <Grid p={1}>
+                    <Link to={twitter} target='_blank' >  <TwitterIcon color='info' /></Link>
+                </Grid >}
+            {reddit && <Grid p={1}>
+                <Link to={reddit} target='_blank' > <RedditIcon color='info' /></Link>
+            </Grid >}
             <CustomizedDialogs
                 title='Add Experience'
                 open={openModal}

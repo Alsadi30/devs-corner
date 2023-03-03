@@ -3,7 +3,7 @@ import React from 'react'
 import MapListItem from '../MapListItem'
 import { GridDirection } from '@mui/material/Grid/index'
 
-import { RepositoryItemProps } from '../../../../client/src/components/SectionItems/RepositoryItem';
+import { RepositoryItemProps } from '../../../../client/src/components/SectionItems/ProjectItem';
 import { CredentialProps } from '../../../../client/src/components/SectionItems/CredentialItem';
 import { SkillItemProps } from '../../../../client/src/components/SectionItems/SkillItem';
 import { EducationProps } from '../../../../client/src/components/SectionItems/EducationItem/index';

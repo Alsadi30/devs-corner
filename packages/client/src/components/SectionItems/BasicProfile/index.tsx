@@ -1,8 +1,9 @@
 import { Box, Grid } from "@mui/material";
-import ImageAvatar from "../../Atoms/Avatars/ImageAvatar";
-import PrimaryButton from "../../Atoms/PrimaryButton";
-import CoverPhoto, { CoverPhotoProps } from "../../Molecules/CoverPhoto";
-import Intro from "../../Molecules/Intro";
+import CoverPhoto from '../../../../../material-ui/src/Molecules/CoverPhoto/index';
+import ImageAvatar from "../../../../../material-ui/src/Atoms/Avatars/ImageAvatar";
+import Intro from "../../../../../material-ui/src/Molecules/Intro";
+import PrimaryButton from "../../../../../material-ui/src/Atoms/PrimaryButton";
+
 
 
 interface BasicInfoProps {

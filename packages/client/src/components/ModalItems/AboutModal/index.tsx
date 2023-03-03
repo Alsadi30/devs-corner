@@ -1,26 +1,34 @@
-import React from 'react'
-
-import { Button, Typography } from '@mui/material';
-
-import { useForm } from 'react-hook-form';
+import { Button } from '@mui/material';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
 import Input from '../../../../../material-ui/src/Atoms/InputG';
+import { useGetUserQuery } from '../../../features/user/userApi';
+
+
+const item = {
+    name: 'about',
+    type: 'text',
+    defaultValue: 'hasdlfj'
+
+}
 
 interface AboutModalProps {
-    handleSubmit?: () => void
+    about: string
+    // handleSubmit?: () => void
 }
 
 const aboutSchema = yup.object({
     about: yup.string().required().trim(),
 }).required();
 
-const AboutModal = ({ }: AboutModalProps) => {
+const AboutModal = ({ about }: AboutModalProps) => {
 
-    const { control, handleSubmit, formState: { errors }, } = useForm({
+    console.log(about)
+    const { control, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
-            about: ''
+            about: about
         }, resolver: yupResolver(aboutSchema)
     });
 
@@ -28,11 +36,7 @@ const AboutModal = ({ }: AboutModalProps) => {
         console.log(data)
     };
 
-    const item = {
-        name: 'about',
-        type: 'text',
-        multiline: true
-    }
+
 
     return (
         <FormContainer
