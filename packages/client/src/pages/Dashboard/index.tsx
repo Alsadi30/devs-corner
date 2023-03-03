@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import CustomizedDialogs from '../../../../material-ui/src/Atoms/Modal/index';
 import BasicProfile from '../../../../material-ui/src/Organisms/BasicProfile/index';
 import Layout from '../../../../material-ui/src/Organisms/Layout';
@@ -199,6 +200,7 @@ const Dashboard = ({}: Props) => {
 		experience,
 		socialmedia,
 	} = userData[0];
+
 	console.log(userData[0]);
 
 	const handleAbout = () => {
@@ -262,7 +264,7 @@ const Dashboard = ({}: Props) => {
 			<Section
 				title='Education'
 				Component={EducationItem}
-				Items={Edu}
+				Items={education}
 				handleClick={handleEducation}
 			/>
 			<Section
