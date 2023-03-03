@@ -5,24 +5,31 @@ import CoverPhoto, { CoverPhotoProps } from "../../Molecules/CoverPhoto";
 import Intro from "../../Molecules/Intro";
 
 
-interface BasicInfoProps extends CoverPhotoProps {
-  Photo: string
-  Name: string
-  Position: string
-  Location: string
+interface BasicInfoProps {
+  profileData: {
+    profilePic: string
+    coverPic: string
+    displayname: string
+    bio: string
+    location: string
+    dateofBrith: string
+    gender: string
+  }
   handleClick: () => void
 };
-const BasicProfile = ({ Photo, Name, Position, Location, CoverPath, handleClick }: BasicInfoProps) => {
+const BasicProfile = ({ profileData, handleClick }: BasicInfoProps) => {
+  console.log(profileData)
+  const { profilePic, displayname, bio, location, coverPic } = profileData
   return (
     <Box>
-      <CoverPhoto CoverPath={CoverPath} />
+      <CoverPhoto coverPic={coverPic} />
       <Box>
         <Grid container spacing={0}>
           <Grid item xs={4}></Grid>
           <Grid item xs={4} sx={{ position: "relative", top: "-75px" }}>
             <center>
-              <ImageAvatar Src={Photo} Txt="Name" Size={150} />
-              <Intro Name={Name} Position={Position} Location={Location} />
+              <ImageAvatar Src={profilePic} Txt="Name" Size={150} />
+              <Intro Name={displayname} Position={bio} Location={location} />
             </center>
           </Grid>
           <Grid item xs={4} sx={{ textAlign: "right", marginTop: '10px' }}>

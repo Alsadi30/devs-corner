@@ -21,7 +21,7 @@ const items = [
     },
     {
         name: 'passingyear',
-        type: 'number'
+        type: 'date'
     },
     {
         name: 'institute',

@@ -228,17 +228,13 @@ const Dashboard = ({ }: Props) => {
     return (
         <Layout>
             <BasicProfile
-                CoverPath={CoverPath}
-                Location='Sylhet'
-                Name='Sadi'
-                Photo={ProfilePic}
-                Position='Front End Developer'
+                profileData={profile}
                 handleClick={handleProfile}
             />
             <LinkSection />
             <Section
                 title='About'
-                text='I am front end developer'
+                text={profile.about}
                 handleClick={handleAbout}
             />
             <SkillSection Items={Items} handleClick={handleSkill} />
@@ -258,7 +254,7 @@ const Dashboard = ({ }: Props) => {
             <Section
                 title='Education'
                 Component={EducationItem}
-                Items={Edu}
+                Items={education}
                 handleClick={handleEducation}
             />
             <Section
