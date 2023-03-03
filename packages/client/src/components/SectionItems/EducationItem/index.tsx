@@ -15,7 +15,6 @@ export interface EducationProps {
 }
 
 const EducationItem = ({ item }: EducationProps) => {
-	console.log(item);
 	const { title, institute, passingyear, result } = item;
 	const [eduopen, setEduOpen] = useState(false);
 	const handleEducation = () => {

@@ -21,7 +21,7 @@ const items = [
 	},
 	{
 		name: 'passingyear',
-		type: 'number',
+		type: 'date',
 	},
 	{
 		name: 'institute',
@@ -31,8 +31,6 @@ const items = [
 
 const EducationModal = (props: Props) => {
 	const [createEducation, { data: eduData }] = useCreateEducationMutation();
-
-	console.log(eduData);
 
 	const {
 		control,
