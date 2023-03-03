@@ -30,7 +30,7 @@ const items = [
 
 
 interface ProjectProps {
-	data: {
+	data?: {
 		id: string;
 		name: string;
 		description: string;

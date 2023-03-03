@@ -48,7 +48,7 @@ const CredentialItem = ({ item }: CredentialProps) => {
                 open={credopen}
                 handleClose={handleCredential}
             >
-                <CredentialModel item={item} />
+                <CredentialModel data={item} />
             </CustomizedDialogs>
         </Grid>
     )

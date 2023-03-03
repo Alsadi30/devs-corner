@@ -7,7 +7,6 @@ import Input from '../../../../../material-ui/src/Atoms/InputG';
 import MapListItem from '../../../../../material-ui/src/Atoms/MapListItem';
 import { useCreateEducationMutation } from '../../../features/education/educationApi';
 
-type Props = {}
 
 const items = [
 	{
@@ -29,10 +28,10 @@ const items = [
 ];
 
 interface EduProps {
-	data: {
+	data?: {
 		title: string,
 		result: string,
-		passingyear: string,
+		passingyear: number,
 		institute: string,
 	}
 };

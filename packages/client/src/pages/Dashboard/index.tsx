@@ -1,12 +1,8 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import CustomizedDialogs from '../../../../material-ui/src/Atoms/Modal/index';
-
-import Layout from '../../components/Layout';
 import Section from '../../../../material-ui/src/Organisms/Section/index';
-import ProfilePic from '../../assets/avatar.jpg';
-import CoverPath from '../../assets/Cover.jpg';
-import JS from '../../assets/JS.webp';
+import Layout from '../../components/Layout';
 import AboutModal from '../../components/ModalItems/AboutModal';
 import CredentialModel from '../../components/ModalItems/CredentialModal';
 import EducationModal from '../../components/ModalItems/EducationModal';
@@ -14,17 +10,15 @@ import ExperienceModal from '../../components/ModalItems/ExperienceModal';
 import ProfileModal from '../../components/ModalItems/ProfileModal';
 import ProjectModal from '../../components/ModalItems/ProjectModal';
 import SkillModal from '../../components/ModalItems/SkillModal';
+import BasicProfile from '../../components/SectionItems/BasicProfile';
 import CredentialItem from '../../components/SectionItems/CredentialItem';
 import EducationItem from '../../components/SectionItems/EducationItem';
 import ExperienceItem from '../../components/SectionItems/ExperienceItem';
 import LinkSection from '../../components/SectionItems/LinkSection';
-import RepositoryItem from '../../components/SectionItems/ProjectItem';
+import ProjectItem from '../../components/SectionItems/ProjectItem';
 import SkillSection from '../../components/SectionItems/SkillSection';
 import SocialMedia from '../../components/SectionItems/SocialMediaSection';
 import { useGetUserQuery } from '../../features/user/userApi';
-import { Socialmedia } from '../../../../server/models/socialmedia';
-import BasicProfile from '../../components/SectionItems/BasicProfile';
-import ProjectItem from '../../components/SectionItems/ProjectItem';
 
 
 type Props = {};

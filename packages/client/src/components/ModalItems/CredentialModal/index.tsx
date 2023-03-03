@@ -35,9 +35,19 @@ const items = [
     },
 ]
 
+interface credModPros {
+    data?: {
+        title: string
+        institution: string
+        image: string
+        achivedAt: number
+        courseDuration: string
+        cartificateId: string
+        cartificateUrl: string
+    }
+}
 
-
-const CredentialModel = ({ item: data }: CredentialProps) => {
+const CredentialModel = ({ data }: credModPros) => {
 
     const { control, handleSubmit, formState: { errors }, } = useForm({
         defaultValues: data && {

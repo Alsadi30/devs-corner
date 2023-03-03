@@ -7,8 +7,6 @@ import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
 import MapListItem from '../../../../../material-ui/src/Atoms/MapListItem';
 import Input from '../../../../../material-ui/src/Atoms/InputG';
 
-type Props = {}
-
 
 const items = [
     {
@@ -31,7 +29,7 @@ const items = [
 
 
 interface ExperienceProps {
-    data: {
+    data?: {
         position: string
         companyName: string
         startAt: string

@@ -6,7 +6,6 @@ import Input from '../../../../../material-ui/src/Atoms/InputG';
 import MapListItem from '../../../../../material-ui/src/Atoms/MapListItem';
 import { useCreateProfileMutation } from '../../../features/profile/profileApi';
 import { profileSchema } from '../../../utils/validation/profileValidation';
-import CoverPhoto from '../../../../../material-ui/src/Molecules/CoverPhoto/index';
 
 const items = [
 	{
@@ -48,7 +47,7 @@ const items = [
 ];
 
 interface ProfileProps {
-	data: {
+	data?: {
 		displayname: string
 		bio: string
 		about: string
