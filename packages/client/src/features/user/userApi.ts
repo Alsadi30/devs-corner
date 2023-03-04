@@ -2,7 +2,7 @@ import jwt_token_data from 'jwt-decode';
 import { apiSlice } from '../api/apiSlice';
 
 const localAuth = localStorage?.getItem('auth');
-let user;
+let user: object;
 if (localAuth) {
 	const auth = JSON.parse(localAuth);
 	user = jwt_token_data(auth?.token);

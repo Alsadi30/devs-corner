@@ -1,5 +1,6 @@
 import { Box } from "@mui/material";
 import Image from "../../Atoms/Avatars/Image";
+import JS from "../../../../client/src/assets/JS.webp"
 import { serverUrl } from "../../../../client/src/utils/serverUrl";
 
 export interface CoverPhotoProps {
@@ -9,7 +10,7 @@ export interface CoverPhotoProps {
 const CoverPhoto = ({ coverPic }: CoverPhotoProps) => {
   return (
     <Box>
-      <Image Src={coverPic} Txt="Cover Photo" Height="250" Width="100%" />
+      <img src={coverPic ? `${serverUrl}/uploads/${coverPic}` : JS} height="250" width="100%" />
     </Box>
   );
 };

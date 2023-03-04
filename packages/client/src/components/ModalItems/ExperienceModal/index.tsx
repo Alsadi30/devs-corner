@@ -1,11 +1,10 @@
-import React from 'react'
-import { Button } from '@mui/material';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
 import { experienceSchema } from '../../../../../client/src/utils/validation/experienceValidation';
+import FormButton from '../../../../../material-ui/src/Atoms/FormButton';
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
-import MapListItem from '../../../../../material-ui/src/Atoms/MapListItem';
 import Input from '../../../../../material-ui/src/Atoms/InputG';
+import MapListItem from '../../../../../material-ui/src/Atoms/MapListItem';
 
 
 const items = [
@@ -34,10 +33,11 @@ interface ExperienceProps {
         companyName: string
         startAt: string
         endAt: string
-    }
+    },
+    onSubmit: (data: object) => void
 }
 
-const ExperienceModal = ({ data }: ExperienceProps) => {
+const ExperienceModal = ({ data, onSubmit }: ExperienceProps) => {
 
     const { control, handleSubmit, formState: { errors }, } = useForm({
         defaultValues: data && {
@@ -49,25 +49,13 @@ const ExperienceModal = ({ data }: ExperienceProps) => {
         }, resolver: yupResolver(experienceSchema)
     });
 
-    const onSubmit = (data: object) => {
-        console.log(data)
-    };
-
-
 
     return (
         <FormContainer maxWidth='700px'
             handleSubmit={handleSubmit(onSubmit)}
         >
             <MapListItem Component={Input} Items={items} other={control} />
-
-            <Button
-                variant="contained"
-                fullWidth={true}
-                sx={{
-                    margin: '10px 0px 0px 0px', bgcolor: 'primary.main', color: 'white'
-                }} type="submit">Submit</Button>
-
+            <FormButton />
         </FormContainer>
     )
 }

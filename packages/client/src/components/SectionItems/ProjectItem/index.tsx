@@ -19,9 +19,10 @@ export interface ProjectItemProps {
 }
 
 const ProjectItem = ({ item }: ProjectItemProps) => {
-	const { liveUrl, name, repoUrl, description } = item;
+	const { id, liveUrl, name, repoUrl, description } = item;
 
 	const [repoopen, setRepoOpen] = useState(false);
+	const [showIcon, setShowIcon] = useState(false)
 
 	const handleProject = () => {
 		setRepoOpen(!repoopen);
@@ -31,12 +32,20 @@ const ProjectItem = ({ item }: ProjectItemProps) => {
 		alert('Do you want to delete this project?');
 	};
 
+	const handleProjectSubmit = (data: object) => {
+		console.log(data, id)
+		handleProject()
+
+	}
+
+
 	return (
-		<Grid container flexDirection={'column'} p={2}>
+		<Grid onMouseOver={() => setShowIcon(true)} onMouseOut={() => setShowIcon(false)} container flexDirection={'column'} p={2}>
 			<ItemTitle
 				title={name}
 				handleDelete={handleProjectDelete}
 				handleEdit={handleProject}
+				showIcon={showIcon}
 			/>
 			<Typography mb={0.5} variant='body1' color={'info.light'}>
 				{description}
@@ -65,7 +74,7 @@ const ProjectItem = ({ item }: ProjectItemProps) => {
 				open={repoopen}
 				handleClose={handleProject}
 			>
-				<ProjectModal data={item} />
+				<ProjectModal onSubmit={handleProjectSubmit} data={item} />
 			</CustomizedDialogs>
 		</Grid>
 	);

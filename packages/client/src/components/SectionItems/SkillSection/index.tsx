@@ -8,7 +8,7 @@ import SkillItem from '../SkillItem'
 
 const Types = [{ name: "Language" }, { name: "Tools" }, { name: "Library" }, { name: 'Technology' }, { name: 'Stack' }, { name: "Framework" }]
 
-type Props = {
+interface Props {
     Items: Array<object>
     handleClick: () => void
 }

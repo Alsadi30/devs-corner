@@ -1,19 +1,15 @@
-import { Button } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import FormButton from '../../../../../material-ui/src/Atoms/FormButton';
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
 
 
-type Props = {}
+interface Props {
+    onSubmit: (data: object) => void
+}
 
-const SkillModal = (props: Props) => {
+const SkillModal = ({ onSubmit }: Props) => {
 
     const { control, handleSubmit, formState: { errors }, } = useForm();
-
-    const onSubmit = (data: object) => {
-        console.log(data)
-    };
-
-
     return (
         <FormContainer
             handleSubmit={handleSubmit(onSubmit)}
@@ -21,12 +17,7 @@ const SkillModal = (props: Props) => {
 
             {/* after getting all skill data, need to make a filter or select option here for adding that skill to this user. */}
 
-            <Button
-                variant="contained"
-                fullWidth={true}
-                sx={{
-                    margin: '10px 0px', bgcolor: 'primary.main', color: 'white'
-                }} type="submit">Submit</Button>
+            <FormButton />
 
         </FormContainer>
     )

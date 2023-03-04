@@ -9,6 +9,7 @@ import CredentialModel from '../../ModalItems/CredentialModal';
 
 export interface CredentialProps {
     item: {
+        id: string
         title: string
         institution: string
         image: string
@@ -21,8 +22,9 @@ export interface CredentialProps {
 
 const CredentialItem = ({ item }: CredentialProps) => {
 
-    const { title, institution, cartificateId, cartificateUrl, image, achivedAt, courseDuration } = item
+    const { id, title, institution, cartificateId, cartificateUrl, image, achivedAt, courseDuration } = item
     const [credopen, setCredOpen] = useState(false);
+    const [showIcon, setShowIcon] = useState(false)
 
     const handleCredential = () => {
         setCredOpen(!credopen);
@@ -32,10 +34,15 @@ const CredentialItem = ({ item }: CredentialProps) => {
         alert('Do you want to delete this Credential?')
     }
 
-    return (
-        <Grid container flexDirection={'column'} p={2} maxWidth={'50%'} pr={7} >
+    const handleCredSubmit = (data: object) => {
+        console.log(data, id)
+        handleCredential()
+    }
 
-            <ItemTitle title={title} handleDelete={handleCredentialDelete} handleEdit={handleCredential} />
+    return (
+        <Grid onMouseOver={() => setShowIcon(true)} onMouseOut={() => setShowIcon(false)} container flexDirection={'column'} p={2} maxWidth={'50%'} pr={7} >
+
+            <ItemTitle title={title} handleDelete={handleCredentialDelete} handleEdit={handleCredential} showIcon={showIcon} />
             <Typography pb={.5} variant='body1' color={'info.light'} >
                 {institution}
             </Typography>
@@ -48,7 +55,7 @@ const CredentialItem = ({ item }: CredentialProps) => {
                 open={credopen}
                 handleClose={handleCredential}
             >
-                <CredentialModel data={item} />
+                <CredentialModel onSubmit={handleCredSubmit} data={item} />
             </CustomizedDialogs>
         </Grid>
     )

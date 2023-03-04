@@ -1,13 +1,12 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { projectSchema } from '../../../../../client/src/utils/validation/projectValidation';
+import FormButton from '../../../../../material-ui/src/Atoms/FormButton';
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
 import Input from '../../../../../material-ui/src/Atoms/InputG';
 import MapListItem from '../../../../../material-ui/src/Atoms/MapListItem';
-import { useCreateProjectMutation } from '../../../features/project/projectApi';
 
-type Props = {};
+
 
 const items = [
 	{
@@ -36,11 +35,11 @@ interface ProjectProps {
 		description: string;
 		repoUrl: string;
 		liveUrl: string;
-	};
+	},
+	onSubmit: (data: object) => void
 }
 
-const ProjectModal = ({ data }: ProjectProps) => {
-	const [createProject] = useCreateProjectMutation();
+const ProjectModal = ({ data, onSubmit }: ProjectProps) => {
 
 	const {
 		control,
@@ -55,27 +54,10 @@ const ProjectModal = ({ data }: ProjectProps) => {
 		},
 		resolver: yupResolver(projectSchema),
 	});
-
-	const onSubmit = (data: object) => {
-		createProject(data);
-	};
-
 	return (
 		<FormContainer handleSubmit={handleSubmit(onSubmit)}>
 			<MapListItem Component={Input} Items={items} other={control} />
-
-			<Button
-				variant='contained'
-				fullWidth={true}
-				sx={{
-					margin: '10px 0px',
-					bgcolor: 'primary.main',
-					color: 'white',
-				}}
-				type='submit'
-			>
-				Submit
-			</Button>
+			<FormButton />
 		</FormContainer>
 	);
 };

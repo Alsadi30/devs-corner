@@ -7,6 +7,7 @@ import EducationModal from '../../ModalItems/EducationModal';
 
 export interface EducationProps {
 	item: {
+		id: string
 		title: string;
 		result: string;
 		passingyear: number;
@@ -17,8 +18,9 @@ export interface EducationProps {
 const EducationItem = ({ item }: EducationProps) => {
 
 
-	const { title, institute, passingyear, result } = item
+	const { id, title, institute, passingyear, result } = item
 	const [eduopen, setEduOpen] = useState(false);
+	const [showIcon, setShowIcon] = useState(false)
 	const handleEducation = () => {
 		setEduOpen(!eduopen);
 	};
@@ -27,10 +29,16 @@ const EducationItem = ({ item }: EducationProps) => {
 		alert('Do you want to delete this Degree?')
 	}
 
+	const handleEduSubmit = (data: object) => {
+		console.log(data, id)
+		handleEducation()
+	}
+
+
 	return (
-		<Grid container p={2} justifyContent={'space-between'} >
+		<Grid onMouseOver={() => setShowIcon(true)} onMouseOut={() => setShowIcon(false)} container p={2} justifyContent={'space-between'} >
 			<Grid minWidth={'20%'} >
-				<ItemTitle handleDelete={handleEducationDelete} handleEdit={handleEducation} title={title} color={'info.light'} />
+				<ItemTitle handleDelete={handleEducationDelete} handleEdit={handleEducation} title={title} color={'info.light'} showIcon={showIcon} />
 				<Typography variant='body1' color={'info.dark'}  >
 					{institute}
 				</Typography>
@@ -46,7 +54,7 @@ const EducationItem = ({ item }: EducationProps) => {
 				open={eduopen}
 				handleClose={handleEducation}
 			>
-				<EducationModal data={item} />
+				<EducationModal onSubmit={handleEduSubmit} data={item} />
 			</CustomizedDialogs>
 		</Grid>
 	)
