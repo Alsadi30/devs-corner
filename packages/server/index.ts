@@ -8,7 +8,7 @@ const MyDataSource = require('./config/database')
 const app = express()
 
 app.use(express.json());
-const port = 3000
+const port = 4000
 
 app.use(express.static(path.join(__dirname, 'public')));
 
