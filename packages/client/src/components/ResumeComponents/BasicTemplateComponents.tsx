@@ -8,6 +8,13 @@ import phone from "./../../assets/logos/phone.png";
 export const SectionContainer = ({ children }: any) => {
   return <Box sx={{ padding: "2rem 2rem 1rem 2rem" }}>{children}</Box>;
 };
+export const SectionHeader = (Header: string) => {
+  return (
+    <Typography variant="h3" color="initial" sx={{ color: "#336699" }}>
+      {Header}
+    </Typography>
+  );
+};
 
 type BasicIntroPropsType = {
   Name: string;
@@ -17,10 +24,10 @@ type BasicIntroPropsType = {
 export const BasicIntro = ({ Name, Position, About }: BasicIntroPropsType) => {
   return (
     <SectionContainer>
-      <Typography variant="h1" color="initial">
+      <Typography variant="h1" color="initial" sx={{ color: "#336699" }}>
         MD. Ariful Islam
       </Typography>
-      <Typography variant="h3" color="initial">
+      <Typography variant="h3" color="initial" sx={{ color: "grey" }}>
         Software Engineer (MERN)
       </Typography>
       <Typography variant="h6" color="initial">
@@ -33,9 +40,19 @@ export const BasicIntro = ({ Name, Position, About }: BasicIntroPropsType) => {
 };
 type ContactItemPropsType = {
   Logo: string;
+  Alt: string;
   Text: string;
 };
-export const ContactItem = ({ Logo, Text }: ContactItemPropsType) => {};
+export const ContactItem = ({ Logo, Alt, Text }: ContactItemPropsType) => {
+  return (
+    <Box sx={{ display: "flex", flexDirection: "row" }}>
+      <Image Src={Logo} Txt={Alt} Height="20px" Width="20px" />
+      <Typography variant="h6" color="initial" sx={{ paddingLeft: "10px" }}>
+        {Text}
+      </Typography>
+    </Box>
+  );
+};
 export const Contact = () => {
   return (
     <Box>
@@ -48,30 +65,10 @@ export const Contact = () => {
           padding: "10px",
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "row" }}>
-          <Image Src={email} Txt="email" Height="20px" Width="20px" />
-          <Typography variant="h6" color="initial" sx={{ paddingLeft: "10px" }}>
-            ariksdlkj@gmail.com
-          </Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "row" }}>
-          <Image Src={phone} Txt="email" Height="20px" Width="20px" />
-          <Typography variant="h6" color="initial" sx={{ paddingLeft: "10px" }}>
-            01894456813
-          </Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "row" }}>
-          <Image Src={location} Txt="email" Height="20px" Width="20px" />
-          <Typography variant="h6" color="initial" sx={{ paddingLeft: "10px" }}>
-            Dhaka, Bangladesh
-          </Typography>
-        </Box>
-        <Box sx={{ display: "flex", flexDirection: "row" }}>
-          <Image Src={linkedin} Txt="email" Height="20px" Width="20px" />{" "}
-          <Typography variant="h6" color="initial" sx={{ paddingLeft: "10px" }}>
-            in/jjhbbmnb
-          </Typography>
-        </Box>
+        <ContactItem Logo={email} Alt="email" Text="kjsdhkjh@gmail.com" />
+        <ContactItem Logo={phone} Alt="email" Text="01894456813" />
+        <ContactItem Logo={location} Alt="email" Text="Dhaka, Bangladesh" />
+        <ContactItem Logo={linkedin} Alt="email" Text="in/jjhbbmnb" />
       </Box>
       <HrLine />
     </Box>
