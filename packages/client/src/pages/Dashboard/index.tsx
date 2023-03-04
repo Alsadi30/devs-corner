@@ -25,6 +25,7 @@ const Dashboard = () => {
     if (isLoading || !userData) {
         return <div>...Loading</div>
     }
+    console.log(userData[0])
 
     const { profile, projects, skills, credentials, education, experience, socialmedia } = userData[0]
 
