@@ -35,7 +35,9 @@ const findUserByProperty = async (key, value) => {
 				id: value
 			},
 			relations: {
-				skills: true,
+				skills: {
+					skilltype: true
+				},
 				experience: true,
 				projects: true,
 				socialmedia: true,

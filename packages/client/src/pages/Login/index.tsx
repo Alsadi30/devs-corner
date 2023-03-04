@@ -1,12 +1,13 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button, Grid, Typography } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import { useEffect } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
+import FormButton from '../../../../material-ui/src/Atoms/FormButton';
 import FormContainer from '../../../../material-ui/src/Atoms/FormContainer';
 import Input from '../../../../material-ui/src/Atoms/InputG';
 import MapListItem from '../../../../material-ui/src/Atoms/MapListItem/index';
-import Layout from '../../../../material-ui/src/Organisms/Layout';
+import Layout from '../../components/Layout';
 import { useLoginMutation } from '../../features/auth/authApi';
 import { loginSchema } from '../../utils/validation/AuthValidation';
 
@@ -27,17 +28,13 @@ let inputs = [
 ];
 
 const Login = () => {
-	const [login, { data, isLoading, error: responseError }] =
-		useLoginMutation();
+
+	const [login, { data, isLoading, error: responseError }] = useLoginMutation();
 
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (responseError?.data) {
-			console.log('Err' + responseError?.data);
-		}
 		if (data?.token && data?.user) {
-			console.log('U data' + data?.user);
 			navigate('/dashboard');
 		}
 	}, [data, responseError, navigate]);
@@ -75,18 +72,7 @@ const Login = () => {
 							other={control}
 						/>
 
-						<Button
-							variant='contained'
-							fullWidth={true}
-							sx={{
-								margin: '10px 0px',
-								bgcolor: 'primary.main',
-								color: 'white',
-							}}
-							type='submit'
-						>
-							Submit
-						</Button>
+						<FormButton />
 
 						<Typography
 							variant='h5'

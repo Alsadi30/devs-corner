@@ -43,7 +43,7 @@ const deleteSocialController = async (req, res, next) => {
     const social = await socialRepository.findOneBy({ id: socialId })
 
     if (!social) {
-        throw Error('experience not found')
+        throw Error('Link not found')
     }
     try {
         await socialRepository.remove(social)

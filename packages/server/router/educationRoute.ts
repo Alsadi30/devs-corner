@@ -1,6 +1,7 @@
 const {
     createEducationController,
-    deleteEducationController
+    deleteEducationController,
+    updateEducationController
 } = require('../controller/educationController')
 const router = require('express').Router();
 /**
@@ -12,7 +13,7 @@ router.get('/:Id',);
 //  * Update  by id
 //  * @method PUT
 //  */
-router.put('/:Id',);
+router.put('/:Id', updateEducationController);
 
 // /**
 //  * Update  by id

@@ -8,7 +8,7 @@ interface IconWithTextProps {
     color?: string
 }
 
-const IconWithText = ({ children, text, variant = 'subtitle1', color = 'info.dark' }: PropsWithChildren<IconWithTextProps>) => {
+const IconWithText = ({ children, text, variant = 'body2', color = 'info.dark' }: PropsWithChildren<IconWithTextProps>) => {
     return (
         <Grid container >
             <Grid item color='info' pt={.5} >{children}</Grid>

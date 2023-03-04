@@ -1,4 +1,4 @@
-const { createSkillController, deleteSkillController, addSkilltoUser, getAllSkill, removeSkilltoUser } = require('../controller/skillController')
+const { createSkillController, deleteSkillController, addSkilltoUser, getAllSkill, removeSkillFromUser } = require('../controller/skillController')
 const upload = require('../middleware/multer')
 const router = require('express').Router();
 const authenticate = require('../middleware/authenticate')
@@ -16,7 +16,8 @@ router.post('/:skillId', authenticate, addSkilltoUser)
  */
 router.post('/', upload.single('thumbnail'), createSkillController);
 
-router.delete('/:skillId', authenticate, removeSkilltoUser)
+
+router.delete('/:skillId', authenticate, removeSkillFromUser)
 
 
 // /**
@@ -26,10 +27,6 @@ router.delete('/:skillId', authenticate, removeSkilltoUser)
 router.put('/:Id',);
 
 
-// /**
-//  * Delete  by id
-//  */
-// router.delete('/:Id', deleteSkillController);
 
 // /**
 //  * Get all 
