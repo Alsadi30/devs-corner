@@ -1,13 +1,11 @@
 import { yupResolver } from '@hookform/resolvers/yup';
-import React from 'react'
+import { TextField } from '@mui/material';
 import { useForm } from 'react-hook-form';
+import FormButton from '../../../../../material-ui/src/Atoms/FormButton';
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
-import MapListItem from '../../../../../material-ui/src/Atoms/MapListItem';
 import Input from '../../../../../material-ui/src/Atoms/InputG';
-import { Button, TextField } from '@mui/material';
-import { socialMediaSchema } from '../../../utils/validation/socialMediaValidation';
 import { InputStyle } from '../../../../../material-ui/src/Atoms/InputG/Input.style';
-import ItemTitle from '../../../../../material-ui/src/Molecules/ItemTitleWithIcon';
+import { socialMediaSchema } from '../../../utils/validation/socialMediaValidation';
 
 type Props = {}
 
@@ -56,12 +54,7 @@ const SocialMediaModal = (props: Props) => {
          /** here We will show the existing socialMedia with edit and delete button  */
             {/* <ItemTitle title='dsfkl' /> */}
 
-            <Button
-                variant="contained"
-                fullWidth={true}
-                sx={{
-                    margin: '10px 0px', bgcolor: 'primary.main', color: 'white'
-                }} type="submit">Submit</Button>
+            <FormButton />
 
         </FormContainer>
     )

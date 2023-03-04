@@ -9,17 +9,18 @@ import { useState } from 'react';
 export interface ItemtitleProps {
     title: string
     color?: string
+    showIcon: boolean
     handleEdit: () => void
     handleDelete: () => void
 }
 
-const ItemTitle = ({ title, color = 'info.dark', handleDelete, handleEdit }: ItemtitleProps) => {
+const ItemTitle = ({ title, color = 'info.dark', showIcon, handleDelete, handleEdit }: ItemtitleProps) => {
 
-    const [showIcon, setShowIcon] = useState(false)
+
 
     return (
 
-        <Grid container justifyContent={'space-between'} pb={.5} onMouseOver={() => setShowIcon(true)} onMouseOut={() => setShowIcon(false)}  >
+        <Grid container justifyContent={'space-between'} pb={.5}  >
             <Grid item >
                 <Typography mb={.5} variant='h5' color={color} > {title} </Typography>
             </Grid>

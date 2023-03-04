@@ -5,7 +5,6 @@ const { createSkillTypeController, updateSkillTypeController, deleteSkillTypeCon
 /**
  * Get  by id 
  */
-const hello = () => console.log('iam hello')
 router.post('/', createSkillTypeController);
 
 // /**

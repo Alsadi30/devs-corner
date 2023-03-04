@@ -6,9 +6,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import FormContainer from '../../../../material-ui/src/Atoms/FormContainer';
 import Input from '../../../../material-ui/src/Atoms/InputG';
 import MapListItem from '../../../../material-ui/src/Atoms/MapListItem/index';
-import Layout from '../../../../material-ui/src/Organisms/Layout/index';
+import Layout from '../../components/Layout/index';
 import { useRegisterMutation } from '../../features/auth/authApi';
 import { registerSchema } from '../../utils/validation/AuthValidation';
+import FormButton from '../../../../material-ui/src/Atoms/FormButton';
 
 export interface RegisterFormInput {
 	username: string;
@@ -48,17 +49,12 @@ const Register = () => {
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		if (responseError?.data) {
-			console.log('Err' + responseError?.data);
-		}
 		if (data) {
-			// console.log('U data' + JSON.stringify(data?.user));
-			// @TODO: if token will come we don't have to redirect "LOGIN" page
 			navigate('/login');
 		}
 	}, [data, responseError, navigate]);
 
-	//use of react hook from with validation by yup
+	//use of react hook form with validation by yup
 	const {
 		control,
 		handleSubmit,
@@ -99,19 +95,7 @@ const Register = () => {
 							Component={Input}
 							other={control}
 						/>
-
-						<Button
-							variant='contained'
-							fullWidth={true}
-							sx={{
-								margin: '10px 0px',
-								bgcolor: 'primary.main',
-								color: 'white',
-							}}
-							type='submit'
-						>
-							Submit
-						</Button>
+						<FormButton />
 
 						<Typography
 							variant='h5'

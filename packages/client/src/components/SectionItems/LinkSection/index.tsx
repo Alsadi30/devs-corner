@@ -11,7 +11,7 @@ interface Props {
 
 const LinkSection = (props: Props) => {
     return (
-        <Grid container justifyContent={'space-between'} >
+        <Grid container justifyContent={'space-between'} px={2} >
             <Grid item >
                 <IconWithText text='Build Resume' variant={'h3'} color='info.light' > <PostAddIcon color='info' /> </IconWithText>
             </Grid>

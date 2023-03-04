@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "../client/src/components/SectionItems/CredentialItem", "../client/src/components/SectionItems/SkillSection", "../client/src/components/SectionItems/SkillSection"],
+  "include": ["src", "../client/src/components/SectionItems/CredentialItem", "../client/src/components/SectionItems/SkillSection", "../client/src/components/SectionItems/SkillSection", "../client/src/components/Layout"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,11 +1,10 @@
-import React from 'react'
-import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { Button } from '@mui/material';
+import { useForm } from 'react-hook-form';
 import { credentialSchema } from '../../../../../client/src/utils/validation/credentialValidation';
+import FormButton from '../../../../../material-ui/src/Atoms/FormButton/index';
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
-import MapListItem from '../../../../../material-ui/src/Atoms/MapListItem';
 import Input from '../../../../../material-ui/src/Atoms/InputG/index';
+import MapListItem from '../../../../../material-ui/src/Atoms/MapListItem';
 
 
 const items = [
@@ -34,47 +33,41 @@ const items = [
     },
 ]
 
+interface credModPros {
+    data?: {
+        title: string
+        institution: string
+        image: string
+        achivedAt: number
+        courseDuration: string
+        cartificateId: string
+        cartificateUrl: string
+    },
+    onSubmit: (data: object) => void
+}
 
-type Props = {}
+const CredentialModel = ({ data, onSubmit }: credModPros) => {
 
-const CredentialModel = (props: Props) => {
-    const { control, handleSubmit, formState: { errors }, } = useForm({
-        defaultValues: {
-            title: '',
-            image: '',
-            institution: '',
-            cartificateUrl: '',
-            cartificateId: '',
-            courseDuration: '',
-            achivedAt: ''
+    const { control, handleSubmit, formState: { errors } } = useForm({
+        defaultValues: data && {
+            title: data.title,
+            image: data.image,
+            institution: data.institution,
+            cartificateUrl: data.cartificateUrl,
+            cartificateId: data.cartificateId,
+            courseDuration: data.courseDuration,
+            achivedAt: data.achivedAt
 
-        }, resolver: yupResolver(credentialSchema)
+        },
+        resolver: yupResolver(credentialSchema)
     });
-    const formData = new FormData()
-
-    const onSubmit = (data: object) => {
-        for (const [key, value] of Object.entries(data)) {
-            console.log(`${key}: ${value}`)
-            formData.append(key, value)
-        }
-    };
-
-
 
     return (
         <FormContainer
             handleSubmit={handleSubmit(onSubmit)}
         >
-
-
             <MapListItem Component={Input} Items={items} other={control} />
-
-            <Button
-                variant="contained"
-                fullWidth={true}
-                sx={{
-                    margin: '10px 0px', bgcolor: 'primary.main', color: 'white'
-                }} type="submit">Submit</Button>
+            <FormButton />
 
         </FormContainer>
     )
