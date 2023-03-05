@@ -61,7 +61,7 @@ export const Theme = createTheme({
       letterSpacing: "0.00735em",
     },
     h5: {
-      fontSize: "1rem",
+      fontSize: "1.2rem",
       fontWeight: 400,
       lineHeight: 1.2,
       letterSpacing: "0em",

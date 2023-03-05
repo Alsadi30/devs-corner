@@ -1,5 +1,4 @@
-import { Profile } from './../models/profile';
-
+const { Profile } = require('../models/profile')
 const { User } = require('../models/user')
 const MyDataSource = require('../config/database')
 
@@ -64,7 +63,15 @@ const editProfileController = async (req, res, next) => {
 
     try {
         const updatedProfile = await profileRepository.update(id, {
-            bio: bio, displayname: displayname, about: about, dateofBirth: dateofBirth, nationality: nationality, location: location, gender: gender
+            bio: bio,
+            displayname: displayname,
+            about: about,
+            dateofBirth: dateofBirth,
+            nationality: nationality,
+            location: location,
+            gender: gender,
+            profilePic: profilePic,
+            coverPic: coverPic
         })
         return res.status(200).json(updatedProfile)
     } catch (e) {
@@ -92,8 +99,6 @@ const deleteProfileController = async (req, res, next) => {
     } catch (e) {
         console.log(e)
     }
-
-
 
 }
 

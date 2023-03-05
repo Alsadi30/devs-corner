@@ -1,6 +1,6 @@
 
 const router = require('express').Router();
-const { createExperienceController, deleteExperienceController, getExperienceController } = require('../controller/experienceController')
+const { createExperienceController, deleteExperienceController, getExperienceController, updateExperienceController } = require('../controller/experienceController')
 /**
  * Get  by id 
  */
@@ -10,7 +10,7 @@ router.get('/:Id',);
 //  * Update  by id
 //  * @method PUT
 //  */
-router.put('/:Id',);
+router.put('/:Id', updateExperienceController);
 
 // /**
 //  * @method POST

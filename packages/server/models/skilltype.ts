@@ -1,6 +1,5 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn } from "typeorm";
-import { User } from './user';
 import { Skill } from './skill';
+const { Column, Entity, OneToMany, PrimaryGeneratedColumn } = require("typeorm");
 
 
 

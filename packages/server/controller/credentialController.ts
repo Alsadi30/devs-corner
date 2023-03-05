@@ -33,13 +33,35 @@ const createCredentialController = async (req, res, next) => {
 
     try {
         const newCredential = await credentialRepository.save(credential)
-        return res.status(200).json(newCredential)
+        return res.status(201).json(newCredential)
     } catch (e) {
         console.log(e)
     }
 
 
 }
+
+
+const updateCredentialController = async (req, res, next) => {
+
+    const id = req.params.Id
+    const { title, institution, cartificateUrl, cartificateId, courseDuration, achivedAt } = req.body
+    const image = req.file.filename
+
+    try {
+        const newCredential = await credentialRepository.update(id, {
+            title, institution, cartificateUrl, cartificateId, courseDuration, achivedAt, image
+        })
+        return res.status(202).json(newCredential)
+    } catch (e) {
+        console.log(e)
+    }
+
+
+}
+
+
+
 
 const deleteCredentialController = async (req, res, next) => {
 
@@ -54,7 +76,7 @@ const deleteCredentialController = async (req, res, next) => {
     }
     try {
         await credentialRepository.remove(credential)
-        return res.status(203).send()
+        return res.status(200).send()
     } catch (e) {
         console.log(e)
     }
@@ -67,6 +89,7 @@ const deleteCredentialController = async (req, res, next) => {
 
 module.exports = {
     createCredentialController,
+    updateCredentialController,
     deleteCredentialController
 }
 

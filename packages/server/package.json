@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "nodemon index.ts"
+    "dev": "nodemon index.ts",
+    "build": "tsc",
+    "start": "node dist/index.ts"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",

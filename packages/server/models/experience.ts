@@ -1,4 +1,4 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
+const { Column, Entity, ManyToOne, PrimaryGeneratedColumn } = require("typeorm");
 import { User } from './user';
 
 
@@ -11,26 +11,29 @@ export class Experience {
 
     @Column({
         type: "text",
-        nullable:false
+        nullable: false
     })
     position: string
 
     @Column({
         type: "text",
-        nullable:false
+        nullable: false
     })
     companyName: string
 
     @Column({
         type: "date",
-        nullable:false
+        nullable: false
     })
     startAt: Date
 
-    @Column("date")
+    @Column({
+        type: "date",
+        nullable: true
+    })
     endAt: Date
 
     @ManyToOne(() => User, (user) => user.experience)
     user: User
-    
+
 }

@@ -1,10 +1,14 @@
 import { IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import * as React from "react";
-import photo from "../../../../client/src/assets/avatar.jpg";
 import ImageAvatar from "../../Atoms/Avatars/ImageAvatar";
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
-const AvatarMenu = () => {
+
+interface Menutype {
+  profilePic: string
+}
+
+const AvatarMenu = ({ profilePic }: Menutype) => {
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
@@ -17,11 +21,11 @@ const AvatarMenu = () => {
     setAnchorElUser(null);
   };
 
+
   return (
     <>
       <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-        {/* <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" /> */}
-        <ImageAvatar Src={photo} Txt="Name" Size={50} />
+        <ImageAvatar Src={profilePic} Txt="Name" Size={50} />
       </IconButton>
       <Menu
         sx={{ mt: "45px" }}

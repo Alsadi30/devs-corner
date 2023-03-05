@@ -1,6 +1,5 @@
 require('dotenv').config()
-import { Request, Response } from "express"
-const routes = require("./router")
+const routes = require("./router/index")
 const path = require('path');
 const setMiddleware = require("./middleware/index")
 const express = require('express')
@@ -8,13 +7,13 @@ const MyDataSource = require('./config/database')
 const app = express()
 
 app.use(express.json());
-const port = 3000
+const port = 4000
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 setMiddleware(app)
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (req, res) => {
   res.send('ok')
 })
 
@@ -32,3 +31,4 @@ MyDataSource.initialize()
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
 })
+

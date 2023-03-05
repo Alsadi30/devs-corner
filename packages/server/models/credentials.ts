@@ -1,5 +1,7 @@
-import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from './user';
+import { User } from "./user";
+
+const { Column, Entity, ManyToOne, PrimaryGeneratedColumn } = require('typeorm')
+// const { User } = require('./user');
 
 
 
@@ -12,7 +14,7 @@ export class Credentials {
 
     @Column({
         type: "text",
-        nullable:false
+        nullable: false
     })
     title: string
 
@@ -21,33 +23,35 @@ export class Credentials {
 
     @Column({
         type: "text",
-        nullable:false
+        nullable: false
     })
     institution: string
 
     @Column({
-        type: "text"
+        type: "text",
+        nullable: true
     })
     cartificateUrl: string
 
     @Column({
         type: "text",
+        nullable: true
     })
     cartificateId: string
 
     @Column({
         type: "text",
-        nullable:false
+        nullable: false
     })
     courseDuration: string
 
     @Column({
         type: "date",
-        nullable:false
+        nullable: false
     })
     achivedAt: Date
 
     @ManyToOne(() => User, (user) => user.credentials)
     user: User
-    
+
 }
