@@ -1,21 +1,17 @@
 import React from 'react'
 import { Grid } from '@mui/material';
-import SectionHead from '../../Molecules/SectionHead';
-import SectionBody from '../../Atoms/SectionBody';
+import SectionHead, { SectionHeadProps } from '../../Molecules/SectionHead';
 
-type SectionProps = {
-    title: string,
-    handleClick: () => void,
-    items: Array<object>
+import SectionBody, { SectionBodyProps } from '../../Atoms/SectionBody/index';
+
+interface SectionProps extends SectionBodyProps, SectionHeadProps {
 }
 
-const Section = ({ title, handleClick }: SectionProps) => {
+const Section = ({ title, handleClick, text, Component, Items, other }: SectionProps) => {
     return (
-        <Grid>
+        <Grid pt={3} >
             <SectionHead title={title} handleClick={handleClick} />
-            <SectionBody >
-
-            </SectionBody>
+            <SectionBody text={text} Component={Component} Items={Items} other={other} />
         </Grid>
     )
 }

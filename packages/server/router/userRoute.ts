@@ -11,11 +11,6 @@ router.get('/:userId', userController.getUserByID);
 //  */
 router.put('/:userId', userController.putUserById);
 
-// /**
-//  * Update user by id
-//  * @method PATCH
-//  */
-router.patch('/:userId', userController.patchUserById);
 
 // /**
 //  * Delete user by id
@@ -37,3 +32,5 @@ router.get('/', userController.getUsers);
 
 
 module.exports = router;
+
+export { }

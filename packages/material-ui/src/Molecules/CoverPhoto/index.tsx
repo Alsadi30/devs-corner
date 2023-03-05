@@ -1,11 +1,16 @@
 import { Box } from "@mui/material";
-import CoverPath from "../../../../client/src/assets/Cover.jpg";
 import Image from "../../Atoms/Avatars/Image";
+import JS from "../../../../client/src/assets/JS.webp"
+import { serverUrl } from "../../../../client/src/utils/serverUrl";
 
-const CoverPhoto = () => {
+export interface CoverPhotoProps {
+  coverPic: string
+}
+
+const CoverPhoto = ({ coverPic }: CoverPhotoProps) => {
   return (
     <Box>
-      <Image Src={CoverPath} Txt="Cover Photo" Height="250" Width="100%" />
+      <img src={coverPic ? `${serverUrl}/uploads/${coverPic}` : JS} height="250" width="100%" />
     </Box>
   );
 };

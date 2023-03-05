@@ -16,8 +16,8 @@ export class SkillType {
     })
     name: string
 
-    @OneToMany(() => Skill, (skills) => skills.user)
+    @OneToMany(() => Skill, (skills) => skills.skilltype)
     skills: Skill[]
 
-    
+
 }

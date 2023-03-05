@@ -1,7 +1,9 @@
 import { TextField } from "@mui/material";
 import React, { InputHTMLAttributes } from "react";
 import { Controller } from "react-hook-form";
-import { InputStyle } from "./Input.style";
+import { DateInStyle, DateInputStyle, FileInputStyle, FileLabelStyle, Filewarp, InputStyle } from './Input.style';
+import Error from "./error";
+
 
 type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
   item: {
@@ -9,40 +11,75 @@ type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
     type: string;
     isRequired?: boolean;
     fullWidth?: boolean;
-    value?: string;
+    defaultValue?: string | File | Date | number | null;
     style?: object;
   };
-  control: any;
+  other: any;
 };
 
-const Input: React.FC<InputFieldProps> = ({ item, control }) => {
-  const { name, type, isRequired, fullWidth, value, style } = item;
+const InputG: React.FC<InputFieldProps> = ({ item, other }) => {
+  const { name, type, isRequired, fullWidth = true, defaultValue, style } = item;
 
   let label = name.charAt(0).toUpperCase() + name.slice(1);
+
 
   return (
     <Controller
       name={name}
-      control={control}
-      defaultValue={value ? value : ""}
+      control={other}
+      defaultValue={defaultValue && defaultValue}
       render={({ field, fieldState: { error }, formState: { isValid } }) => (
-        <TextField
-          color="secondary"
-          sx={{ ...style, ...InputStyle }}
-          type={type}
-          fullWidth={fullWidth}
-          required={isRequired}
-          {...field}
-          name={name}
-          label={label}
-          size={"small"}
-          variant="filled"
-          error={!!error?.message}
-          helperText={isValid ? "" : error?.message}
-        />
+        type === 'file' ?
+          (<div style={Filewarp}>
+            <div style={FileInputStyle} >
+              <label
+                style={FileLabelStyle}
+                htmlFor={name} >
+                {label}
+              </label>
+              <input
+                style={{ padding: '13px 0px', }}
+                type="file"
+                name={name}
+                onChange={(e) =>
+                  field.onChange({ target: { value: e.target.files[0], name: field.name } })} />
+            </div>
+            {error &&
+              <div style={{ backgroundColor: '#ffffff' }} >
+                <Error message={error.message} />
+              </div>}
+          </div >
+          ) :
+          type === 'date' ? (
+            <div style={DateInputStyle} >
+              <label htmlFor={name} >{label}</label>
+              <input
+                style={DateInStyle}
+                type="date"
+                name={name}
+                {...field}
+              />
+              {error && <Error message={error.message} />}
+            </div>) :
+            <TextField
+              color="secondary"
+              sx={{ ...style, ...InputStyle }}
+              type={type}
+              fullWidth={fullWidth}
+              required={isRequired}
+              {...field}
+              defaultValue={defaultValue}
+              name={name}
+              label={label}
+              size={"small"}
+              variant="filled"
+              error={!!error?.message}
+              helperText={isValid ? "" : error?.message}
+            />
+
       )}
     />
-  );
+  )
 };
 
-export default Input;
+export default InputG;

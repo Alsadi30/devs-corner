@@ -5,7 +5,7 @@ const Intro = ({ Name, Position, Location }: IntroProps) => {
     <Box sx={{ textAlign: "center" }}>
       <Typography variant="h1">{Name}</Typography>
       <Typography variant="h3">{Position}</Typography>
-      <Typography variant="h5">{Location}</Typography>
+      <Typography variant="h5" color={'info.light'} >{Location}</Typography>
     </Box>
   );
 };

@@ -1,5 +1,4 @@
 import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm";
-import { User } from './user';
 import { SkillType } from "./skilltype";
 
 
@@ -17,13 +16,10 @@ export class Skill {
     name: string
 
     @Column("text")
-    image: string
-
-    @ManyToOne(() => User, (user) => user.skill)
-    user: User
+    thumbnail: string
 
     @ManyToOne(() => SkillType, (skilltype) => skilltype.skills)
     skilltype: SkillType
-    
-    
+
+
 }
