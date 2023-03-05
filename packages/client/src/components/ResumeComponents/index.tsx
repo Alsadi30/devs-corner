@@ -2,6 +2,27 @@ import { Box, Grid } from "@mui/material";
 import Layout from "../../../../material-ui/src/Organisms/Layout";
 import { BasicIntro, Contact, WorkExperience } from "./BasicTemplateComponents";
 const BasicTemplate = () => {
+  const experience = [
+    {
+      position: "Senior Softare Engineer",
+      companyName: "Brainstation12",
+      startAt: "20-23-21",
+      endAt: "22-78-43",
+    },
+    {
+      position: "Softare Engineer",
+      companyName: "Therap BD",
+      startAt: "20-23-21",
+      endAt: "22-78-43",
+    },
+    {
+      position: "Fullstack Developer",
+      companyName: "BJIT",
+      startAt: "20-23-21",
+      endAt: "22-78-43",
+    },
+  ];
+
   return (
     <Layout>
       <Grid container justifyContent="center" alignItems="center">
@@ -21,7 +42,7 @@ const BasicTemplate = () => {
         l;kjasdlk;ajsdl;kasjd;laksjdklnczl;kxcj;lsakjd ;askjd"
           />
           <Contact />
-          <WorkExperience />
+          <WorkExperience experience={experience} />
         </Box>
       </Grid>
     </Layout>

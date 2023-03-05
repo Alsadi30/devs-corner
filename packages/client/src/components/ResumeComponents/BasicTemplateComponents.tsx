@@ -112,47 +112,26 @@ export const ExperienceItem = ({
     </Box>
   );
 };
-export const WorkExperience = () => {
-  const experience = [
-    {
-      position: "Senior Softare Engineer",
-      companyName: "Brainstation12",
-      startAt: "20-23-21",
-      endAt: "22-78-43",
-    },
-    {
-      position: "Senior Softare Engineer",
-      companyName: "Brainstation12",
-      startAt: "20-23-21",
-      endAt: "22-78-43",
-    },
-    {
-      position: "Senior Softare Engineer",
-      companyName: "Brainstation12",
-      startAt: "20-23-21",
-      endAt: "22-78-43",
-    },
-  ];
+type jobPropsType = {
+  position: string;
+  companyName: string;
+  startAt: string;
+  endAt: string;
+};
+export const WorkExperience = ({ experience }: any) => {
   return (
     <Section Header="WORK EXPERIENCE">
-      <ExperienceItem
-        position="Senior Softare Engineer"
-        companyName="Brainstation12"
-        startAt="20-23-21"
-        endAt="22-78-43"
-      />
-      <ExperienceItem
-        position="Softare Engineer"
-        companyName="Therap BD"
-        startAt="20-23-21"
-        endAt="22-78-43"
-      />
-      <ExperienceItem
-        position="FullStack Developer"
-        companyName="BJIT"
-        startAt="20-23-21"
-        endAt="22-78-43"
-      />
+      {experience.map((job: jobPropsType, index: number) => {
+        return (
+          <ExperienceItem
+            key={index}
+            position={job.position}
+            companyName={job.companyName}
+            startAt={job.startAt}
+            endAt={job.endAt}
+          />
+        );
+      })}
     </Section>
   );
 };
