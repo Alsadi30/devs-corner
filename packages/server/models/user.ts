@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToOne, JoinColumn, OneToMany, ManyToMany, JoinTable } from 'typeorm';
+const { Column, Entity, OneToOne, OneToMany, JoinColumn, ManyToMany, PrimaryGeneratedColumn, JoinTable } = require("typeorm");
 import { Profile } from './profile';
 import { Skill } from "./skill";
 import { Experience } from "./experience";
