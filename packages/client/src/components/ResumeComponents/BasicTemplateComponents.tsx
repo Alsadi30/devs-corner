@@ -137,7 +137,20 @@ export const WorkExperience = ({ experience }: any) => {
 };
 
 export const SkillItem = ({ name }: any) => {
-  return <Typography variant="h6">{name}</Typography>;
+  return (
+    <Typography
+      variant="h6"
+      sx={{
+        padding: "5px 10px",
+        margin: "5px",
+        backgroundColor: "#336699",
+        color: "white",
+        borderRadius: "10px",
+      }}
+    >
+      {name}
+    </Typography>
+  );
 };
 
 export const Skill = ({ skills }: any) => {
