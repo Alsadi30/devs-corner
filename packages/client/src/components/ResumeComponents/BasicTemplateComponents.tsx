@@ -1,5 +1,5 @@
 import { Box, Link, Typography } from "@mui/material";
-import Image from "../../../../material-ui/src/Atoms/Avatars/Image";
+import LocalImage from "../../../../material-ui/src/Atoms/Avatars/LocalImage";
 import email from "./../../assets/logos/email.png";
 import linkedin from "./../../assets/logos/linkedin.png";
 import location from "./../../assets/logos/location.png";
@@ -60,7 +60,7 @@ type ContactItemPropsType = {
 export const ContactItem = ({ Logo, Alt, Text }: ContactItemPropsType) => {
   return (
     <Box sx={{ display: "flex", flexDirection: "row" }}>
-      <Image Src={Logo} Txt={Alt} Height="20px" Width="20px" />
+      <LocalImage Src={Logo} Txt={Alt} Height="20px" Width="20px" />
       <Typography variant="h6" color="initial" sx={{ paddingLeft: "10px" }}>
         {Text}
       </Typography>

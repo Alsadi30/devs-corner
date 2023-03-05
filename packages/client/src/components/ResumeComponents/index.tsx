@@ -1,6 +1,6 @@
 import { Box, Grid } from "@mui/material";
-import Layout from "../../../../material-ui/src/Organisms/Layout";
 import Data from "./../../assets/Data.json";
+import Layout from "./../Layout";
 import {
   BasicIntro,
   Contact,
