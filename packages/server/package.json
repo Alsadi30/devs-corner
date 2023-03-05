@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "nodemon index.ts",
-    "start": "node index.ts"
+    "build": "tsc",
+    "start": "node dist/index.ts"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
