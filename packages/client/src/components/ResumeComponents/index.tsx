@@ -1,6 +1,13 @@
 import { Box, Grid } from "@mui/material";
 import Layout from "../../../../material-ui/src/Organisms/Layout";
-import { BasicIntro, Contact, WorkExperience } from "./BasicTemplateComponents";
+import Data from "./../../assets/Data.json";
+import {
+  BasicIntro,
+  Contact,
+  Skill,
+  WorkExperience,
+} from "./BasicTemplateComponents";
+
 const BasicTemplate = () => {
   const experience = [
     {
@@ -43,6 +50,7 @@ const BasicTemplate = () => {
           />
           <Contact />
           <WorkExperience experience={experience} />
+          <Skill skills={Data.skills} />
         </Box>
       </Grid>
     </Layout>

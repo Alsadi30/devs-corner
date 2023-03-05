@@ -135,3 +135,24 @@ export const WorkExperience = ({ experience }: any) => {
     </Section>
   );
 };
+
+export const SkillItem = ({ name }: any) => {
+  return <Typography variant="h6">{name}</Typography>;
+};
+
+export const Skill = ({ skills }: any) => {
+  type skillType = {
+    id: string;
+    name: string;
+    thumbnail: string;
+  };
+  return (
+    <Section Header="SKILLS">
+      <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+        {skills.map((skill: skillType, index: number) => {
+          return <SkillItem key={index} name={skill.name} />;
+        })}
+      </Box>
+    </Section>
+  );
+};
