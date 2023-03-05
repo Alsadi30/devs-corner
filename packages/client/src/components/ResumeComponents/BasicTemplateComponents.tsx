@@ -92,7 +92,67 @@ export const Contact = () => {
 export const HrLine = () => {
   return <Box sx={{ borderTop: "3px #336699 solid" }}></Box>;
 };
-
+type ExperienceItemPropsType = {
+  position: string;
+  companyName: string;
+  startAt: string;
+  endAt: string;
+};
+export const ExperienceItem = ({
+  position,
+  companyName,
+  startAt,
+  endAt,
+}: ExperienceItemPropsType) => {
+  return (
+    <Box sx={{ display: "flex", flexDirection: "row", alignItems: "end" }}>
+      <Typography variant="h4">{`* ${position} `}</Typography>
+      <Typography variant="h5">{`, ${companyName} `}</Typography>
+      <Typography variant="h6">{`, ${startAt} to ${endAt}`}</Typography>
+    </Box>
+  );
+};
 export const WorkExperience = () => {
-  return <Section Header="WORK EXPERIENCE"></Section>;
+  const experience = [
+    {
+      position: "Senior Softare Engineer",
+      companyName: "Brainstation12",
+      startAt: "20-23-21",
+      endAt: "22-78-43",
+    },
+    {
+      position: "Senior Softare Engineer",
+      companyName: "Brainstation12",
+      startAt: "20-23-21",
+      endAt: "22-78-43",
+    },
+    {
+      position: "Senior Softare Engineer",
+      companyName: "Brainstation12",
+      startAt: "20-23-21",
+      endAt: "22-78-43",
+    },
+  ];
+  return (
+    <Section Header="WORK EXPERIENCE">
+      <ExperienceItem
+        position="Senior Softare Engineer"
+        companyName="Brainstation12"
+        startAt="20-23-21"
+        endAt="22-78-43"
+      />
+      <ExperienceItem
+        position="Softare Engineer"
+        companyName="Therap BD"
+        startAt="20-23-21"
+        endAt="22-78-43"
+      />
+      <ExperienceItem
+        position="FullStack Developer"
+        companyName="BJIT"
+        startAt="20-23-21"
+        endAt="22-78-43"
+      />
+    </Section>
+  );
 };

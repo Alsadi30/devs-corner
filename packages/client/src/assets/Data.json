@@ -1,0 +1,192 @@
+{
+  "id": "8e20d483-a61c-40ca-b73f-1edc59789a40",
+  "username": "test",
+  "email": "test@gmail.com",
+  "password": "$2a$10$M4aFOacuwrRR.vUkYIyQ5uzS0cadNIvWrCdtBk4HtUPcVj.0PJQ.K",
+  "phone": 147258963,
+  "isVarified": false,
+  "role": "developer",
+  "skills": [
+    {
+      "id": "19d78107-b907-42a4-a2e0-3e63e91e73ca",
+      "name": "MERN",
+      "thumbnail": "thumbnail-1677838627010-node-js-javascript-web-application-express-js-computer-software-others.webp"
+    },
+    {
+      "id": "5a4e157f-e81f-4208-9c3b-e112e8798b69",
+      "name": "NodeJs",
+      "thumbnail": "thumbnail-1677838584954-node-js-javascript-web-application-express-js-computer-software-others.webp"
+    },
+    {
+      "id": "8aeb513b-2940-4683-8d45-e99d61ea2cbd",
+      "name": "React Router",
+      "thumbnail": "thumbnail-1677838504275-logo-react-router.webp"
+    },
+    {
+      "id": "360d6f4c-de5f-4125-9f21-c3d32e039743",
+      "name": "Angular",
+      "thumbnail": "thumbnail-1677838398426-angular.webp"
+    },
+    {
+      "id": "319d3083-7ca7-4b3a-83e7-c33a9102c31b",
+      "name": "React",
+      "thumbnail": "thumbnail-1677838272365-React.webp"
+    },
+    {
+      "id": "a4965da5-b410-4e6d-aef6-3d761e013c65",
+      "name": "JavaScript",
+      "thumbnail": "thumbnail-1677838093377-JS.webp"
+    }
+  ],
+  "experience": [
+    {
+      "id": "9ba03164-289b-4e89-afaf-f8b2a0a9905b",
+      "position": "FrontEnd Developer",
+      "companyName": "Dev's Corner",
+      "startAt": "2021-01-03",
+      "endAt": "2022-01-02"
+    },
+    {
+      "id": "3dc086ee-4db6-4502-9c62-989f9e435bda",
+      "position": "FrontEnd Developer",
+      "companyName": "Dev's Corner",
+      "startAt": "2023-01-02",
+      "endAt": null
+    }
+  ],
+  "projects": [
+    {
+      "id": "a5d869d5-387a-4f9c-91aa-850a93091af5",
+      "name": "Devs' Corner",
+      "description": "A dedicated web app for developers",
+      "repoUrl": "https://github.com/Alsadi30/devs-corner/",
+      "liveUrl": "https://github.com/Alsadi30/devs-corner/"
+    },
+    {
+      "id": "7d05c0eb-ae23-4dd9-9b4f-dc2c94c63eed",
+      "name": "Clean Youtube",
+      "description": "A clone of youtube",
+      "repoUrl": "https://github.com/Alsadi30/clean-youtube",
+      "liveUrl": "https://github.com/Alsadi30/clean-youtube"
+    },
+    {
+      "id": "2bed79d4-72e1-4757-8689-b2a3acb4fa24",
+      "name": "Clean Youtube",
+      "description": "A clone of youtube",
+      "repoUrl": "https://github.com/Alsadi30/clean-youtube",
+      "liveUrl": "https://github.com/Alsadi30/clean-youtube"
+    },
+    {
+      "id": "42470eae-99f8-477c-8174-4c441f0cf817",
+      "name": "Clean Youtube",
+      "description": "A clone of youtube",
+      "repoUrl": "https://github.com/Alsadi30/clean-youtube",
+      "liveUrl": "https://github.com/Alsadi30/clean-youtube"
+    },
+    {
+      "id": "bae68c3d-b11a-4c78-9f23-5a3ff10c9e45",
+      "name": "Blog app",
+      "description": " A app for buy and sell",
+      "repoUrl": "https://google.com",
+      "liveUrl": "https://google.com"
+    },
+    {
+      "id": "eea6540e-136b-4248-90e5-78e63fd654ab",
+      "name": "Blog app",
+      "description": " A app for buy and sell",
+      "repoUrl": "https://google.com",
+      "liveUrl": "https://google.com"
+    },
+    {
+      "id": "740b40c0-c02d-4762-adee-e7b677060fb3",
+      "name": "E-commerce App",
+      "description": " A app for buy and sell",
+      "repoUrl": "https://google.com",
+      "liveUrl": "https://google.com"
+    }
+  ],
+  "socialmedia": [
+    {
+      "id": "61c7029c-9564-4d17-9b79-3333a45b32c3",
+      "url": "https://www.youtube.com/",
+      "type": "facebook"
+    },
+    {
+      "id": "2b106f9b-e8da-480b-804d-b47247f551ee",
+      "url": "https://www.youtube.com/",
+      "type": "twitter"
+    },
+    {
+      "id": "de96cdfc-8bb9-4b27-a253-1e43b1ac0661",
+      "url": "https://github.com/Alsadi30",
+      "type": "github"
+    }
+  ],
+  "credentials": [
+    {
+      "id": "2457559f-03ba-4196-afe7-52729d717525",
+      "title": "Devops",
+      "image": "image-1677836020741-Untitled-1.jpg",
+      "institution": "Stack Learner",
+      "cartificateUrl": "",
+      "cartificateId": null,
+      "courseDuration": "6 month",
+      "achivedAt": "2022-02-03"
+    },
+    {
+      "id": "ba2472af-a4e6-4c3a-9762-b128075ba60b",
+      "title": "FrontEnd ",
+      "image": "image-1677836039017-Untitled-1.jpg",
+      "institution": "Stack Learner",
+      "cartificateUrl": "",
+      "cartificateId": null,
+      "courseDuration": "6 month",
+      "achivedAt": "2022-02-03"
+    },
+    {
+      "id": "42b4a2fe-897e-420e-982a-9e3fea5dbea4",
+      "title": "FrontEnd ",
+      "image": "image-1677836051073-Untitled-4.jpg",
+      "institution": "Stack Learner",
+      "cartificateUrl": "",
+      "cartificateId": null,
+      "courseDuration": "6 month",
+      "achivedAt": "2022-02-03"
+    }
+  ],
+  "profile": {
+    "id": "fae8f6b6-a8a8-4b1d-8f35-56f43b2d6eb0",
+    "displayname": "Sadi",
+    "bio": "Frontend Developer",
+    "about": "Frontend Developer",
+    "profilePic": "profilePic-1677945493351-PassportPhotoMaker_686.png",
+    "coverPic": null,
+    "dateofBirth": "2023-03-09",
+    "nationality": "",
+    "location": "Sylhet",
+    "gender": "Male"
+  },
+  "education": [
+    {
+      "id": "3dd4062c-86fc-41c0-bb04-df8fb4df511d",
+      "title": "HSC",
+      "result": 3.6,
+      "passingyear": "2019-12-05",
+      "institute": "M.C College"
+    },
+    {
+      "id": "5e18bcd3-d3d2-471a-a5c3-ecfabc53b7d6",
+      "title": "SSC",
+      "result": 3.6,
+      "passingyear": "2019-12-05",
+      "institute": "High School "
+    },
+    {
+      "id": "2a69afd7-103a-43c0-a39d-5cc3270fdfb7",
+      "title": "B.SC in CSE",
+      "result": 3.36,
+      "passingyear": "2023-03-23",
+      "institute": "Leading University"
+    }
+  ]
+}
