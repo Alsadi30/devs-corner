@@ -5,6 +5,7 @@ import {
   BasicIntro,
   Contact,
   Education,
+  Projects,
   Skill,
   WorkExperience,
 } from "./BasicTemplateComponents";
@@ -53,6 +54,7 @@ const BasicTemplate = () => {
           <Skill skills={Data.skills} />
           <WorkExperience experience={experience} />
           <Education Education={Data.education} />
+          <Projects Projects={Data.projects} />
         </Box>
       </Grid>
     </Layout>

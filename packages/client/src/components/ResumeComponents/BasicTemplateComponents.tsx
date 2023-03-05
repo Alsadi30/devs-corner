@@ -1,4 +1,4 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Link, Typography } from "@mui/material";
 import Image from "../../../../material-ui/src/Atoms/Avatars/Image";
 import email from "./../../assets/logos/email.png";
 import linkedin from "./../../assets/logos/linkedin.png";
@@ -178,6 +178,55 @@ export const Education = ({ Education }: any) => {
       <Typography variant="h6">{Data.institute}</Typography>
       <Typography variant="h6">{Data.result}</Typography>
       <Typography variant="h6">{Data.passingyear}</Typography>
+    </Section>
+  );
+};
+
+type ProjectsItemPropsType = {
+  name: string;
+  description: string;
+  repoUrl: string;
+  liveUrl: string;
+};
+export const ProjectsItem = ({
+  name,
+  description,
+  repoUrl,
+  liveUrl,
+}: ProjectsItemPropsType) => {
+  return (
+    <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Typography variant="h4">{`# ${name}`}</Typography>
+      <Typography variant="h5">{description}</Typography>
+      <Link href={repoUrl} variant="h6">
+        {repoUrl}
+      </Link>
+      <Link href={repoUrl} variant="h6">
+        {liveUrl}
+      </Link>
+    </Box>
+  );
+};
+type projectPropsType = {
+  name: string;
+  description: string;
+  repoUrl: string;
+  liveUrl: string;
+};
+export const Projects = ({ Projects }: any) => {
+  return (
+    <Section Header="PROJECTS">
+      {Projects.map((project: projectPropsType, index: number) => {
+        return (
+          <ProjectsItem
+            key={index}
+            name={project.name}
+            description={project.description}
+            repoUrl={project.repoUrl}
+            liveUrl={project.liveUrl}
+          />
+        );
+      })}
     </Section>
   );
 };
