@@ -4,6 +4,7 @@ import Data from "./../../assets/Data.json";
 import {
   BasicIntro,
   Contact,
+  Education,
   Skill,
   WorkExperience,
 } from "./BasicTemplateComponents";
@@ -49,8 +50,9 @@ const BasicTemplate = () => {
         l;kjasdlk;ajsdl;kasjd;laksjdklnczl;kxcj;lsakjd ;askjd"
           />
           <Contact />
-          <WorkExperience experience={experience} />
           <Skill skills={Data.skills} />
+          <WorkExperience experience={experience} />
+          <Education Education={Data.education} />
         </Box>
       </Grid>
     </Layout>

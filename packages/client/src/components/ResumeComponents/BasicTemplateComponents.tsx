@@ -169,3 +169,15 @@ export const Skill = ({ skills }: any) => {
     </Section>
   );
 };
+
+export const Education = ({ Education }: any) => {
+  const Data = Education[Education.length - 1];
+  return (
+    <Section Header="EDUCATION">
+      <Typography variant="h6">{Data.title}</Typography>
+      <Typography variant="h6">{Data.institute}</Typography>
+      <Typography variant="h6">{Data.result}</Typography>
+      <Typography variant="h6">{Data.passingyear}</Typography>
+    </Section>
+  );
+};
