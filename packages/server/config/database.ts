@@ -26,5 +26,3 @@ const MyDataSource = new DataSource({
 
 module.exports = MyDataSource
 
-
-export { }
