@@ -8,11 +8,26 @@ import phone from "./../../assets/logos/phone.png";
 export const SectionContainer = ({ children }: any) => {
   return <Box sx={{ padding: "2rem 2rem 1rem 2rem" }}>{children}</Box>;
 };
-export const SectionHeader = (Header: string) => {
+export const SectionHeader = ({ Header }: { Header: string }) => {
   return (
-    <Typography variant="h3" color="initial" sx={{ color: "#336699" }}>
+    <Typography variant="h4" color="initial" sx={{ color: "#336699" }}>
       {Header}
     </Typography>
+  );
+};
+
+export const Section = ({
+  children,
+  Header,
+}: {
+  children: any;
+  Header: string;
+}) => {
+  return (
+    <SectionContainer>
+      <SectionHeader Header={Header} />
+      {children}
+    </SectionContainer>
   );
 };
 
@@ -25,19 +40,18 @@ export const BasicIntro = ({ Name, Position, About }: BasicIntroPropsType) => {
   return (
     <SectionContainer>
       <Typography variant="h1" color="initial" sx={{ color: "#336699" }}>
-        MD. Ariful Islam
+        {Name}
       </Typography>
       <Typography variant="h3" color="initial" sx={{ color: "grey" }}>
-        Software Engineer (MERN)
+        {Position}
       </Typography>
       <Typography variant="h6" color="initial">
-        lsajh;sh klasd;kalsdj ;lakjsd klajsdl;kajsd a;lksjdl;kasjd ;lakjsd
-        a;lksjd l;akjs;lkzxjcl;zkxjc zlkxjczlxj lk jidslsjkd
-        l;kjasdlk;ajsdl;kasjd;laksjdklnczl;kxcj;lsakjd ;askjd
+        {About}
       </Typography>
     </SectionContainer>
   );
 };
+
 type ContactItemPropsType = {
   Logo: string;
   Alt: string;
@@ -77,4 +91,8 @@ export const Contact = () => {
 
 export const HrLine = () => {
   return <Box sx={{ borderTop: "3px #336699 solid" }}></Box>;
+};
+
+export const WorkExperience = () => {
+  return <Section Header="WORK EXPERIENCE"></Section>;
 };
