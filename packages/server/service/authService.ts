@@ -1,38 +1,40 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { findUserByProperty, createNewUser } = require('./userService');
-const error = require('../utils/error');
+
 
 const registerService = async ({
 	username,
-		email,
-		password,
-		phone,
-		role,
-		isVarified,
+	email,
+	password,
+	phone,
+	role,
+	isVarified,
 }) => {
 	let user = await findUserByProperty('email', email);
-	if (user) throw error('User already exist', 400);
+	if (user) throw Error('User already exist');
 
 	const salt = await bcrypt.genSalt(10);
 	const hash = await bcrypt.hash(password, salt);
 
-	return createNewUser({username,
+	return createNewUser({
+		username,
 		email,
-		password:hash,
+		password: hash,
 		phone,
 		role,
-		isVarified});
+		isVarified
+	});
 };
 
 const loginService = async ({ email, password }) => {
 	const user = await findUserByProperty('email', email);
-	if (!user) throw error('Invalid Credential', 400);
+	if (!user) throw Error('Invalid Credential');
 	console.log(user)
-	
+
 	const isMatch = await bcrypt.compare(password, user.password);
 	console.log(isMatch, password)
-	if (!isMatch) throw error('Invalid Credential', 400);
+	if (!isMatch) throw Error('Invalid Credential');
 
 	const payload = {
 		id: user.id,
@@ -50,4 +52,4 @@ module.exports = {
 
 
 
-export{}
+export { }

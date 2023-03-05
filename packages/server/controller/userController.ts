@@ -7,7 +7,7 @@ const userService = require('../service/userService');
 const userRepository = MyDataSource.getRepository(User)
 
 
-const error = require('../utils/error');
+
 
 const getUsers = async (req, res, next) => {
 
@@ -28,7 +28,7 @@ const getUserByID = async (req, res, next) => {
 		const user = await userService.findUserByProperty('id', userId);
 
 		if (!user) {
-			throw error('User not found', 404);
+			throw Error('User not found');
 		}
 
 		return res.status(200).json(user);
@@ -53,7 +53,7 @@ const putUserById = async (req, res, next) => {
 		});
 
 		if (!user) {
-			throw error('User not found', 404);
+			throw Error('User not found');
 		}
 
 		return res.status(200).json(user);
@@ -71,7 +71,7 @@ const deleteUserById = async (req, res, next) => {
 		const user = await userService.findUserByProperty('id', userId);
 
 		if (!user) {
-			throw error('User not found', 404);
+			throw Error('User not found');
 		}
 
 		await userRepository.remove(user);
@@ -80,11 +80,6 @@ const deleteUserById = async (req, res, next) => {
 		next(e);
 	}
 };
-
-
-
-
-
 
 
 

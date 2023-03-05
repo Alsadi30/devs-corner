@@ -1,4 +1,3 @@
-
 const { User } = require('../models/user')
 const MyDataSource = require('../config/database')
 const { Socialmedia } = require('../models/socialmedia')
@@ -36,9 +35,7 @@ const createSocialController = async (req, res, next) => {
 
 const deleteSocialController = async (req, res, next) => {
 
-
     const socialId = req.params.Id
-
 
     const social = await socialRepository.findOneBy({ id: socialId })
 
@@ -51,8 +48,6 @@ const deleteSocialController = async (req, res, next) => {
     } catch (e) {
         console.log(e)
     }
-
-
 
 }
 
