@@ -1,5 +1,5 @@
 require('dotenv').config()
-const routes = require("./router")
+const routes = require("./router/index")
 const path = require('path');
 const setMiddleware = require("./middleware/index")
 const express = require('express')
