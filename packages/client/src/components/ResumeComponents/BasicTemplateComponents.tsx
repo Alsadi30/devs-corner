@@ -127,52 +127,6 @@ export const HrLine = () => {
   return <Box sx={{ borderTop: "3px #336699 solid" }}></Box>;
 };
 
-type ExperienceItemPropsType = {
-  position: string;
-  companyName: string;
-  startAt: string;
-  endAt: string;
-};
-export const ExperienceItem = ({
-  position,
-  companyName,
-  startAt,
-  endAt,
-}: ExperienceItemPropsType) => {
-  return (
-    <SectionContainerH>
-      <Typography variant="h4">{`* ${position} `}</Typography>
-      <Typography variant="h5">{`, ${companyName} `}</Typography>
-      <Typography variant="h6">{`, ${startAt} to ${
-        endAt != null ? endAt : "Present"
-      }`}</Typography>
-    </SectionContainerH>
-  );
-};
-type jobPropsType = {
-  position: string;
-  companyName: string;
-  startAt: string;
-  endAt: string;
-};
-export const WorkExperience = ({ experience }: any) => {
-  return (
-    <Section Header="WORK EXPERIENCE">
-      {experience.map((job: jobPropsType, index: number) => {
-        return (
-          <ExperienceItem
-            key={index}
-            position={job.position}
-            companyName={job.companyName}
-            startAt={job.startAt}
-            endAt={job.endAt}
-          />
-        );
-      })}
-    </Section>
-  );
-};
-
 export const SkillItem = ({ name }: any) => {
   return (
     <Typography
@@ -209,8 +163,56 @@ export const Skill = ({ skills }: any) => {
   );
 };
 
+type ExperienceItemPropsType = {
+  position: string;
+  companyName: string;
+  startAt: string;
+  endAt: string;
+};
+export const ExperienceItem = ({
+  position,
+  companyName,
+  startAt,
+  endAt,
+}: ExperienceItemPropsType) => {
+  return (
+    <SectionContainerH>
+      <Typography variant="h4">{`* ${position} `}</Typography>
+      <Typography variant="h5">{`, ${companyName} `}</Typography>
+      <Typography variant="h6">{`, ${startAt} to ${
+        endAt != null ? endAt : "Present"
+      }`}</Typography>
+    </SectionContainerH>
+  );
+};
+type jobPropsType = {
+  position: string;
+  companyName: string;
+  startAt: string;
+  endAt: string;
+};
+export const WorkExperience = ({ experience }: any) => {
+  const exp = [...experience].reverse();
+  return (
+    <Section Header="WORK EXPERIENCE">
+      {exp.map((job: jobPropsType, index: number) => {
+        return (
+          <ExperienceItem
+            key={index}
+            position={job.position}
+            companyName={job.companyName}
+            startAt={job.startAt}
+            endAt={job.endAt}
+          />
+        );
+      })}
+    </Section>
+  );
+};
+
 export const Education = ({ Education }: any) => {
-  const Data = Education[Education.length - 1];
+  const edu = [...Education].reverse();
+  const Data = edu[0];
   return (
     <Section Header="EDUCATION">
       <SectionContainerV>
