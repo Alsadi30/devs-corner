@@ -9,10 +9,32 @@ export const SectionWrapper = ({ children }: any) => {
   return <Box sx={{ padding: "2rem 2rem 1rem 2rem" }}>{children}</Box>;
 };
 export const SectionContainerV = ({ children }: any) => {
-  return <Box sx={{ margin: "10px 0px", marginLeft: "20px" }}>{children}</Box>;
+  return (
+    <Box
+      sx={{
+        margin: "10px 0px",
+        marginLeft: "20px",
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
+      {children}
+    </Box>
+  );
 };
 export const SectionContainerH = ({ children }: any) => {
-  return <Box sx={{ marginLeft: "20px" }}>{children}</Box>;
+  return (
+    <Box
+      sx={{
+        marginLeft: "20px",
+        display: "flex",
+        flexDirection: "row",
+        alignItems: "end",
+      }}
+    >
+      {children}
+    </Box>
+  );
 };
 export const SectionHeader = ({ Header }: { Header: string }) => {
   return (
@@ -119,11 +141,9 @@ export const ExperienceItem = ({
 }: ExperienceItemPropsType) => {
   return (
     <SectionContainerH>
-      <Box sx={{ display: "flex", flexDirection: "row", alignItems: "end" }}>
-        <Typography variant="h4">{`* ${position} `}</Typography>
-        <Typography variant="h5">{`, ${companyName} `}</Typography>
-        <Typography variant="h6">{`, ${startAt} to ${endAt}`}</Typography>
-      </Box>
+      <Typography variant="h4">{`* ${position} `}</Typography>
+      <Typography variant="h5">{`, ${companyName} `}</Typography>
+      <Typography variant="h6">{`, ${startAt} to ${endAt}`}</Typography>
     </SectionContainerH>
   );
 };
