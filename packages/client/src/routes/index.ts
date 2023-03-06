@@ -28,11 +28,11 @@ export const router = [
   {
     path: "/resume",
     component: Resume,
-    public: true,
+    public: false,
   },
   {
     path: "*",
     component: NotFound,
-    public: true,
+    public: false,
   },
 ];

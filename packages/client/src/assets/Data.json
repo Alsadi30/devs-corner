@@ -1,9 +1,9 @@
 {
   "id": "8e20d483-a61c-40ca-b73f-1edc59789a40",
   "username": "test",
-  "email": "test@gmail.com",
+  "email": "itsatif.0123@gmail.com",
   "password": "$2a$10$M4aFOacuwrRR.vUkYIyQ5uzS0cadNIvWrCdtBk4HtUPcVj.0PJQ.K",
-  "phone": 147258963,
+  "phone": 1521770102,
   "isVarified": false,
   "role": "developer",
   "skills": [
@@ -156,36 +156,36 @@
   ],
   "profile": {
     "id": "fae8f6b6-a8a8-4b1d-8f35-56f43b2d6eb0",
-    "displayname": "Sadi",
-    "bio": "Frontend Developer",
-    "about": "Frontend Developer",
+    "displayname": "MD. Ariful Islam",
+    "bio": "Fullstack Army",
+    "about": "Hi I am a Passionate Programmer with Problem Solving Skill. I always feel very thirsty of knowledge in modern Technologies.",
     "profilePic": "profilePic-1677945493351-PassportPhotoMaker_686.png",
     "coverPic": null,
     "dateofBirth": "2023-03-09",
-    "nationality": "",
-    "location": "Sylhet",
+    "nationality": "Bangladesh",
+    "location": "Dhaka",
     "gender": "Male"
   },
   "education": [
     {
       "id": "3dd4062c-86fc-41c0-bb04-df8fb4df511d",
-      "title": "HSC",
-      "result": 3.6,
-      "passingyear": "2019-12-05",
-      "institute": "M.C College"
+      "title": "S.S.C",
+      "result": 5.0,
+      "passingyear": "2013-12-05",
+      "institute": "Madhabdi S.P Institution"
     },
     {
       "id": "5e18bcd3-d3d2-471a-a5c3-ecfabc53b7d6",
-      "title": "SSC",
-      "result": 3.6,
-      "passingyear": "2019-12-05",
-      "institute": "High School "
+      "title": "H.S.C",
+      "result": 5.0,
+      "passingyear": "2015-12-05",
+      "institute": "Narsingdi Science College"
     },
     {
       "id": "2a69afd7-103a-43c0-a39d-5cc3270fdfb7",
       "title": "B.SC in Computer Science and Engineering (CSE)",
-      "result": 3.36,
-      "passingyear": "2023-03-23",
+      "result": 3.5,
+      "passingyear": "2019-03-23",
       "institute": "Bangladesh University of Science and Technology (BUET)"
     }
   ]

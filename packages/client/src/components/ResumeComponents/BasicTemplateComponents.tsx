@@ -5,8 +5,14 @@ import linkedin from "./../../assets/logos/linkedin.png";
 import location from "./../../assets/logos/location.png";
 import phone from "./../../assets/logos/phone.png";
 
-export const SectionContainer = ({ children }: any) => {
+export const SectionWrapper = ({ children }: any) => {
   return <Box sx={{ padding: "2rem 2rem 1rem 2rem" }}>{children}</Box>;
+};
+export const SectionContainerV = ({ children }: any) => {
+  return <Box sx={{ margin: "10px 0px", marginLeft: "20px" }}>{children}</Box>;
+};
+export const SectionContainerH = ({ children }: any) => {
+  return <Box sx={{ marginLeft: "20px" }}>{children}</Box>;
 };
 export const SectionHeader = ({ Header }: { Header: string }) => {
   return (
@@ -24,10 +30,10 @@ export const Section = ({
   Header: string;
 }) => {
   return (
-    <SectionContainer>
+    <SectionWrapper>
       <SectionHeader Header={Header} />
       {children}
-    </SectionContainer>
+    </SectionWrapper>
   );
 };
 
@@ -38,7 +44,7 @@ type BasicIntroPropsType = {
 };
 export const BasicIntro = ({ Name, Position, About }: BasicIntroPropsType) => {
   return (
-    <SectionContainer>
+    <SectionWrapper>
       <Typography variant="h1" color="initial" sx={{ color: "#336699" }}>
         {Name}
       </Typography>
@@ -48,7 +54,7 @@ export const BasicIntro = ({ Name, Position, About }: BasicIntroPropsType) => {
       <Typography variant="h6" color="initial">
         {About}
       </Typography>
-    </SectionContainer>
+    </SectionWrapper>
   );
 };
 
@@ -67,7 +73,13 @@ export const ContactItem = ({ Logo, Alt, Text }: ContactItemPropsType) => {
     </Box>
   );
 };
-export const Contact = () => {
+type ContactProps = {
+  Email: string;
+  Phone: number;
+  Location: string;
+  Linkedin: string;
+};
+export const Contact = ({ Email, Phone, Location, Linkedin }: ContactProps) => {
   return (
     <Box>
       <HrLine />
@@ -79,10 +91,10 @@ export const Contact = () => {
           padding: "10px",
         }}
       >
-        <ContactItem Logo={email} Alt="email" Text="kjsdhkjh@gmail.com" />
-        <ContactItem Logo={phone} Alt="email" Text="01894456813" />
-        <ContactItem Logo={location} Alt="email" Text="Dhaka, Bangladesh" />
-        <ContactItem Logo={linkedin} Alt="email" Text="in/jjhbbmnb" />
+        <ContactItem Logo={email} Alt="email" Text={Email} />
+        <ContactItem Logo={phone} Alt="phone" Text={Phone} />
+        <ContactItem Logo={location} Alt="location" Text={Location} />
+        <ContactItem Logo={linkedin} Alt="in" Text={Linkedin} />
       </Box>
       <HrLine />
     </Box>
@@ -92,6 +104,7 @@ export const Contact = () => {
 export const HrLine = () => {
   return <Box sx={{ borderTop: "3px #336699 solid" }}></Box>;
 };
+
 type ExperienceItemPropsType = {
   position: string;
   companyName: string;
@@ -105,11 +118,13 @@ export const ExperienceItem = ({
   endAt,
 }: ExperienceItemPropsType) => {
   return (
-    <Box sx={{ display: "flex", flexDirection: "row", alignItems: "end" }}>
-      <Typography variant="h4">{`* ${position} `}</Typography>
-      <Typography variant="h5">{`, ${companyName} `}</Typography>
-      <Typography variant="h6">{`, ${startAt} to ${endAt}`}</Typography>
-    </Box>
+    <SectionContainerH>
+      <Box sx={{ display: "flex", flexDirection: "row", alignItems: "end" }}>
+        <Typography variant="h4">{`* ${position} `}</Typography>
+        <Typography variant="h5">{`, ${companyName} `}</Typography>
+        <Typography variant="h6">{`, ${startAt} to ${endAt}`}</Typography>
+      </Box>
+    </SectionContainerH>
   );
 };
 type jobPropsType = {
@@ -161,11 +176,13 @@ export const Skill = ({ skills }: any) => {
   };
   return (
     <Section Header="SKILLS">
-      <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-        {skills.map((skill: skillType, index: number) => {
-          return <SkillItem key={index} name={skill.name} />;
-        })}
-      </Box>
+      <SectionContainerH>
+        <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
+          {skills.map((skill: skillType, index: number) => {
+            return <SkillItem key={index} name={skill.name} />;
+          })}
+        </Box>
+      </SectionContainerH>
     </Section>
   );
 };
@@ -174,10 +191,12 @@ export const Education = ({ Education }: any) => {
   const Data = Education[Education.length - 1];
   return (
     <Section Header="EDUCATION">
-      <Typography variant="h6">{Data.title}</Typography>
-      <Typography variant="h6">{Data.institute}</Typography>
-      <Typography variant="h6">{Data.result}</Typography>
-      <Typography variant="h6">{Data.passingyear}</Typography>
+      <SectionContainerV>
+        <Typography variant="h6">{Data.title}</Typography>
+        <Typography variant="h6">{Data.institute}</Typography>
+        <Typography variant="h6">{Data.result}</Typography>
+        <Typography variant="h6">{Data.passingyear}</Typography>
+      </SectionContainerV>
     </Section>
   );
 };
@@ -195,7 +214,7 @@ export const ProjectsItem = ({
   liveUrl,
 }: ProjectsItemPropsType) => {
   return (
-    <Box sx={{ display: "flex", flexDirection: "column" }}>
+    <SectionContainerV>
       <Typography variant="h4">{`# ${name}`}</Typography>
       <Typography variant="h5">{description}</Typography>
       <Link href={repoUrl} variant="h6">
@@ -204,7 +223,7 @@ export const ProjectsItem = ({
       <Link href={repoUrl} variant="h6">
         {liveUrl}
       </Link>
-    </Box>
+    </SectionContainerV>
   );
 };
 type projectPropsType = {
@@ -220,10 +239,44 @@ export const Projects = ({ Projects }: any) => {
         return (
           <ProjectsItem
             key={index}
-            name={project.name}
-            description={project.description}
-            repoUrl={project.repoUrl}
-            liveUrl={project.liveUrl}
+            name={` Name : ${project.name}`}
+            description={`Description : ${project.description}`}
+            repoUrl={`Repository : ${project.repoUrl}`}
+            liveUrl={`Live Link :  ${project.liveUrl}`}
+          />
+        );
+      })}
+    </Section>
+  );
+};
+
+type credPropsType = {
+  title: string;
+  institution: string;
+  achivedAt: string;
+};
+export const CredItem = ({ title, institution, achivedAt }: credPropsType) => {
+  return (
+    <SectionContainerH>
+      <Box sx={{ display: "flex", flexDirection: "row", alignItems: "end" }}>
+        <Typography variant="h4">{`-> ${title} `}</Typography>
+        <Typography variant="h5">{`, ${institution} `}</Typography>
+        <Typography variant="h6">{`, ${achivedAt}`}</Typography>
+      </Box>
+    </SectionContainerH>
+  );
+};
+
+export const Credentials = ({ Credentials }: any) => {
+  return (
+    <Section Header="CREDENTIALS">
+      {Credentials.map((cred: credPropsType, index: number) => {
+        return (
+          <CredItem
+            key={index}
+            title={cred.title}
+            institution={cred.institution}
+            achivedAt={cred.achivedAt}
           />
         );
       })}
