@@ -3,7 +3,7 @@
   "username": "test",
   "email": "itsatif.0123@gmail.com",
   "password": "$2a$10$M4aFOacuwrRR.vUkYIyQ5uzS0cadNIvWrCdtBk4HtUPcVj.0PJQ.K",
-  "phone": 1521770102,
+  "phone": "01521770102",
   "isVarified": false,
   "role": "developer",
   "skills": [
@@ -40,17 +40,24 @@
   ],
   "experience": [
     {
-      "id": "9ba03164-289b-4e89-afaf-f8b2a0a9905b",
+      "id": "3dc086ee-4db6-4502-9c62-989f9e435bda",
       "position": "FrontEnd Developer",
-      "companyName": "Dev's Corner",
-      "startAt": "2021-01-03",
-      "endAt": "2022-01-02"
+      "companyName": "AdovaSoft",
+      "startAt": "2020-01-02",
+      "endAt": "2021-01-02"
     },
     {
       "id": "3dc086ee-4db6-4502-9c62-989f9e435bda",
-      "position": "FrontEnd Developer",
-      "companyName": "Dev's Corner",
-      "startAt": "2023-01-02",
+      "position": "FUllstack Developer",
+      "companyName": "TherapBD",
+      "startAt": "2021-01-02",
+      "endAt": "2022-01-02"
+    },
+    {
+      "id": "9ba03164-289b-4e89-afaf-f8b2a0a9905b",
+      "position": "Software Engineer",
+      "companyName": "Brainstation-23",
+      "startAt": "2022-01-03",
       "endAt": null
     }
   ],

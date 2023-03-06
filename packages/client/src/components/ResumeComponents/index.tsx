@@ -38,7 +38,11 @@ const BasicTemplate = () => {
           Linkedin="arifbtkrm"
         />
         <Skill skills={Data.skills} />
-        <WorkExperience experience={Data.experience} />
+        {Data.experience.length > 0 ? (
+          <WorkExperience experience={Data.experience} />
+        ) : (
+          ""
+        )}
         <Education Education={Data.education} />
         <Projects Projects={Data.projects} />
         <Credentials Credentials={Data.credentials} />

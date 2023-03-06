@@ -6,7 +6,7 @@ import location from "./../../assets/logos/location.png";
 import phone from "./../../assets/logos/phone.png";
 
 export const SectionWrapper = ({ children }: any) => {
-  return <Box sx={{ padding: "2rem 2rem 1rem 2rem" }}>{children}</Box>;
+  return <Box sx={{ margin: "1rem" }}>{children}</Box>;
 };
 export const SectionContainerV = ({ children }: any) => {
   return (
@@ -97,7 +97,7 @@ export const ContactItem = ({ Logo, Alt, Text }: ContactItemPropsType) => {
 };
 type ContactProps = {
   Email: string;
-  Phone: number;
+  Phone: string;
   Location: string;
   Linkedin: string;
 };
@@ -143,7 +143,9 @@ export const ExperienceItem = ({
     <SectionContainerH>
       <Typography variant="h4">{`* ${position} `}</Typography>
       <Typography variant="h5">{`, ${companyName} `}</Typography>
-      <Typography variant="h6">{`, ${startAt} to ${endAt}`}</Typography>
+      <Typography variant="h6">{`, ${startAt} to ${
+        endAt != null ? endAt : "Present"
+      }`}</Typography>
     </SectionContainerH>
   );
 };
@@ -214,8 +216,8 @@ export const Education = ({ Education }: any) => {
       <SectionContainerV>
         <Typography variant="h6">{Data.title}</Typography>
         <Typography variant="h6">{Data.institute}</Typography>
-        <Typography variant="h6">{Data.result}</Typography>
-        <Typography variant="h6">{Data.passingyear}</Typography>
+        <Typography variant="h6">{`CGPA : ${Data.result}`}</Typography>
+        <Typography variant="h6">{`Passing Year : ${Data.passingyear}`}</Typography>
       </SectionContainerV>
     </Section>
   );
@@ -253,9 +255,10 @@ type projectPropsType = {
   liveUrl: string;
 };
 export const Projects = ({ Projects }: any) => {
+  const topProjects = Projects.slice(0, 3);
   return (
     <Section Header="PROJECTS">
-      {Projects.map((project: projectPropsType, index: number) => {
+      {topProjects.map((project: projectPropsType, index: number) => {
         return (
           <ProjectsItem
             key={index}
