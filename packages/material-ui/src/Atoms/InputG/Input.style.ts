@@ -1,8 +1,11 @@
+
 export const InputStyle = {
   margin: "7px 0",
   backgroundColor: "#ffffff",
   borderRadius: "3px",
 };
+
+
 
 export const DateInputStyle = {
   color: '#7572AD',
@@ -13,7 +16,7 @@ export const DateInputStyle = {
   border: "none",
   borderRadius: '3px',
   display: "flex",
-  flexDirection: 'column',
+  // flexDirection: 'column',
   ":active": {
     border: 'none'
   }
@@ -40,8 +43,12 @@ export const FileLabelStyle = {
   color: '#6663a5',
 }
 
+
 export const Filewarp = {
-  display: 'flex', flexDirection: 'column', width: '100%', margin: '5px 0px'
+  display: 'flex',
+  // flexDirection: 'column',
+  width: '100%',
+  margin: '5px 0px'
 }
 
 

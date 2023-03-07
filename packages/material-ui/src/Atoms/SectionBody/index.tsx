@@ -2,16 +2,15 @@ import { Box, PropTypes, Typography } from '@mui/material';
 import React from 'react'
 import MapListItem from '../MapListItem'
 import { GridDirection } from '@mui/material/Grid/index'
-
-import { RepositoryItemProps } from '../../../../client/src/components/SectionItems/ProjectItem';
 import { CredentialProps } from '../../../../client/src/components/SectionItems/CredentialItem';
 import { SkillItemProps } from '../../../../client/src/components/SectionItems/SkillItem';
 import { EducationProps } from '../../../../client/src/components/SectionItems/EducationItem/index';
 import { ExperienceProps } from '../../../../client/src/components/SectionItems/ExperienceItem/index';
+import { ProjectItemProps } from '../../../../client/src/components/SectionItems/ProjectItem/index';
 
 
 export interface SectionBodyProps {
-    Component?: React.ReactNode | React.FunctionComponent<SkillItemProps> | React.FunctionComponent<EducationProps> | React.FunctionComponent<RepositoryItemProps> | React.FunctionComponent<CredentialProps> | React.FunctionComponent<ExperienceProps>
+    Component?: React.ReactNode | React.FunctionComponent<SkillItemProps> | React.FunctionComponent<EducationProps> | React.FunctionComponent<ProjectItemProps> | React.FunctionComponent<CredentialProps> | React.FunctionComponent<ExperienceProps>
     Items?: Array<object>
     other?: any
     text?: string
