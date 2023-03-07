@@ -11,7 +11,7 @@ const app = express()
 const { PORT } = process.env
 
 app.use(express.json());
-const port = 4000
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -32,7 +32,7 @@ MyDataSource.initialize()
   })
   .catch((error) => console.log(error))
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port || PORT}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
 })
 

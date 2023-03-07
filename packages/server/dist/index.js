@@ -7,8 +7,8 @@ const setMiddleware = require("./middleware/index");
 const express = require('express');
 const MyDataSource = require('./config/database');
 const app = express();
+const { PORT } = process.env;
 app.use(express.json());
-const port = 4000;
 app.use(express.static(path.join(__dirname, 'public')));
 setMiddleware(app);
 app.get('/', (req, res) => {
@@ -21,7 +21,7 @@ MyDataSource.initialize()
     console.log("database initialized successfully");
 })
     .catch((error) => console.log(error));
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+app.listen(PORT, () => {
+    console.log(`Example app listening on port ${PORT}`);
 });
 //# sourceMappingURL=index.js.map

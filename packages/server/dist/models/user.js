@@ -54,7 +54,7 @@ __decorate([
 ], User.prototype, "password", void 0);
 __decorate([
     Column("integer"),
-    __metadata("design:type", Number)
+    __metadata("design:type", String)
 ], User.prototype, "phone", void 0);
 __decorate([
     Column("boolean"),
