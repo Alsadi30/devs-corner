@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const SectionWrapper = (props) => {
+const SectionWrapper = (props: any) => {
   return <View style={styles.SectionWrapper}>{props.children}</View>;
 };
 

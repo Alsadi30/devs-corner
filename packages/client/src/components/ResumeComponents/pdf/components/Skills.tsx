@@ -20,13 +20,13 @@ const styles = StyleSheet.create({
     color: "white",
   },
 });
-
-const Skills = (props) => {
+type skillType = { id: string; name: string; thumbnail: string };
+const Skills = ({ SkillList }: any) => {
   return (
     <Section Title="SKILLS">
       <View style={styles.SkillItemsContainer}>
-        {props.SkillList.map((skill, index) => (
-          <SkillItem key={index}>{skill}</SkillItem>
+        {SkillList.map((skill: skillType, index: number) => (
+          <SkillItem key={index}>{skill.name}</SkillItem>
         ))}
       </View>
     </Section>

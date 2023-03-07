@@ -1,6 +1,7 @@
-import { StyleSheet, Text, View } from "@react-pdf/renderer";
+import { StyleSheet } from "@react-pdf/renderer";
 import Section from "./Section";
-
+import SectionContainer from "./SectionContainer";
+import SectionItamH from "./SectionItemH";
 const styles = StyleSheet.create({
   sectionTitle: {
     color: "#336699",
@@ -23,26 +24,20 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
-
-const Experience = () => {
+type ExperienceItemType = {
+  id: string;
+  position: string;
+  companyName: string;
+  startAt: string;
+  endAt: string;
+};
+const Experience = ({ Experience }: any) => {
+  var MainColor = "#336699";
   return (
-    <Section>
-      <Text style={styles.sectionTitle}>WORK EXPERIENCE</Text>
-      <View style={{ display: "flex", flexDirection: "row" }}>
-        <Text style={styles.sectionChild1}>-- Software Engineer (MERN)</Text>
-        <Text style={styles.sectionChild2}> , BrainStation 23</Text>
-        <Text style={styles.sectionChild3}> , 2020-2023</Text>
-      </View>
-      <View style={{ display: "flex", flexDirection: "row" }}>
-        <Text style={styles.sectionChild1}>-- Software Engineer</Text>
-        <Text style={styles.sectionChild2}> , AdovaSoft</Text>
-        <Text style={styles.sectionChild3}> , 2018-2020</Text>
-      </View>
-      <View style={{ display: "flex", flexDirection: "row" }}>
-        <Text style={styles.sectionChild1}>-- Javascript Programmer</Text>
-        <Text style={styles.sectionChild2}> , fiver</Text>
-        <Text style={styles.sectionChild3}> , 2015-2018</Text>
-      </View>
+    <Section Title="WORK EXPERIENCE">
+      <SectionContainer>
+        <SectionItamH />
+      </SectionContainer>
     </Section>
   );
 };

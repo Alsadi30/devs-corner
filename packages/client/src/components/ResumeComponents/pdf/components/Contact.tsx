@@ -1,12 +1,10 @@
 import { Image, StyleSheet, Text, View } from "@react-pdf/renderer";
-
+import HrBar from "./HrBar";
 const styles = StyleSheet.create({
   Contact: {
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-around",
-    borderTop: "1 solid black",
-    borderBottom: "1 solid black",
     fontSize: "12px",
     padding: "5 30",
   },
@@ -24,37 +22,42 @@ const styles = StyleSheet.create({
   },
 });
 
-const Contact = (props) => {
+const Contact = (props: any) => {
+  const MainColor = "#336699";
   return (
-    <View style={styles.Contact}>
-      <View style={styles.ContItem}>
-        <Image
-          style={styles.ContLogo}
-          src="https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/gmail_ickeaq.png"
-        />
-        <Text>{props.email}</Text>
+    <View>
+      <HrBar MainColor={MainColor} />
+      <View style={styles.Contact}>
+        <View style={styles.ContItem}>
+          <Image
+            style={styles.ContLogo}
+            src="https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/gmail_ickeaq.png"
+          />
+          <Text>{props.email}</Text>
+        </View>
+        <View style={styles.ContItem}>
+          <Image
+            style={styles.ContLogo}
+            src="https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/iphone_l8sp0u.png"
+          />
+          <Text>{props.phone}</Text>
+        </View>
+        <View style={styles.ContItem}>
+          <Image
+            style={styles.ContLogo}
+            src="https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/location_iju9sy.png"
+          />
+          <Text>{props.location}</Text>
+        </View>
+        <View style={styles.ContItem}>
+          <Image
+            style={styles.ContLogo}
+            src="https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/linkedin_aoyp6a.png"
+          />
+          <Text>{props.linkedin}</Text>
+        </View>
       </View>
-      <View style={styles.ContItem}>
-        <Image
-          style={styles.ContLogo}
-          src="https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/iphone_l8sp0u.png"
-        />
-        <Text>{props.phone}</Text>
-      </View>
-      <View style={styles.ContItem}>
-        <Image
-          style={styles.ContLogo}
-          src="https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/location_iju9sy.png"
-        />
-        <Text>{props.location}</Text>
-      </View>
-      <View style={styles.ContItem}>
-        <Image
-          style={styles.ContLogo}
-          src="https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/linkedin_aoyp6a.png"
-        />
-        <Text>{props.linkedin}</Text>
-      </View>
+      <HrBar MainColor={MainColor} />
     </View>
   );
 };

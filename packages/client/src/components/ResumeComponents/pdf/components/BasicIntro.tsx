@@ -1,7 +1,7 @@
 import { StyleSheet, Text } from "@react-pdf/renderer";
 import SectionWrapper from "./SectionWrapper";
 
-const styles = (color) =>
+const styles = (color: string) =>
   StyleSheet.create({
     Name: {
       color: color,
@@ -18,13 +18,13 @@ const styles = (color) =>
     },
   });
 
-const BasicIntro = (props) => {
+const BasicIntro = (props: any) => {
   var MainColor = "#336699";
   return (
     <SectionWrapper>
       <Text style={styles(MainColor).Name}>{props.Name}</Text>
-      <Text style={styles.Position}>{props.Position}</Text>
-      <Text style={styles.About}>{props.About}</Text>
+      <Text style={styles(MainColor).Position}>{props.Position}</Text>
+      <Text style={styles(MainColor).About}>{props.About}</Text>
     </SectionWrapper>
   );
 };

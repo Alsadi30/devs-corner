@@ -9,7 +9,8 @@ const styles = StyleSheet.create({
     color: "white",
   },
 });
-const SkillItem = (props) => {
-  return <Text style={styles.SkillItem}>{props.children}</Text>;
+// type skillType = { id: string; name: string; thumbnail: string };
+const SkillItem = ({ children }: any) => {
+  return <Text style={styles.SkillItem}>{children}</Text>;
 };
 export default SkillItem;

@@ -38,9 +38,6 @@ const styles = StyleSheet.create({
   },
 });
 
-console.log(Data);
-
-// Create Document Component
 const MyPdfDocument = () => (
   <Document>
     <Page size="A4" style={styles.page}>
@@ -55,31 +52,9 @@ const MyPdfDocument = () => (
         location={Data.profile.location}
         linkedin="linkedin/in/jiop"
       />
-      <Skills
-        SkillList={[
-          "Javascript",
-          "Nodejs",
-          "React",
-          "Php",
-          "HTML",
-          "CSS",
-          "Github",
-          "Figma",
-          "Vue",
-          "Unity",
-          "Wordpress",
-          "MYSQL",
-          "Nextjs",
-          "Nestjs",
-          "C++",
-          "C",
-          "Java",
-          "Python",
-          "Android",
-        ]}
-      />
+      <Skills SkillList={Data.skills} />
 
-      <Experience />
+      <Experience Experience={Data.experience} />
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>EADUCATION</Text>
