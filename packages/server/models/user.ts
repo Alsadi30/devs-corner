@@ -40,7 +40,7 @@ export class User {
     password: string
 
     @Column("integer")
-    phone: number
+    phone: string
 
     @Column("boolean")
     isVarified: boolean
