@@ -2,10 +2,6 @@ import React from 'react'
 import Section from '../../../../../material-ui/src/Organisms/Section'
 import SkillItem from '../SkillItem'
 
-
-
-
-
 const Types = [{ name: "Language" }, { name: "Tools" }, { name: "Library" }, { name: 'Technology' }, { name: 'Stack' }, { name: "Framework" }]
 
 interface Props {

@@ -98,5 +98,3 @@ module.exports = {
     updateExperienceController
 }
 
-
-export { }

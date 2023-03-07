@@ -1,5 +1,4 @@
-import { Profile } from './../models/profile';
-
+const { Profile } = require('../models/profile')
 const { User } = require('../models/user')
 const MyDataSource = require('../config/database')
 
