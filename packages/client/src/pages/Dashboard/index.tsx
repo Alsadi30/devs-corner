@@ -12,7 +12,7 @@ import SkillSections from "../../components/Sections/SkillSections";
 import { useGetUserQuery } from "../../features/user/userApi";
 
 const Dashboard = () => {
-  const auth = useSelector((state) => state?.auth);
+  const auth = useSelector((state: any) => state?.auth);
   const { data: userData, isError, isLoading } = useGetUserQuery(auth.user.id);
 
   if (isLoading || !userData) {

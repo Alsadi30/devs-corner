@@ -6,13 +6,15 @@ import BasicProfile from "../../SectionItems/BasicProfile/index";
 
 interface PSProps {
   profile: {
-    profilePic: string;
-    coverPic: string;
-    displayname: string;
-    bio: string;
-    location: string;
-    dateofBrith: string;
-    gender: string;
+    displayname: string
+    bio: string
+    about: string
+    profilePic: string
+    coverPic: string
+    dateofBirth: string
+    nationality: string
+    location: string
+    gender: string
   };
 }
 

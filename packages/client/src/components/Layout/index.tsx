@@ -10,7 +10,7 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const auth = useSelector((state) => state?.auth);
+  const auth = useSelector((state: any) => state?.auth);
 
   if (auth.user) {
     const {

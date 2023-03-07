@@ -83,7 +83,7 @@ export const BasicIntro = ({ Name, Position, About }: BasicIntroPropsType) => {
 type ContactItemPropsType = {
   Logo: string;
   Alt: string;
-  Text: string;
+  Text: string | number;
 };
 export const ContactItem = ({ Logo, Alt, Text }: ContactItemPropsType) => {
   return (
