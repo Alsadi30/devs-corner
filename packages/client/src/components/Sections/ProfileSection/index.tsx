@@ -5,7 +5,7 @@ import ProfileModal from "../../ModalItems/ProfileModal/index";
 import BasicProfile from "../../SectionItems/BasicProfile/index";
 
 interface PSProps {
-  profile: {
+  profile?: {
     displayname: string
     bio: string
     about: string

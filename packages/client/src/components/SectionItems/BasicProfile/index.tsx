@@ -5,7 +5,7 @@ import CoverPhoto from "../../../../../material-ui/src/Molecules/CoverPhoto/inde
 import Intro from "../../../../../material-ui/src/Molecules/Intro";
 
 interface BasicInfoProps {
-  profileData: {
+  profileData?: {
     displayname: string
     bio: string
     about: string
@@ -22,14 +22,14 @@ const BasicProfile = ({ profileData, handleClick }: BasicInfoProps) => {
 
   return (
     <Box>
-      <CoverPhoto coverPic={profileData.coverPic} />
+      <CoverPhoto coverPic={profileData?.coverPic} />
       <Box>
         <Grid container spacing={0}>
           <Grid item xs={4}></Grid>
           <Grid item xs={4} sx={{ position: "relative", top: "-75px" }}>
             <center>
-              <ImageAvatar Src={profileData.profilePic} Txt="Name" Size={150} />
-              <Intro Name={profileData.displayname} Position={profileData.bio} Location={profileData.location} />
+              <ImageAvatar Src={profileData?.profilePic} Txt="Name" Size={150} />
+              <Intro Name={profileData?.displayname} Position={profileData?.bio} Location={profileData?.location} />
             </center>
           </Grid>
           <Grid item xs={4} sx={{ textAlign: "right", marginTop: "10px" }}>

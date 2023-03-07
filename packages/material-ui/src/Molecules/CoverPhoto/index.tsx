@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";
-import Image from "../../Atoms/Avatars/Image";
-import JS from "../../../../client/src/assets/JS.webp"
+import JS from "../../../../client/src/assets/JS.webp";
 import { serverUrl } from "../../../../client/src/utils/serverUrl";
 
 export interface CoverPhotoProps {
