@@ -5,14 +5,16 @@ import ProfileModal from "../../ModalItems/ProfileModal/index";
 import BasicProfile from "../../SectionItems/BasicProfile/index";
 
 interface PSProps {
-  profile: {
-    profilePic: string;
-    coverPic: string;
-    displayname: string;
-    bio: string;
-    location: string;
-    dateofBrith: string;
-    gender: string;
+  profile?: {
+    displayname: string
+    bio: string
+    about: string
+    profilePic: string
+    coverPic: string
+    dateofBirth: string
+    nationality: string
+    location: string
+    gender: string
   };
 }
 
