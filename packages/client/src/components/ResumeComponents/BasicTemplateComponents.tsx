@@ -124,7 +124,11 @@ export const Contact = ({ Email, Phone, Location, Linkedin }: ContactProps) => {
 };
 
 export const HrLine = () => {
-  return <Box sx={{ borderTop: "3px #336699 solid" }}></Box>;
+  return (
+    <Box
+      sx={{ borderTop: "1px", borderColor: "#336699", borderStyle: "solid" }}
+    ></Box>
+  );
 };
 
 export const SkillItem = ({ name }: any) => {

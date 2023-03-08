@@ -2,6 +2,7 @@ import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
 import Data from "./../../../assets/Data.json";
 import BasicIntro from "./components/BasicIntro";
 import Contact from "./components/Contact";
+import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Skills from "./components/Skills";
 
@@ -53,21 +54,8 @@ const MyPdfDocument = () => (
         linkedin="linkedin/in/jiop"
       />
       <Skills SkillList={Data.skills} />
-
       <Experience Experience={Data.experience} />
-
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>EADUCATION</Text>
-        <View>
-          <Text style={styles.sectionChild1}>
-            Computer Science and Engineering (CSE)
-          </Text>
-          <Text style={styles.sectionChild2}>
-            Bangladesh University of Engineering and Technology (BUET)
-          </Text>
-          <Text style={styles.sectionChild3}>2020-2024</Text>
-        </View>
-      </View>
+      <Education Education={Data.education} />
 
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>PROJECTS</Text>

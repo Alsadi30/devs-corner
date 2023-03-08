@@ -1,7 +1,7 @@
 import { StyleSheet } from "@react-pdf/renderer";
+import ExperienceItem from "./ExperienceItem";
 import Section from "./Section";
-import SectionContainer from "./SectionContainer";
-import SectionItamH from "./SectionItemH";
+import { SectionContainerV } from "./SectionContainer";
 const styles = StyleSheet.create({
   sectionTitle: {
     color: "#336699",
@@ -24,7 +24,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
 });
-type ExperienceItemType = {
+
+type jobPropsType = {
   id: string;
   position: string;
   companyName: string;
@@ -33,11 +34,22 @@ type ExperienceItemType = {
 };
 const Experience = ({ Experience }: any) => {
   var MainColor = "#336699";
+  const exp = [...Experience].reverse();
   return (
     <Section Title="WORK EXPERIENCE">
-      <SectionContainer>
-        <SectionItamH />
-      </SectionContainer>
+      <SectionContainerV>
+        {exp.map((job: jobPropsType, index: number) => {
+          return (
+            <ExperienceItem
+              key={index}
+              position={job.position}
+              companyName={job.companyName}
+              startAt={job.startAt}
+              endAt={job.endAt}
+            />
+          );
+        })}
+      </SectionContainerV>
     </Section>
   );
 };
