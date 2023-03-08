@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
   sectionChild3: {
     fontSize: "12px",
     fontWeight: "bold",
+    textDecoration: "none",
   },
   innerView: {
     marginBottom: 10,

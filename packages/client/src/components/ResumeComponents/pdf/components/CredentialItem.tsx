@@ -39,8 +39,8 @@ const CredentialItem = ({
         }}
       >
         <Text style={styles.sectionChild1}>{`-> ${title}, `}</Text>
-        <Text style={styles.sectionChild2}>{`${institution} ,`}</Text>
-        <Text style={styles.sectionChild3}>{`${courseDuration} ,`}</Text>
+        <Text style={styles.sectionChild2}>{`${institution}, `}</Text>
+        <Text style={styles.sectionChild3}>{`${courseDuration}, `}</Text>
         <Text style={styles.sectionChild3}>{achivedAt}</Text>
       </View>
     </View>
