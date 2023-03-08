@@ -2,11 +2,11 @@ import { Document, Page, StyleSheet } from "@react-pdf/renderer";
 import Data from "./../../../assets/Data.json";
 import BasicIntro from "./components/BasicIntro";
 import Contact from "./components/Contact";
+import Credentials from "./components/Credentials";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
-
 const styles = StyleSheet.create({
   page: {
     margin: "10 0",
@@ -58,6 +58,7 @@ const MyPdfDocument = () => (
       <Experience Experience={Data.experience} />
       <Education Education={Data.education} />
       <Projects Projects={Data.projects} />
+      <Credentials Credentials={Data.credentials} />
     </Page>
   </Document>
 );

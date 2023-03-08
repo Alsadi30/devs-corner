@@ -31,7 +31,6 @@ const EducationItem = ({
   result,
   passingyear,
 }: EducationItemType) => {
-  console.log(title);
   return (
     <View>
       <View style={{ display: "flex", flexDirection: "column" }}>

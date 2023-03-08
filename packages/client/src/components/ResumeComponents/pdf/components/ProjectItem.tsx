@@ -35,7 +35,7 @@ const ProjectItem = ({
   return (
     <View style={styles.innerView}>
       <View style={{ display: "flex", flexDirection: "column" }}>
-        <Text style={styles.sectionChild1}>{`Name : ${name}`}</Text>
+        <Text style={styles.sectionChild1}>{`# Name : ${name}`}</Text>
         <Text
           style={styles.sectionChild2}
         >{`Description : ${description}`}</Text>
