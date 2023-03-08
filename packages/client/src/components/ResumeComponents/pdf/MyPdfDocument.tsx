@@ -1,9 +1,10 @@
-import { Document, Page, StyleSheet, Text, View } from "@react-pdf/renderer";
+import { Document, Page, StyleSheet } from "@react-pdf/renderer";
 import Data from "./../../../assets/Data.json";
 import BasicIntro from "./components/BasicIntro";
 import Contact from "./components/Contact";
 import Education from "./components/Education";
 import Experience from "./components/Experience";
+import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 
 const styles = StyleSheet.create({
@@ -56,34 +57,7 @@ const MyPdfDocument = () => (
       <Skills SkillList={Data.skills} />
       <Experience Experience={Data.experience} />
       <Education Education={Data.education} />
-
-      <View style={styles.section}>
-        <Text style={styles.sectionTitle}>PROJECTS</Text>
-        <View style={styles.innerView}>
-          <Text style={styles.sectionChild1}>{`Name : Covid Items`} </Text>
-          <Text
-            style={styles.sectionChild2}
-          >{`Description : This Project is about Covid Item Store Where people can get their life saving items easily`}</Text>
-          <Text
-            style={styles.sectionChild3}
-          >{`RepoUrl : https://www.github.com/arif/covidItems`}</Text>
-          <Text
-            style={styles.sectionChild3}
-          >{`LiveUrl : https://www.google.com`}</Text>
-        </View>
-        <View style={styles.innerView}>
-          <Text style={styles.sectionChild1}>{`Name : Watch Store`} </Text>
-          <Text
-            style={styles.sectionChild2}
-          >{`Description : It is an e-commerce Project. which is based on wrist watch. there are a lot of fuctionality of filtering`}</Text>
-          <Text
-            style={styles.sectionChild3}
-          >{`RepoUrl : https://www.github.com/arif/covidItems`}</Text>
-          <Text
-            style={styles.sectionChild3}
-          >{`LiveUrl : https://www.google.com`}</Text>
-        </View>
-      </View>
+      <Projects Projects={Data.projects} />
     </Page>
   </Document>
 );

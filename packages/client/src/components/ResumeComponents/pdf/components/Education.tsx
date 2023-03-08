@@ -1,5 +1,5 @@
 import { StyleSheet } from "@react-pdf/renderer";
-import EducationItem from "./ProjectItem";
+import EducationItem from "./EducationItem";
 import Section from "./Section";
 import { SectionContainerV } from "./SectionContainer";
 const styles = StyleSheet.create({
@@ -34,8 +34,16 @@ const Education = ({ Education }: any) => {
   return (
     <Section Title="EDUCATION">
       <SectionContainerV>
-        {Edu.map((edu: EducationItemType) => {
-          return <EducationItem EduItem={edu} />;
+        {Edu.map((edu: EducationItemType, index: number) => {
+          return (
+            <EducationItem
+              key={index}
+              title={edu.title}
+              institute={edu.institute}
+              result={edu.result}
+              passingyear={edu.passingyear}
+            />
+          );
         })}
       </SectionContainerV>
     </Section>

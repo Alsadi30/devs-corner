@@ -18,27 +18,31 @@ const styles = StyleSheet.create({
   },
 });
 
-type EducationItemType = {
-  id: string;
-  title: string;
-  result: string;
-  passingyear: string;
-  institute: string;
+type ProjectItemType = {
+  name: string;
+  description: string;
+  repoUrl: string;
+  liveUrl: string;
 };
 
-const EducationItem = ({ EduItem }: any) => {
+const ProjectItem = ({
+  name,
+  description,
+  repoUrl,
+  liveUrl,
+}: ProjectItemType) => {
   // console.log(EduItem);
   return (
     <View>
       <View style={{ display: "flex", flexDirection: "column" }}>
-        <Text style={styles.sectionChild1}>{EduItem.title}</Text>
-        <Text style={styles.sectionChild2}>{EduItem.institute}</Text>
-        <Text style={styles.sectionChild3}>{`CGPA : ${EduItem.result}`}</Text>
+        <Text style={styles.sectionChild1}>{`Name : ${name}`}</Text>
         <Text
-          style={styles.sectionChild3}
-        >{`Passing Year : ${EduItem.passingyear}`}</Text>
+          style={styles.sectionChild2}
+        >{`Description : ${description}`}</Text>
+        <Text style={styles.sectionChild3}>{`RepoURL : ${repoUrl}`}</Text>
+        <Text style={styles.sectionChild3}>{`LiveURL : ${liveUrl}`}</Text>
       </View>
     </View>
   );
 };
-export default EducationItem;
+export default ProjectItem;

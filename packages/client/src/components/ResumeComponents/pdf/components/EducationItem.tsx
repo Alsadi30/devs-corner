@@ -19,24 +19,28 @@ const styles = StyleSheet.create({
 });
 
 type EducationItemType = {
-  id: string;
   title: string;
   result: string;
   passingyear: string;
   institute: string;
 };
 
-const EducationItem = ({ EduItem }: any) => {
-  // console.log(EduItem);
+const EducationItem = ({
+  title,
+  institute,
+  result,
+  passingyear,
+}: EducationItemType) => {
+  console.log(title);
   return (
     <View>
       <View style={{ display: "flex", flexDirection: "column" }}>
-        <Text style={styles.sectionChild1}>{EduItem.title}</Text>
-        <Text style={styles.sectionChild2}>{EduItem.institute}</Text>
-        <Text style={styles.sectionChild3}>{`CGPA : ${EduItem.result}`}</Text>
+        <Text style={styles.sectionChild1}>{title}</Text>
+        <Text style={styles.sectionChild2}>{institute}</Text>
+        <Text style={styles.sectionChild3}>{`CGPA : ${result}`}</Text>
         <Text
           style={styles.sectionChild3}
-        >{`Passing Year : ${EduItem.passingyear}`}</Text>
+        >{`Passing Year : ${passingyear}`}</Text>
       </View>
     </View>
   );

@@ -1,5 +1,5 @@
 import { StyleSheet } from "@react-pdf/renderer";
-import EducationItem from "./ProjectItem";
+import ProjectItem from "./ProjectItem";
 import Section from "./Section";
 import { SectionContainerV } from "./SectionContainer";
 const styles = StyleSheet.create({
@@ -22,10 +22,10 @@ const styles = StyleSheet.create({
 
 type ProjectsItemType = {
   id: string;
-  title: string;
-  result: string;
-  passingyear: string;
-  institute: string;
+  name: string;
+  description: string;
+  repoUrl: string;
+  liveUrl: string;
 };
 
 const Projects = ({ Projects }: any) => {
@@ -33,10 +33,18 @@ const Projects = ({ Projects }: any) => {
   latestProjects.slice(0, 3);
   var MainColor = "#336699";
   return (
-    <Section Title="EDUCATION">
+    <Section Title="PROJETS">
       <SectionContainerV>
-        {latestProjects.map((proj: ProjectsItemType) => {
-          return <EducationItem ProjItem={proj} />;
+        {latestProjects.map((proj: ProjectsItemType, index: number) => {
+          return (
+            <ProjectItem
+              key={index}
+              name={proj.name}
+              description={proj.description}
+              repoUrl={proj.repoUrl}
+              liveUrl={proj.liveUrl}
+            />
+          );
         })}
       </SectionContainerV>
     </Section>
