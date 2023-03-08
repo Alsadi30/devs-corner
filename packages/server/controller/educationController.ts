@@ -1,5 +1,3 @@
-import { Request, Response } from "express"
-
 const { User } = require('../models/user')
 const MyDataSource = require('../config/database')
 const { Education } = require('../models/education')
@@ -40,8 +38,7 @@ const createEducationController = async (req, res, next) => {
 
 
 
-
-const updateEducationController = async (req: Request, res: Response) => {
+const updateEducationController = async (req, res) => {
     const id = req.params.Id
     const { title, result, passingyear, institute } = req.body
 
@@ -60,14 +57,9 @@ const updateEducationController = async (req: Request, res: Response) => {
 
 
 
-
-
-
 const deleteEducationController = async (req, res, next) => {
 
-
     const educationId = req.params.Id
-
 
     const education = await educationRepository.findOneBy({ id: educationId })
 
@@ -81,8 +73,6 @@ const deleteEducationController = async (req, res, next) => {
         console.log(e)
     }
 
-
-
 }
 
 
@@ -94,4 +84,3 @@ module.exports = {
 }
 
 
-export { }

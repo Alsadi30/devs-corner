@@ -8,11 +8,12 @@ const cors = require('cors')
 
 
 const middleware = [
+    cors(),
     morgan('dev'),
     express.static('public'),
     express.urlencoded({ extended: true }),
     express.json(),
-    cors(),
+
 
 ]
 

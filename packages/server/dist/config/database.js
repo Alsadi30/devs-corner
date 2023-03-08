@@ -11,11 +11,11 @@ const { Education } = require("../models/education");
 const { SkillType } = require("../models/skilltype");
 const { DataSource } = require("typeorm");
 const { Skill } = require("../models/skill");
-const { HOST, USER, PORT, PASSWORD, DATABASE } = process.env;
+const { HOST, USER, PASSWORD, DATABASE } = process.env;
 const MyDataSource = new DataSource({
     type: "postgres",
     host: HOST,
-    port: PORT,
+    port: 5432,
     username: USER,
     password: PASSWORD,
     database: DATABASE,

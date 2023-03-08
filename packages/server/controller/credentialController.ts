@@ -1,9 +1,6 @@
-
 const { User } = require('../models/user')
 const MyDataSource = require('../config/database')
 const { Credentials } = require('../models/credentials')
-
-
 const credentialRepository = MyDataSource.getRepository(Credentials)
 const userRepository = MyDataSource.getRepository(User)
 
@@ -94,4 +91,3 @@ module.exports = {
 }
 
 
-export { }

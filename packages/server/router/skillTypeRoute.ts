@@ -1,5 +1,3 @@
-
-
 const router = require('express').Router();
 const { createSkillTypeController, updateSkillTypeController, deleteSkillTypeController } = require('../controller/skillTypeController')
 /**

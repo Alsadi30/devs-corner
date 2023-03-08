@@ -1,10 +1,9 @@
-
 const { SkillType } = require('../models/skilltype')
 const MyDataSource = require('../config/database')
 
-
-
 const skillTypeRepository = MyDataSource.getRepository(SkillType)
+
+
 
 const createSkillTypeController = async (req, res, next) => {
 
@@ -85,4 +84,3 @@ module.exports = {
 }
 
 
-export { }
