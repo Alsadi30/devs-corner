@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
   },
 });
 
-type EducationItemType = {
+type ProjectsItemType = {
   id: string;
   title: string;
   result: string;
@@ -28,18 +28,19 @@ type EducationItemType = {
   institute: string;
 };
 
-const Education = ({ Education }: any) => {
-  const Edu = [...Education].reverse().slice(0, 1);
+const Projects = ({ Projects }: any) => {
+  const latestProjects = [...Projects].reverse();
+  latestProjects.slice(0, 3);
   var MainColor = "#336699";
   return (
     <Section Title="EDUCATION">
       <SectionContainerV>
-        {Edu.map((edu: EducationItemType) => {
-          return <EducationItem EduItem={edu} />;
+        {latestProjects.map((proj: ProjectsItemType) => {
+          return <EducationItem ProjItem={proj} />;
         })}
       </SectionContainerV>
     </Section>
   );
 };
 
-export default Education;
+export default Projects;
