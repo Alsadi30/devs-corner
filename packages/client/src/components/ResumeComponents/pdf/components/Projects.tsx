@@ -29,8 +29,7 @@ type ProjectsItemType = {
 };
 
 const Projects = ({ Projects }: any) => {
-  const latestProjects = [...Projects].reverse();
-  latestProjects.slice(0, 3);
+  const latestProjects = [...Projects].reverse().slice(0, 3);
   var MainColor = "#336699";
   return (
     <Section Title="PROJETS">

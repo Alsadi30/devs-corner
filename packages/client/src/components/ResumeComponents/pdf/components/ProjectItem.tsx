@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "@react-pdf/renderer";
+import { Link, StyleSheet, Text, View } from "@react-pdf/renderer";
 
 const styles = StyleSheet.create({
   sectionChild1: {
@@ -33,14 +33,20 @@ const ProjectItem = ({
 }: ProjectItemType) => {
   // console.log(EduItem);
   return (
-    <View>
+    <View style={styles.innerView}>
       <View style={{ display: "flex", flexDirection: "column" }}>
         <Text style={styles.sectionChild1}>{`Name : ${name}`}</Text>
         <Text
           style={styles.sectionChild2}
         >{`Description : ${description}`}</Text>
-        <Text style={styles.sectionChild3}>{`RepoURL : ${repoUrl}`}</Text>
-        <Text style={styles.sectionChild3}>{`LiveURL : ${liveUrl}`}</Text>
+        <Link
+          style={styles.sectionChild3}
+          src={repoUrl}
+        >{`RepoURL : ${repoUrl}`}</Link>
+        <Link
+          style={styles.sectionChild3}
+          src={liveUrl}
+        >{`LiveURL : ${liveUrl}`}</Link>
       </View>
     </View>
   );
