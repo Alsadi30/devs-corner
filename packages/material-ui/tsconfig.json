@@ -14,6 +14,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "types": ["vitest/globals"],
     "jsx": "react-jsx"
   },
   "include": ["src", "../client/src/components/SectionItems/CredentialItem", "../client/src/components/SectionItems/SkillSection", "../client/src/components/SectionItems/SkillSection", "../client/src/components/Layout"],

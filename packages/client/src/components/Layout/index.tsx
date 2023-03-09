@@ -5,12 +5,14 @@ import Copyright from "../../../../material-ui/src/Atoms/Copyright";
 import NavBar from "../../../../material-ui/src/Organisms/NavBar/NavBar";
 import avatar from "../../assets/avatar.jpg";
 import { useGetUserQuery } from "../../features/user/userApi";
-interface LayoutProps {
+
+
+export interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const auth = useSelector((state) => state?.auth);
+  const auth = useSelector((state: any) => state?.auth);
 
   if (auth.user) {
     const {
