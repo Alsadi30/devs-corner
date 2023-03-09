@@ -6,7 +6,7 @@ import location from "./../../assets/logos/location.png";
 import phone from "./../../assets/logos/phone.png";
 
 export const SectionWrapper = ({ children }: any) => {
-  return <Box sx={{ padding: "2rem 2rem 1rem 2rem" }}>{children}</Box>;
+  return <Box sx={{ margin: "1rem" }}>{children}</Box>;
 };
 export const SectionContainerV = ({ children }: any) => {
   return (
@@ -97,7 +97,7 @@ export const ContactItem = ({ Logo, Alt, Text }: ContactItemPropsType) => {
 };
 type ContactProps = {
   Email: string;
-  Phone: number;
+  Phone: string;
   Location: string;
   Linkedin: string;
 };
@@ -124,50 +124,10 @@ export const Contact = ({ Email, Phone, Location, Linkedin }: ContactProps) => {
 };
 
 export const HrLine = () => {
-  return <Box sx={{ borderTop: "3px #336699 solid" }}></Box>;
-};
-
-type ExperienceItemPropsType = {
-  position: string;
-  companyName: string;
-  startAt: string;
-  endAt: string;
-};
-export const ExperienceItem = ({
-  position,
-  companyName,
-  startAt,
-  endAt,
-}: ExperienceItemPropsType) => {
   return (
-    <SectionContainerH>
-      <Typography variant="h4">{`* ${position} `}</Typography>
-      <Typography variant="h5">{`, ${companyName} `}</Typography>
-      <Typography variant="h6">{`, ${startAt} to ${endAt}`}</Typography>
-    </SectionContainerH>
-  );
-};
-type jobPropsType = {
-  position: string;
-  companyName: string;
-  startAt: string;
-  endAt: string;
-};
-export const WorkExperience = ({ experience }: any) => {
-  return (
-    <Section Header="WORK EXPERIENCE">
-      {experience.map((job: jobPropsType, index: number) => {
-        return (
-          <ExperienceItem
-            key={index}
-            position={job.position}
-            companyName={job.companyName}
-            startAt={job.startAt}
-            endAt={job.endAt}
-          />
-        );
-      })}
-    </Section>
+    <Box
+      sx={{ borderTop: "1px", borderColor: "#336699", borderStyle: "solid" }}
+    ></Box>
   );
 };
 
@@ -207,15 +167,63 @@ export const Skill = ({ skills }: any) => {
   );
 };
 
+type ExperienceItemPropsType = {
+  position: string;
+  companyName: string;
+  startAt: string;
+  endAt: string;
+};
+export const ExperienceItem = ({
+  position,
+  companyName,
+  startAt,
+  endAt,
+}: ExperienceItemPropsType) => {
+  return (
+    <SectionContainerH>
+      <Typography variant="h4">{`* ${position} `}</Typography>
+      <Typography variant="h5">{`, ${companyName} `}</Typography>
+      <Typography variant="h6">{`, ${startAt} to ${
+        endAt != null ? endAt : "Present"
+      }`}</Typography>
+    </SectionContainerH>
+  );
+};
+type jobPropsType = {
+  position: string;
+  companyName: string;
+  startAt: string;
+  endAt: string;
+};
+export const WorkExperience = ({ experience }: any) => {
+  const exp = [...experience].reverse();
+  return (
+    <Section Header="WORK EXPERIENCE">
+      {exp.map((job: jobPropsType, index: number) => {
+        return (
+          <ExperienceItem
+            key={index}
+            position={job.position}
+            companyName={job.companyName}
+            startAt={job.startAt}
+            endAt={job.endAt}
+          />
+        );
+      })}
+    </Section>
+  );
+};
+
 export const Education = ({ Education }: any) => {
-  const Data = Education[Education.length - 1];
+  const edu = [...Education].reverse();
+  const Data = edu[0];
   return (
     <Section Header="EDUCATION">
       <SectionContainerV>
         <Typography variant="h6">{Data.title}</Typography>
         <Typography variant="h6">{Data.institute}</Typography>
-        <Typography variant="h6">{Data.result}</Typography>
-        <Typography variant="h6">{Data.passingyear}</Typography>
+        <Typography variant="h6">{`CGPA : ${Data.result}`}</Typography>
+        <Typography variant="h6">{`Passing Year : ${Data.passingyear}`}</Typography>
       </SectionContainerV>
     </Section>
   );
@@ -253,9 +261,10 @@ type projectPropsType = {
   liveUrl: string;
 };
 export const Projects = ({ Projects }: any) => {
+  const topProjects = Projects.slice(0, 3);
   return (
     <Section Header="PROJECTS">
-      {Projects.map((project: projectPropsType, index: number) => {
+      {topProjects.map((project: projectPropsType, index: number) => {
         return (
           <ProjectsItem
             key={index}
