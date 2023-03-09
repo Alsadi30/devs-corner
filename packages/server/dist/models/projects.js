@@ -10,42 +10,42 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Projects = void 0;
-const typeorm_1 = require("typeorm");
+const { Column, Entity, ManyToOne, PrimaryGeneratedColumn } = require("typeorm");
 const user_1 = require("./user");
 let Projects = class Projects {
 };
 __decorate([
-    (0, typeorm_1.PrimaryGeneratedColumn)('uuid'),
+    PrimaryGeneratedColumn('uuid'),
     __metadata("design:type", Number)
 ], Projects.prototype, "id", void 0);
 __decorate([
-    (0, typeorm_1.Column)({
+    Column({
         type: "text",
         nullable: false
     }),
     __metadata("design:type", String)
 ], Projects.prototype, "name", void 0);
 __decorate([
-    (0, typeorm_1.Column)("text"),
+    Column("text"),
     __metadata("design:type", String)
 ], Projects.prototype, "description", void 0);
 __decorate([
-    (0, typeorm_1.Column)({
+    Column({
         type: "text",
         nullable: false
     }),
     __metadata("design:type", String)
 ], Projects.prototype, "repoUrl", void 0);
 __decorate([
-    (0, typeorm_1.Column)("text"),
+    Column("text"),
     __metadata("design:type", String)
 ], Projects.prototype, "liveUrl", void 0);
 __decorate([
-    (0, typeorm_1.ManyToOne)(() => user_1.User, (user) => user.projects),
+    ManyToOne(() => user_1.User, (user) => user.projects),
     __metadata("design:type", user_1.User)
 ], Projects.prototype, "user", void 0);
 Projects = __decorate([
-    (0, typeorm_1.Entity)()
+    Entity()
 ], Projects);
 exports.Projects = Projects;
 //# sourceMappingURL=projects.js.map
