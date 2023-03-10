@@ -5,12 +5,14 @@ import Copyright from "../../../../material-ui/src/Atoms/Copyright";
 import NavBar from "../../../../material-ui/src/Organisms/NavBar/NavBar";
 import avatar from "../../assets/avatar.jpg";
 import { useGetUserQuery } from "../../features/user/userApi";
-interface LayoutProps {
+
+
+export interface LayoutProps {
   children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const auth = useSelector((state) => state?.auth);
+  const auth = useSelector((state: any) => state?.auth);
 
   if (auth.user) {
     const {
@@ -19,11 +21,15 @@ const Layout = ({ children }: LayoutProps) => {
       isLoading,
     } = useGetUserQuery(auth.user.id);
 
-    const { profile } = userData[0];
+    if (isLoading) {
+      return <div>....Loading</div>
+    }
+
+    const user = userData[0];
 
     return (
       <>
-        <NavBar profilePic={profile ? profile.profilePic : ""} />
+        <NavBar profilePic={user.profile ? user.profile.profilePic : ""} />
         <Cont>
           {children}
           <Copyright />

@@ -67,13 +67,13 @@ type BasicIntroPropsType = {
 export const BasicIntro = ({ Name, Position, About }: BasicIntroPropsType) => {
   return (
     <SectionWrapper>
-      <Typography variant="h1" color="initial" sx={{ color: "#336699" }}>
+      <Typography variant="h2" color={"secondary.main"}>
         {Name}
       </Typography>
-      <Typography variant="h3" color="initial" sx={{ color: "grey" }}>
+      <Typography variant="h4" color="initial" sx={{ color: "grey" }}>
         {Position}
       </Typography>
-      <Typography variant="h6" color="initial">
+      <Typography variant="h6" color="info.main">
         {About}
       </Typography>
     </SectionWrapper>

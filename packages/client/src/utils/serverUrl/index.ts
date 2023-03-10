@@ -1,1 +1,1 @@
-export const serverUrl = 'https://dev-server-lixi.onrender.com'
+export const serverUrl = 'https://devs-corner.onrender.com'

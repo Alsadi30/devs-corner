@@ -7,13 +7,14 @@ function App() {
 	const authChecked = useAuthCheck();
 
 	return !authChecked ? (
-		<div>Checking authentication....</div>
+		<div data-testid="app"  >Checking authentication....</div>
 	) : (
-		<Router>
+		<Router  >
 			<Routes>
 				{router.map((route, index) => {
 					return (
 						<Route
+							data-testid="app"
 							key={index}
 							path={route.path}
 							element={
