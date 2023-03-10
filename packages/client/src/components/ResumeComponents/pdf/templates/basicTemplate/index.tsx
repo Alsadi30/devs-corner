@@ -1,5 +1,5 @@
 import Data from "./../../../../../assets/Data.json";
-import BasicIntro from "./BasicIntro";
+import BasicIntro from "./components/BasicIntro";
 import Contact from "./contact/Contact";
 import Credentials from "./credential/Credentials";
 import Education from "./education/Education";

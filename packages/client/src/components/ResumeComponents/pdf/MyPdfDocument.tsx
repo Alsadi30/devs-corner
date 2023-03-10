@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
 const MyPdfDocument = () => (
   <Document>
     <Page size="A4" style={styles.page}>
-      <BasicPdfTemplate MainColor="#336600" />
+      <BasicPdfTemplate MainColor="#336699" />
     </Page>
   </Document>
 );

@@ -261,7 +261,7 @@ type projectPropsType = {
   liveUrl: string;
 };
 export const Projects = ({ Projects }: any) => {
-  const topProjects = Projects.slice(0, 3);
+  const topProjects = [...Projects].reverse().slice(0, 3);
   return (
     <Section Header="PROJECTS">
       {topProjects.map((project: projectPropsType, index: number) => {
@@ -297,9 +297,10 @@ export const CredItem = ({ title, institution, achivedAt }: credPropsType) => {
 };
 
 export const Credentials = ({ Credentials }: any) => {
+  const LatestCred = [...Credentials].reverse().slice(0, 3);
   return (
     <Section Header="CREDENTIALS">
-      {Credentials.map((cred: credPropsType, index: number) => {
+      {LatestCred.map((cred: credPropsType, index: number) => {
         return (
           <CredItem
             key={index}

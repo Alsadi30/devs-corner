@@ -1,24 +1,6 @@
-import { StyleSheet } from "@react-pdf/renderer";
-import Section from "./../Section";
-import { SectionContainerV } from "./../SectionContainer";
+import Section from "./../components/Section";
+import { SectionContainerV } from "./../components/SectionContainer";
 import ProjectItem from "./ProjectItem";
-const styles = StyleSheet.create({
-  sectionChild1: {
-    fontSize: "16px",
-    fontWeight: "bold",
-  },
-  sectionChild2: {
-    fontSize: "14px",
-    fontWeight: "bold",
-  },
-  sectionChild3: {
-    fontSize: "12px",
-    fontWeight: "bold",
-  },
-  innerView: {
-    marginBottom: 10,
-  },
-});
 
 type ProjectsItemType = {
   id: string;

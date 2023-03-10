@@ -1,5 +1,6 @@
-import { Image, StyleSheet, Text, View } from "@react-pdf/renderer";
-import HrBar from "../HrBar";
+import { StyleSheet, View } from "@react-pdf/renderer";
+import HrBar from "../components/HrBar";
+import ContItem from "./ContItem";
 const styles = StyleSheet.create({
   Contact: {
     display: "flex",
@@ -8,54 +9,26 @@ const styles = StyleSheet.create({
     fontSize: "12px",
     padding: "5 30",
   },
-  ContLogo: {
-    width: "15px",
-    color: "red",
-    // padding: "1px",
-    margin: "3px",
-  },
-  ContItem: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-  },
 });
 
 const Contact = (props: any) => {
   const MainColor = props.MainColor;
+  const gmailLogo =
+    "https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/gmail_ickeaq.png";
+  const phoneLogo =
+    "https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/iphone_l8sp0u.png";
+  const locationLogo =
+    "https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/location_iju9sy.png";
+  const linkedInLogo =
+    "https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/linkedin_aoyp6a.png";
   return (
     <View>
       <HrBar MainColor={MainColor} />
       <View style={styles.Contact}>
-        <View style={styles.ContItem}>
-          <Image
-            style={styles.ContLogo}
-            src="https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/gmail_ickeaq.png"
-          />
-          <Text>{props.email}</Text>
-        </View>
-        <View style={styles.ContItem}>
-          <Image
-            style={styles.ContLogo}
-            src="https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/iphone_l8sp0u.png"
-          />
-          <Text>{props.phone}</Text>
-        </View>
-        <View style={styles.ContItem}>
-          <Image
-            style={styles.ContLogo}
-            src="https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/location_iju9sy.png"
-          />
-          <Text>{props.location}</Text>
-        </View>
-        <View style={styles.ContItem}>
-          <Image
-            style={styles.ContLogo}
-            src="https://res.cloudinary.com/diaerqggk/image/upload/v1677227867/linkedin_aoyp6a.png"
-          />
-          <Text>{props.linkedin}</Text>
-        </View>
+        <ContItem Logo={gmailLogo} Title={props.email} />
+        <ContItem Logo={phoneLogo} Title={props.phone} />
+        <ContItem Logo={locationLogo} Title={props.location} />
+        <ContItem Logo={linkedInLogo} Title={props.linkedin} />
       </View>
       <HrBar MainColor={MainColor} />
     </View>
