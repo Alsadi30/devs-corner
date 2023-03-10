@@ -1,5 +1,5 @@
 import { Image, StyleSheet, Text, View } from "@react-pdf/renderer";
-import HrBar from "./HrBar";
+import HrBar from "../HrBar";
 const styles = StyleSheet.create({
   Contact: {
     display: "flex",

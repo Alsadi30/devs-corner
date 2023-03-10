@@ -1,13 +1,8 @@
 import { StyleSheet } from "@react-pdf/renderer";
+import Section from "./../Section";
+import { SectionContainerV } from "./../SectionContainer";
 import CredentialItem from "./CredentialItem";
-import Section from "./Section";
-import { SectionContainerV } from "./SectionContainer";
 const styles = StyleSheet.create({
-  sectionTitle: {
-    color: "#336699",
-    fontSize: "15",
-    fontWeight: "bold",
-  },
   sectionChild1: {
     fontSize: "16px",
     fontWeight: "bold",
