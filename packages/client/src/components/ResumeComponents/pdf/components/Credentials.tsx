@@ -36,7 +36,7 @@ type crsPropsType = {
   achivedAt: string;
 };
 const Credentials = ({ Credentials }: any) => {
-  var MainColor = "#336699";
+  const MainColor = localStorage.getItem('TitleColor')
   const cred = [...Credentials].reverse().slice(0, 3);
   // console.log(cred);
   return (

@@ -10,8 +10,8 @@ export interface ItemtitleProps {
     title: string
     color?: string
     showIcon: boolean
-    handleEdit: () => void
-    handleDelete: () => void
+    handleEdit?: () => void
+    handleDelete?: () => void
 }
 
 const ItemTitle = ({ title, color = 'info.dark', showIcon, handleDelete, handleEdit }: ItemtitleProps) => {

@@ -1,6 +1,19 @@
-import { PDFViewer } from "@react-pdf/renderer";
+import { Font, PDFViewer } from "@react-pdf/renderer";
 import MyPdfDocument from "./MyPdfDocument.jsx";
+import JS from '../../.../../../assets/Inter/inter/Inter[slnt,wght].ttf'
+
 const Pdf = () => {
+  // Font.register({
+  //   family: 'Inter',
+  //   fonts: [
+  //     {
+  //       fontStyle: 'normal',
+  //       fontWeight: 400,
+  //       format: 'woff',
+  //       src: `../../.../../../assets/Inter/inter/Inter[slnt,wght].woff`
+  //     }
+  //   ]
+  // })
   return (
     <PDFViewer style={{ width: "100%", height: "100vh" }}>
       <MyPdfDocument />

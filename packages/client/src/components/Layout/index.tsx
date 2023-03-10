@@ -21,11 +21,15 @@ const Layout = ({ children }: LayoutProps) => {
       isLoading,
     } = useGetUserQuery(auth.user.id);
 
-    const { profile } = userData[0];
+    if (isLoading) {
+      return <div>....Loading</div>
+    }
+
+    const user = userData[0];
 
     return (
       <>
-        <NavBar profilePic={profile ? profile.profilePic : ""} />
+        <NavBar profilePic={user.profile ? user.profile.profilePic : ""} />
         <Cont>
           {children}
           <Copyright />

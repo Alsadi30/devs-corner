@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
 });
 
 const Contact = (props: any) => {
-  const MainColor = "#336699";
+  // const MainColor = "#336699";
+  const MainColor = localStorage.getItem('TitleColor')
   return (
     <View>
       <HrBar MainColor={MainColor} />

@@ -7,11 +7,16 @@ import Education from "./components/Education";
 import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
+
+
+const TitleColor = localStorage.getItem('TitleColor')
+const BGColor = localStorage.getItem('BGColor')
+
 const styles = StyleSheet.create({
   page: {
-    margin: "10 0",
-    backgroundColor: "white",
-    width: "100%",
+    margin: "0 0",
+    backgroundColor: BGColor,
+    width: "100%"
   },
   section: {
     margin: "10 30",
@@ -19,7 +24,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   sectionTitle: {
-    color: "#336699",
+    color: TitleColor,
     fontSize: "15",
     fontWeight: "bold",
   },
@@ -41,7 +46,8 @@ const styles = StyleSheet.create({
 });
 
 const MyPdfDocument = () => (
-  <Document>
+
+  < Document >
     <Page size="A4" style={styles.page}>
       <BasicIntro
         Name={Data.profile.displayname}
@@ -60,7 +66,7 @@ const MyPdfDocument = () => (
       <Projects Projects={Data.projects} />
       <Credentials Credentials={Data.credentials} />
     </Page>
-  </Document>
+  </ Document>
 );
 
 export default MyPdfDocument;

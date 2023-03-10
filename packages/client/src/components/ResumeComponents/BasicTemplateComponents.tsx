@@ -5,6 +5,11 @@ import linkedin from "./../../assets/logos/linkedin.png";
 import location from "./../../assets/logos/location.png";
 import phone from "./../../assets/logos/phone.png";
 
+
+
+
+
+
 export const SectionWrapper = ({ children }: any) => {
   return <Box sx={{ margin: "1rem" }}>{children}</Box>;
 };
@@ -67,16 +72,16 @@ type BasicIntroPropsType = {
 export const BasicIntro = ({ Name, Position, About }: BasicIntroPropsType) => {
   return (
     <SectionWrapper>
-      <Typography variant="h1" color="initial" sx={{ color: "#336699" }}>
+      <Typography variant="h1" color={"secondary.main"} >
         {Name}
       </Typography>
       <Typography variant="h3" color="initial" sx={{ color: "grey" }}>
         {Position}
       </Typography>
-      <Typography variant="h6" color="initial">
+      <Typography variant="h6" color="info.main">
         {About}
       </Typography>
-    </SectionWrapper>
+    </SectionWrapper >
   );
 };
 
@@ -183,9 +188,8 @@ export const ExperienceItem = ({
     <SectionContainerH>
       <Typography variant="h4">{`* ${position} `}</Typography>
       <Typography variant="h5">{`, ${companyName} `}</Typography>
-      <Typography variant="h6">{`, ${startAt} to ${
-        endAt != null ? endAt : "Present"
-      }`}</Typography>
+      <Typography variant="h6">{`, ${startAt} to ${endAt != null ? endAt : "Present"
+        }`}</Typography>
     </SectionContainerH>
   );
 };

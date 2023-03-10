@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 export const registerSchema = yup.object({
-    username: yup.string().required().trim().min(4).max(10),
+    username: yup.string().required().trim().min(4).max(15),
     email: yup.string().required().trim().email(),
     phone: yup.string().required().min(10).max(15),
     password: yup.string().required().trim().min(6),
