@@ -1,4 +1,3 @@
-
 const { User } = require('../models/user')
 const MyDataSource = require('../config/database')
 const { Projects } = require('../models/projects')
@@ -98,4 +97,3 @@ module.exports = {
 }
 
 
-export { }

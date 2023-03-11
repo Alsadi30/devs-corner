@@ -20,20 +20,9 @@ const SkillItem: React.FunctionComponent<SkillItemProps> = ({ item, other }: Ski
 
     const filterSkill = other.filter((i: item) => i.skilltype.name === item.name)
 
-    const [showIcon, setShowIcon] = useState(false)
-
-    const handleDeleteSkill = () => {
-        console.log(filterSkill)
-    }
-
-    const handleEditSkill = () => {
-
-    }
-
-    // 
     return (
-        <Grid onMouseOver={() => setShowIcon(true)} onMouseOut={() => setShowIcon(false)} container px={2} pt={1.7} flexWrap={'wrap'} >
-            <ItemTitle title={item?.name} handleDelete={handleDeleteSkill} handleEdit={handleEditSkill} showIcon={showIcon} />
+        <Grid container px={2} pt={1.7} flexWrap={'wrap'} >
+            <ItemTitle title={item?.name} showIcon={false} />
             <Grid container flexDirection={'row'} >
                 <MapListItem Component={Skill} Items={filterSkill} />
             </Grid >

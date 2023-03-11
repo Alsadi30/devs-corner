@@ -9,6 +9,8 @@
       "outDir": "dist",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
+      "strict": false,
+      "moduleDetection": "force"
     },
     "lib": ["es6"]
   }

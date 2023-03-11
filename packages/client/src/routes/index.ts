@@ -1,8 +1,9 @@
 import Dashboard from '../pages/Dashboard/index';
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
+import PDFView from '../pages/PDFView/index';
 import Register from '../pages/Register/index';
-import Resume from '../pages/Resume';
+import Resume from '../pages/Resume/index';
 
 export const router = [
 	{
@@ -28,6 +29,11 @@ export const router = [
 	{
 		path: '/resume',
 		component: Resume,
+		public: false,
+	},
+	{
+		path: '/resume/pdf',
+		component: PDFView,
 		public: false,
 	},
 	{

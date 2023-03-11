@@ -1,20 +1,29 @@
 require('dotenv').config()
-import { Request, Response } from "express"
-const routes = require("./router")
+const routes = require("./router/index")
 const path = require('path');
 const setMiddleware = require("./middleware/index")
 const express = require('express')
 const MyDataSource = require('./config/database')
 const app = express()
 
+app.all('*', function (req, res, next) {
+  var origin = req.get('origin');
+  res.header('Access-Control-Allow-Origin', origin);
+  res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  res.header('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+});
+
+const { PORT } = process.env
+
 app.use(express.json());
-const port = 3000
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
 setMiddleware(app)
 
-app.get('/', (req: Request, res: Response) => {
+app.get('/', (req, res) => {
   res.send('ok')
 })
 
@@ -29,6 +38,7 @@ MyDataSource.initialize()
   })
   .catch((error) => console.log(error))
 
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`)
+app.listen(PORT, () => {
+  console.log(`Example app listening on port ${PORT}`)
 })
+
