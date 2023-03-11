@@ -2,6 +2,7 @@ import Dashboard from '../pages/Dashboard/index';
 import Login from '../pages/Login';
 import NotFound from '../pages/NotFound';
 import Register from '../pages/Register/index';
+import Resume from '../pages/Resume';
 
 export const router = [
 	{
@@ -25,8 +26,13 @@ export const router = [
 		public: true,
 	},
 	{
+		path: '/resume',
+		component: Resume,
+		public: false,
+	},
+	{
 		path: '*',
 		component: NotFound,
-		public: true,
+		public: false,
 	},
 ];

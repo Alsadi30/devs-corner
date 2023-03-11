@@ -22,7 +22,7 @@ const ProjectItem = ({ item }: ProjectItemProps) => {
 	const { id, liveUrl, name, repoUrl, description } = item;
 
 	const [repoopen, setRepoOpen] = useState(false);
-	const [showIcon, setShowIcon] = useState(false)
+	const [showIcon, setShowIcon] = useState(false);
 
 	const handleProject = () => {
 		setRepoOpen(!repoopen);
@@ -33,14 +33,19 @@ const ProjectItem = ({ item }: ProjectItemProps) => {
 	};
 
 	const handleProjectSubmit = (data: object) => {
-		console.log(data, id)
-		handleProject()
-
-	}
-
+		// update rtk hook
+		console.log(data, id);
+		handleProject();
+	};
 
 	return (
-		<Grid onMouseOver={() => setShowIcon(true)} onMouseOut={() => setShowIcon(false)} container flexDirection={'column'} p={2}>
+		<Grid
+			onMouseOver={() => setShowIcon(true)}
+			onMouseOut={() => setShowIcon(false)}
+			container
+			flexDirection={'column'}
+			p={2}
+		>
 			<ItemTitle
 				title={name}
 				handleDelete={handleProjectDelete}
