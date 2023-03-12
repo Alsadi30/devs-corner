@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import CustomizedDialogs from '../../../../../material-ui/src/Atoms/Modal';
 import Section from '../../../../../material-ui/src/Organisms/Section';
+import { useCreateCredentialMutation } from '../../../features/credential/credentialApi';
 import CredentialModel from '../../ModalItems/CredentialModal';
 import CredentialItem from '../../SectionItems/CredentialItem';
 
@@ -10,6 +11,7 @@ interface Props {
 
 const CredentialSection = ({ credentials }: Props) => {
 	const [credopen, setCredOpen] = useState(false);
+	const [createCredential] = useCreateCredentialMutation();
 
 	const handleCredential = () => {
 		setCredOpen(!credopen);
@@ -17,13 +19,12 @@ const CredentialSection = ({ credentials }: Props) => {
 
 	const formData = new FormData();
 
-	const handleCredentialSubmit = (formdata: object) => {
-		// console.log(formdata)
-		for (const [key, value] of Object.entries(formdata)) {
-			console.log(`${key}: ${value}`);
+	const handleCredentialSubmit = (data: object) => {
+		for (const [key, value] of Object.entries(data)) {
 			formData.append(key, value);
 		}
-		// in this line create rtk hook
+
+		createCredential(formData);
 		handleCredential();
 	};
 

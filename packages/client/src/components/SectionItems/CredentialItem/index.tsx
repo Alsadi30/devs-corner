@@ -4,6 +4,7 @@ import Image from '../../../../../material-ui/src/Atoms/Avatars/Image';
 import KeyValue from '../../../../../material-ui/src/Atoms/KeyValue';
 import CustomizedDialogs from '../../../../../material-ui/src/Atoms/Modal';
 import ItemTitle from '../../../../../material-ui/src/Molecules/ItemTitleWithIcon';
+import { useDeleteCredentialMutation } from '../../../features/credential/credentialApi';
 import CredentialModel from '../../ModalItems/CredentialModal';
 
 export interface CredentialProps {
@@ -33,12 +34,15 @@ const CredentialItem = ({ item }: CredentialProps) => {
 	const [credopen, setCredOpen] = useState(false);
 	const [showIcon, setShowIcon] = useState(false);
 
+	const [deleteCredential] = useDeleteCredentialMutation();
+
 	const handleCredential = () => {
 		setCredOpen(!credopen);
 	};
 
 	const handleCredentialDelete = () => {
 		alert('Do you want to delete this Credential?');
+		deleteCredential(id);
 	};
 	const formData = new FormData();
 

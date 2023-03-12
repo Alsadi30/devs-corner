@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import CustomizedDialogs from '../../../../../material-ui/src/Atoms/Modal';
 import IconWithText from '../../../../../material-ui/src/Molecules/IconWithText';
 import ItemTitle from '../../../../../material-ui/src/Molecules/ItemTitleWithIcon';
+import { useDeleteProjectMutation } from '../../../features/project/projectApi';
 import ProjectModal from '../../ModalItems/ProjectModal';
 
 export interface ProjectItemProps {
@@ -23,6 +24,7 @@ const ProjectItem = ({ item }: ProjectItemProps) => {
 
 	const [repoopen, setRepoOpen] = useState(false);
 	const [showIcon, setShowIcon] = useState(false);
+	const [deleteProject] = useDeleteProjectMutation();
 
 	const handleProject = () => {
 		setRepoOpen(!repoopen);
@@ -30,6 +32,7 @@ const ProjectItem = ({ item }: ProjectItemProps) => {
 
 	const handleProjectDelete = () => {
 		alert('Do you want to delete this project?');
+		deleteProject(id);
 	};
 
 	const handleProjectSubmit = (data: object) => {
