@@ -1,12 +1,13 @@
 import { Typography } from "@mui/material";
-import Section from "../../sharedComponents/Section";
-import { SectionContainerV } from "../../sharedComponents/SectionContainer";
-
+import HrBar from "./../../sharedComponents/HrBar";
+import Section from "./../../sharedComponents/Section";
+import { SectionContainerV } from "./../../sharedComponents/SectionContainer";
 const Education = ({ Education }: any) => {
   const edu = [...Education].reverse();
   const Data = edu[0];
   return (
-    <Section Header="EDUCATION">
+    <Section Header="Education">
+      <HrBar />
       <SectionContainerV>
         <Typography variant="h6">{Data.title}</Typography>
         <Typography variant="h6">{Data.institute}</Typography>
@@ -16,4 +17,5 @@ const Education = ({ Education }: any) => {
     </Section>
   );
 };
+
 export default Education;

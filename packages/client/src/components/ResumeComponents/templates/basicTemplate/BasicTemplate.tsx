@@ -11,7 +11,7 @@ import Skill from "./skill/Skill";
 
 const style = {
   pageWrapper: {
-    padding: "20px 0",
+    padding: "40px 0",
     width: "800px",
     // background: 'white',
     // height: "1800px",
@@ -19,6 +19,8 @@ const style = {
 };
 
 const BasicTemplate = () => {
+  localStorage.setItem("TitleColor", "#336699");
+
   return (
     <>
       <Grid container display={"flex"}>
@@ -40,9 +42,9 @@ const BasicTemplate = () => {
               Location={Data.profile.location}
               Linkedin="arifbtkrm"
             />
-            <Skill skills={Data.skills} />
+            <Skill Skills={Data.skills} />
             {Data.experience.length > 0 ? (
-              <Experience experience={Data.experience} />
+              <Experience Experience={Data.experience} />
             ) : (
               ""
             )}

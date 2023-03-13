@@ -1,4 +1,5 @@
-import Section from "../components/Section";
+import HrBar from "../../sharedComponents/HrBar";
+import Section from "./../../sharedComponents/Section";
 import ExperienceItem from "./ExperienceItem";
 type jobPropsType = {
   position: string;
@@ -9,7 +10,8 @@ type jobPropsType = {
 const Experience = ({ Experience }: any) => {
   const exp = [...Experience].reverse();
   return (
-    <Section Header="WORK EXPERIENCE">
+    <Section Header="Experience">
+      <HrBar />
       {exp.map((job: jobPropsType, index: number) => {
         return (
           <ExperienceItem

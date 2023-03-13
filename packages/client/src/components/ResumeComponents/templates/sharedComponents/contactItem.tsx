@@ -1,5 +1,5 @@
 import { Box, Typography } from "@mui/material";
-import LocalImage from "../../../../../../../material-ui/src/Atoms/Avatars/LocalImage";
+import LocalImage from "../../../../../../material-ui/src/Atoms/Avatars/LocalImage";
 
 type ContactItemPropsType = {
   Logo: string;

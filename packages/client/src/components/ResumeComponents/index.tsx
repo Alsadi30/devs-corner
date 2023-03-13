@@ -3,12 +3,11 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { FocusEvent, useMemo, useState } from "react";
 import printDownload from "./../../assets/printDownload.jpg";
 import Layout from "./../Layout";
-import ColorItem from "./components/ColorItem";
-import Templates from "./components/Templates";
 import MySelectedTemplate from "./templates/MySelectedTemplate";
+import ColorItem from "./templates/sharedComponents/ColorItem";
+import Templates from "./templates/sharedComponents/Templates";
 const style = {
   pageWrapper: {
-    padding: "20px 0",
     width: "800px",
     // background: 'white',
     // height: "1800px",

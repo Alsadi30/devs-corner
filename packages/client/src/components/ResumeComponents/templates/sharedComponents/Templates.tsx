@@ -1,6 +1,8 @@
 import { Box, Typography } from "@mui/material";
-import basicTmplt from "../../../assets/templates/template1.jpg";
-import basicTmplt2 from "../../../assets/templates/template2.jpg";
+import basicTmplt2 from "../../../../assets/templates/template2.jpg";
+import basicTmplt3 from "../../../../assets/templates/template3.jpg";
+import basicTmplt from "./../../../../assets/templates/template1.jpg";
+
 import TemplateThumb from "./TemplateThumbnail";
 
 const Templates = ({ SelectedTemplate }: any) => {
@@ -23,7 +25,7 @@ const Templates = ({ SelectedTemplate }: any) => {
       >
         <TemplateThumb val="1" src={basicTmplt} alt="Basic" />
         <TemplateThumb val="2" src={basicTmplt2} alt="Basic2" />
-        <TemplateThumb val="3" src={basicTmplt2} alt="Basic3" />
+        <TemplateThumb val="3" src={basicTmplt3} alt="Basic3" />
       </form>
     </Box>
   );

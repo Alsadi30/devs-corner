@@ -4,7 +4,6 @@ import linkedin from "./../../../../../assets/logos/linkedin.png";
 import location from "./../../../../../assets/logos/location.png";
 import phone from "./../../../../../assets/logos/phone.png";
 import ContactItem from "./../../sharedComponents/contactItem";
-import HrBar from "./../../sharedComponents/HrBar";
 
 type ContactProps = {
   Email: string;
@@ -16,12 +15,11 @@ type ContactProps = {
 const Contact = ({ Email, Phone, Location, Linkedin }: ContactProps) => {
   return (
     <Box>
-      <HrBar />
       <Box
         sx={{
           display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-evenly",
+          flexDirection: "column",
+          // justifyContent: "space-evenly",
           padding: "10px",
         }}
       >
@@ -30,7 +28,6 @@ const Contact = ({ Email, Phone, Location, Linkedin }: ContactProps) => {
         <ContactItem Logo={location} Alt="location" Text={Location} />
         <ContactItem Logo={linkedin} Alt="in" Text={Linkedin} />
       </Box>
-      <HrBar />
     </Box>
   );
 };

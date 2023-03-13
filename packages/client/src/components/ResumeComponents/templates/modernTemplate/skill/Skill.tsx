@@ -1,6 +1,8 @@
 import { Box } from "@mui/material";
-import Section from "../components/Section";
-import { SectionContainerH } from "../components/SectionContainer";
+import HrBar from "../../sharedComponents/HrBar";
+import Section from "../../sharedComponents/Section";
+
+import { SectionContainerH } from "../../sharedComponents/SectionContainer";
 import { SkillItem } from "./SkillItem";
 
 const Skill = ({ Skills }: any) => {
@@ -10,7 +12,8 @@ const Skill = ({ Skills }: any) => {
     thumbnail: string;
   };
   return (
-    <Section Header="SKILLS">
+    <Section Header="Skills Highlights">
+      <HrBar />
       <SectionContainerH>
         <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
           {Skills.map((skill: skillType, index: number) => {
