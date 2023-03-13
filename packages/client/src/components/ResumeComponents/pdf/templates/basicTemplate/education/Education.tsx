@@ -1,24 +1,6 @@
-import { StyleSheet } from "@react-pdf/renderer";
+import Section from "../components/Section";
+import { SectionContainerV } from "../components/SectionContainer";
 import EducationItem from "./EducationItem";
-import Section from "./Section";
-import { SectionContainerV } from "./SectionContainer";
-const styles = StyleSheet.create({
-  sectionChild1: {
-    fontSize: "16px",
-    fontWeight: "bold",
-  },
-  sectionChild2: {
-    fontSize: "14px",
-    fontWeight: "bold",
-  },
-  sectionChild3: {
-    fontSize: "12px",
-    fontWeight: "bold",
-  },
-  innerView: {
-    marginBottom: 10,
-  },
-});
 
 type EducationItemType = {
   id: string;
@@ -28,11 +10,10 @@ type EducationItemType = {
   institute: string;
 };
 
-const Education = ({ Education }: any) => {
+const Education = ({ Education, MainColor }: any) => {
   const Edu = [...Education].reverse().slice(0, 1);
-  var MainColor = "#336699";
   return (
-    <Section Title="EDUCATION">
+    <Section MainColor={MainColor} Title="EDUCATION">
       <SectionContainerV>
         {Edu.map((edu: EducationItemType, index: number) => {
           return (

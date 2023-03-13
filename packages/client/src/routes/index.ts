@@ -29,12 +29,12 @@ export const router = [
   {
     path: "/resume",
     component: Resume,
-    public: false,
+    public: true,
   },
   {
     path: "/resume/pdf",
     component: PDFView,
-    public: false,
+    public: true,
   },
   {
     path: "*",

@@ -10,10 +10,10 @@ const styles = (MainColor: string) =>
     },
   });
 const Section = (props: any) => {
-  var MainColor = "#336699";
+  const TitleColor = props.MainColor;
   return (
     <SectionWrapper>
-      <Text style={styles(MainColor).sectionTitle}>{props.Title}</Text>
+      <Text style={styles(TitleColor).sectionTitle}>{props.Title}</Text>
       {props.children}
     </SectionWrapper>
   );

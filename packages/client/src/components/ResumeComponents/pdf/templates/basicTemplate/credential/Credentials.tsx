@@ -1,29 +1,6 @@
-import { StyleSheet } from "@react-pdf/renderer";
+import Section from "./../components/Section";
+import { SectionContainerV } from "./../components/SectionContainer";
 import CredentialItem from "./CredentialItem";
-import Section from "./Section";
-import { SectionContainerV } from "./SectionContainer";
-const styles = StyleSheet.create({
-  sectionTitle: {
-    color: "#336699",
-    fontSize: "15",
-    fontWeight: "bold",
-  },
-  sectionChild1: {
-    fontSize: "16px",
-    fontWeight: "bold",
-  },
-  sectionChild2: {
-    fontSize: "14px",
-    fontWeight: "bold",
-  },
-  sectionChild3: {
-    fontSize: "12px",
-    fontWeight: "bold",
-  },
-  innerView: {
-    marginBottom: 10,
-  },
-});
 
 type crsPropsType = {
   id: string;
@@ -35,12 +12,10 @@ type crsPropsType = {
   courseDuration: string;
   achivedAt: string;
 };
-const Credentials = ({ Credentials }: any) => {
-  var MainColor = "#336699";
+const Credentials = ({ Credentials, MainColor }: any) => {
   const cred = [...Credentials].reverse().slice(0, 3);
-  // console.log(cred);
   return (
-    <Section Title="CREDENTIALS">
+    <Section MainColor={MainColor} Title="CREDENTIALS">
       <SectionContainerV>
         {cred.map((crs: crsPropsType, index: number) => {
           return (

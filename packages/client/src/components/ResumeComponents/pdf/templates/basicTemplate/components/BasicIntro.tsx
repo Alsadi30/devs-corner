@@ -19,7 +19,7 @@ const styles = (color: string) =>
   });
 
 const BasicIntro = (props: any) => {
-  var MainColor = "#336699";
+  const MainColor = props.MainColor;
   return (
     <SectionWrapper>
       <Text style={styles(MainColor).Name}>{props.Name}</Text>

@@ -1,7 +1,7 @@
 import * as yup from 'yup';
 
 export const credentialSchema = yup.object({
-    title: yup.string().required().trim().max(15),
+    title: yup.string().required().trim().max(20),
     image: yup.string().required(),
     institution: yup.string().required().trim(),
     cartificateUrl: yup.string().trim(),
