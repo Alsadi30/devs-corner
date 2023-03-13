@@ -10,7 +10,15 @@ export const projectApi = apiSlice.injectEndpoints({
 			}),
 			invalidatesTags: ['user'],
 		}),
+		deleteProject: builder.mutation({
+			query: (id) => ({
+				url: `/project/${id}`,
+				method: 'DELETE',
+			}),
+			invalidatesTags: ['user'],
+		}),
 	}),
 });
 
-export const { useCreateProjectMutation } = projectApi;
+export const { useCreateProjectMutation, useDeleteProjectMutation } =
+	projectApi;
