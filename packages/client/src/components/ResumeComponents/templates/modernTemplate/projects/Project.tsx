@@ -1,7 +1,7 @@
 import HrBar from "../../sharedComponents/HrBar";
+import ItemWrapper from "./../../sharedComponents/ItemWrapper";
 import Section from "./../../sharedComponents/Section";
 import ProjectsItem from "./ProjectsItem";
-
 type projectPropsType = {
   name: string;
   description: string;
@@ -13,17 +13,19 @@ const Projects = ({ Projects }: any) => {
   return (
     <Section Header="Projects">
       <HrBar />
-      {topProjects.map((project: projectPropsType, index: number) => {
-        return (
-          <ProjectsItem
-            key={index}
-            name={` Name : ${project.name}`}
-            description={`Description : ${project.description}`}
-            repoUrl={`Repository : ${project.repoUrl}`}
-            liveUrl={`Live Link :  ${project.liveUrl}`}
-          />
-        );
-      })}
+      <ItemWrapper>
+        {topProjects.map((project: projectPropsType, index: number) => {
+          return (
+            <ProjectsItem
+              key={index}
+              name={` Name : ${project.name}`}
+              description={`Description : ${project.description}`}
+              repoUrl={`Repository : ${project.repoUrl}`}
+              liveUrl={`Live Link :  ${project.liveUrl}`}
+            />
+          );
+        })}
+      </ItemWrapper>
     </Section>
   );
 };

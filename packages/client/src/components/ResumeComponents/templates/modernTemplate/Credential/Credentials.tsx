@@ -1,7 +1,7 @@
 import HrBar from "../../sharedComponents/HrBar";
 import Section from "../../sharedComponents/Section";
+import ItemWrapper from "./../../sharedComponents/ItemWrapper";
 import CredItem from "./CredItem";
-
 type credPropsType = {
   title: string;
   institution: string;
@@ -13,16 +13,18 @@ const Credentials = ({ Credentials }: any) => {
   return (
     <Section Header="Certification">
       <HrBar />
-      {LatestCred.map((cred: credPropsType, index: number) => {
-        return (
-          <CredItem
-            key={index}
-            title={cred.title}
-            institution={cred.institution}
-            achivedAt={cred.achivedAt}
-          />
-        );
-      })}
+      <ItemWrapper>
+        {LatestCred.map((cred: credPropsType, index: number) => {
+          return (
+            <CredItem
+              key={index}
+              title={cred.title}
+              institution={cred.institution}
+              achivedAt={cred.achivedAt}
+            />
+          );
+        })}
+      </ItemWrapper>
     </Section>
   );
 };
