@@ -20,7 +20,6 @@ const Dashboard = () => {
     return <div><LoadingSkeletion /></div>;
   }
 
-
   const {
     profile,
     projects,
