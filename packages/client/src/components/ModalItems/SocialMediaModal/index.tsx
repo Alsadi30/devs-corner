@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { TextField } from '@mui/material';
-import { useForm } from 'react-hook-form';
+import { useForm, Controller } from 'react-hook-form';
 import FormButton from '../../../../../material-ui/src/Atoms/FormButton';
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
 import Input from '../../../../../material-ui/src/Atoms/InputG';
@@ -8,11 +8,13 @@ import { InputStyle } from '../../../../../material-ui/src/Atoms/InputG/Input.st
 import { useCreateSocialMediaMutation } from '../../../features/socialMedia/socialMediaApi';
 import { socialMediaSchema } from '../../../utils/validation/socialMediaValidation';
 
-type Props = {};
+type Props = {
+	handleClose: () => void
+};
 
 const inputs = ['facebook', 'twitter', 'linkedin', 'github'];
 
-const SocialMediaModal = (props: Props) => {
+const SocialMediaModal = ({ handleClose }: Props) => {
 	const {
 		control,
 		handleSubmit,
@@ -30,33 +32,39 @@ const SocialMediaModal = (props: Props) => {
 	const onSubmit = (data: object) => {
 		console.log(data);
 		createSocialMedia(data);
+		handleClose()
 	};
 
 	return (
 		<FormContainer handleSubmit={handleSubmit(onSubmit)}>
 			<Input item={{ name: 'url', type: 'text' }} other={control} />
-			<TextField
-				sx={InputStyle}
-				id='filled-select-currency-native'
-				fullWidth
-				select
-				label='Select Type'
-				defaultValue='EUR'
-				SelectProps={{
-					native: true,
-				}}
-				variant='filled'
-			>
-				{inputs.map((value) => (
-					<option
-						style={{ color: 'white', padding: '10px' }}
-						key={value}
-						value={value}
+			<Controller
+				name={'type'}
+				control={control}
+				render={({ field, fieldState: { error }, formState: { isValid } }) => (
+					<TextField
+						{...field}
+						sx={InputStyle}
+						fullWidth
+						select
+						label='Select Type'
+						defaultValue='facebook'
+						SelectProps={{
+							native: true,
+						}}
+						variant='filled'
 					>
-						{value}
-					</option>
-				))}
-			</TextField>
+						{inputs.map((value) => (
+							<option
+								style={{ color: 'white', padding: '10px' }}
+								key={value}
+								value={value}
+							>
+								{value}
+							</option>
+						))}
+					</TextField>)}
+			/>
 			/** here We will show the existing socialMedia with edit and delete
 			button */
 			{/* <ItemTitle title='dsfkl' /> */}
