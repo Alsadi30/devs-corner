@@ -19,7 +19,7 @@ const Resume = () => {
   const [secondaryColor, setSecondaryColor] = useState("#336699");
   const [textColor, setTextColor] = useState("#000000");
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
-  const [SelectedTemplate, setSelectedTemplate] = useState("2");
+  const [SelectedTemplate, setSelectedTemplate] = useState("3");
 
   localStorage.setItem("TitleColor", secondaryColor);
   localStorage.setItem("TextColor", textColor);
@@ -38,14 +38,14 @@ const Resume = () => {
           h1: {
             fontSize: "2rem",
             fontWeight: 700,
-            color: "#ffffff",
+            color: "#000",
             lineHeight: 1.2,
             letterSpacing: "-0.01562em",
           },
           h2: {
             fontSize: "1.75rem",
             fontWeight: 700,
-            color: "#ffffff",
+            color: "#000",
             lineHeight: 1.2,
             letterSpacing: "-0.00833em",
           },
@@ -53,7 +53,7 @@ const Resume = () => {
             fontSize: "1.4rem",
             fontWeight: 500,
             lineHeight: 1.2,
-            color: "#ffffff",
+            color: "#000",
             letterSpacing: "0em",
           },
           h4: {
@@ -63,8 +63,8 @@ const Resume = () => {
             letterSpacing: "0.00735em",
           },
           h5: {
-            fontSize: "1.2rem",
-            fontWeight: 400,
+            fontSize: "1.3rem",
+            fontWeight: 700,
             lineHeight: 1.2,
             letterSpacing: "0em",
           },
@@ -107,9 +107,8 @@ const Resume = () => {
             </Box>
           </Grid>
           <Grid item>
-            <center>
-              <Typography variant="h3">Choose Color</Typography>
-            </center>
+            <Typography variant="h3">Choose Color</Typography>
+
             <ColorItem
               title="Title Color"
               handleCapture={handleSecondary}

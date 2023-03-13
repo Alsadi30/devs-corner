@@ -1,5 +1,6 @@
 import BasicTemplate from "./basicTemplate/BasicTemplate";
 import ModernTemplate from "./modernTemplate/index";
+import StylishTemplate from "./stylishTemplate/index";
 
 const MySelectedTemplate = ({ SelectedTemplate }: any) => {
   if (SelectedTemplate == "1") {
@@ -7,7 +8,7 @@ const MySelectedTemplate = ({ SelectedTemplate }: any) => {
   } else if (SelectedTemplate == "2") {
     return <ModernTemplate />;
   } else if (SelectedTemplate == "3") {
-    return <div>Template-3</div>;
+    return <StylishTemplate />;
   } else {
     return null;
   }
