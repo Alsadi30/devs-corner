@@ -10,15 +10,16 @@ import ProfileSection from "../../components/Sections/ProfileSection";
 import ProjectSection from "../../components/Sections/ProjectSection";
 import SkillSections from "../../components/Sections/SkillSections";
 import { useGetUserQuery } from "../../features/user/userApi";
+import LoadingSkeletion from "../../components/Skeleton";
 
 const Dashboard = () => {
   const auth = useSelector((state: any) => state?.auth);
   const { data: userData, isError, isLoading } = useGetUserQuery(auth.user.id);
 
-  if (isLoading || !userData) {
-    return <div>...Loading</div>;
+  if (isLoading || isError || !userData[0]) {
+    return <div><LoadingSkeletion /></div>;
   }
-  console.log(userData[0]);
+
 
   const {
     profile,
