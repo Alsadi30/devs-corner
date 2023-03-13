@@ -40,5 +40,5 @@ export const router = [
 		path: '*',
 		component: NotFound,
 		public: false,
-	},
+	}
 ];

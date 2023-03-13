@@ -9,9 +9,9 @@ interface Props {
 	onSubmit: (data: object) => void;
 }
 
-interface FilmOptionType {
-	title: string;
-	year: number;
+interface SkillType {
+	name: string;
+	id: string;
 }
 
 const OpTheme = createTheme({
@@ -27,8 +27,12 @@ const SkillModal = ({ onSubmit }: Props) => {
 
 	const defaultProps = {
 		options: skillData,
-		getOptionLabel: (option: FilmOptionType) => option?.name,
+		getOptionLabel: (option: SkillType) => option.name,
 	};
+
+	if (isLoading) {
+		<div>Loading</div>;
+	}
 
 	const {
 		register,
@@ -38,6 +42,7 @@ const SkillModal = ({ onSubmit }: Props) => {
 	return (
 		<FormContainer handleSubmit={handleSubmit(onSubmit)}>
 			<ThemeProvider theme={OpTheme}>
+				skillData &&{' '}
 				<Autocomplete
 					fullWidth={true}
 					{...defaultProps}

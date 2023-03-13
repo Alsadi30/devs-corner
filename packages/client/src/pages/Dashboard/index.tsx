@@ -9,6 +9,7 @@ import ExperienceSection from '../../components/Sections/ExperienceSection';
 import ProfileSection from '../../components/Sections/ProfileSection';
 import ProjectSection from '../../components/Sections/ProjectSection';
 import SkillSections from '../../components/Sections/SkillSections';
+import LoadingSkeletion from '../../components/Skeleton';
 import { useGetUserQuery } from '../../features/user/userApi';
 
 const Dashboard = () => {
@@ -19,8 +20,12 @@ const Dashboard = () => {
 		isLoading,
 	} = useGetUserQuery(auth.user.id);
 
-	if (isLoading || !userData) {
-		return <div>...Loading</div>;
+	if (isLoading || isError || !userData[0]) {
+		return (
+			<div>
+				<LoadingSkeletion />
+			</div>
+		);
 	}
 
 	const {

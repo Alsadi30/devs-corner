@@ -95,7 +95,7 @@ const SocialMedia = ({ items }: SocialMediaProps) => {
 				open={openModal}
 				handleClose={handleSocialMedia}
 			>
-				<SocialMediaModal />
+				<SocialMediaModal handleClose={handleSocialMedia} />
 			</CustomizedDialogs>
 		</Grid>
 	);
