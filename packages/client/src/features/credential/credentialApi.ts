@@ -17,8 +17,19 @@ export const credentialApi = apiSlice.injectEndpoints({
 			}),
 			invalidatesTags: ['user'],
 		}),
+		updateCredential: builder.mutation({
+			query: ({ id, data }) => ({
+				url: `/credential/${id}`,
+				method: 'PUT',
+				body: data,
+			}),
+			invalidatesTags: ['user'],
+		}),
 	}),
 });
 
-export const { useCreateCredentialMutation, useDeleteCredentialMutation } =
-	credentialApi;
+export const {
+	useCreateCredentialMutation,
+	useDeleteCredentialMutation,
+	useUpdateCredentialMutation,
+} = credentialApi;

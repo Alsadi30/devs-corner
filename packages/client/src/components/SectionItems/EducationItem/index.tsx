@@ -3,7 +3,10 @@ import { useState } from 'react';
 import KeyValue from '../../../../../material-ui/src/Atoms/KeyValue';
 import CustomizedDialogs from '../../../../../material-ui/src/Atoms/Modal';
 import ItemTitle from '../../../../../material-ui/src/Molecules/ItemTitleWithIcon';
-import { useDeleteEducationMutation } from '../../../features/education/educationApi';
+import {
+	useDeleteEducationMutation,
+	useUpdateEducationMutation,
+} from '../../../features/education/educationApi';
 import EducationModal from '../../ModalItems/EducationModal';
 
 export interface EducationProps {
@@ -20,6 +23,8 @@ const EducationItem = ({ item }: EducationProps) => {
 	const { id, title, institute, passingyear, result } = item;
 	const [eduopen, setEduOpen] = useState(false);
 	const [showIcon, setShowIcon] = useState(false);
+
+	const [updateEducation] = useUpdateEducationMutation();
 	const [deleteEducation] = useDeleteEducationMutation();
 
 	const handleEducation = () => {
@@ -32,7 +37,7 @@ const EducationItem = ({ item }: EducationProps) => {
 	};
 
 	const handleEduSubmit = (data: object) => {
-		console.log(data, id);
+		updateEducation({ id, data });
 		handleEducation();
 	};
 

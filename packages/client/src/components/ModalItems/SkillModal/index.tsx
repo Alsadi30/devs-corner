@@ -27,7 +27,7 @@ const SkillModal = ({ onSubmit }: Props) => {
 
 	const defaultProps = {
 		options: skillData,
-		getOptionLabel: (option: FilmOptionType) => option.name,
+		getOptionLabel: (option: FilmOptionType) => option?.name,
 	};
 
 	const {

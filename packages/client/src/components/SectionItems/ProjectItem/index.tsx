@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom';
 import CustomizedDialogs from '../../../../../material-ui/src/Atoms/Modal';
 import IconWithText from '../../../../../material-ui/src/Molecules/IconWithText';
 import ItemTitle from '../../../../../material-ui/src/Molecules/ItemTitleWithIcon';
-import { useDeleteProjectMutation } from '../../../features/project/projectApi';
+import {
+	useDeleteProjectMutation,
+	useUpdateProjectMutation,
+} from '../../../features/project/projectApi';
 import ProjectModal from '../../ModalItems/ProjectModal';
 
 export interface ProjectItemProps {
@@ -24,6 +27,8 @@ const ProjectItem = ({ item }: ProjectItemProps) => {
 
 	const [repoopen, setRepoOpen] = useState(false);
 	const [showIcon, setShowIcon] = useState(false);
+
+	const [updateProject] = useUpdateProjectMutation();
 	const [deleteProject] = useDeleteProjectMutation();
 
 	const handleProject = () => {
@@ -36,8 +41,7 @@ const ProjectItem = ({ item }: ProjectItemProps) => {
 	};
 
 	const handleProjectSubmit = (data: object) => {
-		// update rtk hook
-		console.log(data, id);
+		updateProject({ id, data });
 		handleProject();
 	};
 
