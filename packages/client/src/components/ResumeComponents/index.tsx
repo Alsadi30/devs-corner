@@ -1,19 +1,11 @@
 import { Box, Grid, Typography } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { FocusEvent, useMemo, useState } from "react";
-import Layout from "../Layout";
-import Data from "./../../assets/Data.json";
-import {
-  BasicIntro,
-  Contact,
-  Credentials,
-  Education,
-  Projects,
-  Skill,
-  WorkExperience,
-} from "./BasicTemplateComponents";
-import ColorItem from "./ColorItem";
-
+import printDownload from "./../../assets/printDownload.jpg";
+import Layout from "./../Layout";
+import ColorItem from "./components/ColorItem";
+import Templates from "./components/Templates";
+import MySelectedTemplate from "./templates/MySelectedTemplate";
 const style = {
   pageWrapper: {
     padding: "20px 0",
@@ -23,11 +15,12 @@ const style = {
   },
 };
 
-const BasicTemplate = () => {
-  const [primaryColor, setPrimaryColor] = useState("#f44336");
+const Resume = () => {
+  const [primaryColor, setPrimaryColor] = useState("#2200CC");
   const [secondaryColor, setSecondaryColor] = useState("#336699");
   const [textColor, setTextColor] = useState("#000000");
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
+  const [SelectedTemplate, setSelectedTemplate] = useState("2");
 
   localStorage.setItem("TitleColor", secondaryColor);
   localStorage.setItem("TextColor", textColor);
@@ -97,19 +90,9 @@ const BasicTemplate = () => {
 
   return (
     <Layout>
-      <Grid container display={"flex"}>
+      <Grid container sx={{ display: "flex", flexDirection: "row" }}>
         <Grid item>
-          <Typography variant="h3">Templates</Typography>
-          <ColorItem
-            title="Title Color"
-            handleCapture={handleSecondary}
-            defaultValue={secondaryColor}
-          />
-          <ColorItem
-            title="Text Color"
-            handleCapture={handleText}
-            defaultValue={textColor}
-          />
+          <Templates SelectedTemplate={setSelectedTemplate} />
         </Grid>
         <ThemeProvider theme={theme}>
           <Grid
@@ -119,30 +102,15 @@ const BasicTemplate = () => {
             sx={{ backgroundColor: backgroundColor }}
           >
             <Box sx={style.pageWrapper}>
-              <BasicIntro
-                Name={Data.profile.displayname}
-                Position={Data.profile.bio}
-                About={Data.profile.about}
-              />
-              <Contact
-                Email={Data.email}
-                Phone={Data.phone}
-                Location={Data.profile.location}
-                Linkedin="arifbtkrm"
-              />
-              <Skill skills={Data.skills} />
-              {Data.experience.length > 0 ? (
-                <WorkExperience experience={Data.experience} />
-              ) : (
-                ""
-              )}
-              <Education Education={Data.education} />
-              <Projects Projects={Data.projects} />
-              <Credentials Credentials={Data.credentials} />
+              <ThemeProvider theme={theme}>
+                <MySelectedTemplate SelectedTemplate={SelectedTemplate} />
+              </ThemeProvider>
             </Box>
           </Grid>
           <Grid item>
-            <Typography variant="h3">Choose Color</Typography>
+            <center>
+              <Typography variant="h3">Choose Color</Typography>
+            </center>
             <ColorItem
               title="Title Color"
               handleCapture={handleSecondary}
@@ -153,10 +121,15 @@ const BasicTemplate = () => {
               handleCapture={handleText}
               defaultValue={textColor}
             />
+            <center>
+              <a href="resume/pdf">
+                <img src={printDownload} width="150px" alt="Print & Download" />
+              </a>
+            </center>
           </Grid>
         </ThemeProvider>
       </Grid>
     </Layout>
   );
 };
-export default BasicTemplate;
+export default Resume;
