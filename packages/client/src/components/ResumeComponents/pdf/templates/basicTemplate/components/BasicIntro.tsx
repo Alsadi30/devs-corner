@@ -1,4 +1,5 @@
-import { StyleSheet, Text } from "@react-pdf/renderer";
+import pdf from "@react-pdf/renderer";
+const { StyleSheet, Text } = pdf;
 import SectionWrapper from "./SectionWrapper";
 
 const styles = (color: string) =>

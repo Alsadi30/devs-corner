@@ -1,4 +1,5 @@
-import { StyleSheet, View } from "@react-pdf/renderer";
+import pdf from "@react-pdf/renderer";
+const { StyleSheet, View } = pdf;
 import HrBar from "../components/HrBar";
 import ContItem from "./ContItem";
 const styles = StyleSheet.create({

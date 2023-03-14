@@ -1,6 +1,6 @@
-import { Font, PDFViewer } from "@react-pdf/renderer";
+import pdf from "@react-pdf/renderer";
+const { PDFViewer } = pdf;
 import MyPdfDocument from "./MyPdfDocument.jsx";
-import JS from '../../.../../../assets/Inter/inter/Inter[slnt,wght].ttf'
 
 const Pdf = () => {
   // Font.register({

@@ -1,4 +1,5 @@
-import { StyleSheet, Text } from "@react-pdf/renderer";
+import pdf from "@react-pdf/renderer";
+const { StyleSheet, Text } = pdf;
 const styles = (MainColor: string) =>
   StyleSheet.create({
     SkillItem: {

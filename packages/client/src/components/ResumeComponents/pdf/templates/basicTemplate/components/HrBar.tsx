@@ -1,4 +1,5 @@
-import { StyleSheet, View } from "@react-pdf/renderer";
+import pdf from "@react-pdf/renderer";
+const { StyleSheet, View } = pdf;
 
 const styles = (MainColor: string) =>
   StyleSheet.create({

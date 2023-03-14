@@ -1,4 +1,5 @@
-import { Link, StyleSheet, Text, View } from "@react-pdf/renderer";
+import pdf from "@react-pdf/renderer";
+const { StyleSheet, View, Text, Link } = pdf;
 
 const styles = StyleSheet.create({
   sectionChild1: {
