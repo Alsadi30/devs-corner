@@ -1,6 +1,10 @@
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import CustomizedDialogs from '../../../../../material-ui/src/Atoms/Modal/index';
-import { useCreateProfileMutation } from '../../../features/profile/profileApi';
+import {
+	useCreateProfileMutation,
+	useUpdateProfileMutation,
+} from '../../../features/profile/profileApi';
 import ProfileModal from '../../ModalItems/ProfileModal/index';
 import BasicProfile from '../../SectionItems/BasicProfile/index';
 
@@ -20,7 +24,10 @@ interface PSProps {
 
 const ProfileSection = ({ profile }: PSProps) => {
 	const [profileopen, setProfileOpen] = useState(false);
+
+	const userData = useSelector((state) => state?.user);
 	const [createProfile] = useCreateProfileMutation();
+	const [updateProfile] = useUpdateProfileMutation();
 
 	const handleProfile = () => {
 		setProfileOpen(!profileopen);
@@ -32,7 +39,10 @@ const ProfileSection = ({ profile }: PSProps) => {
 		for (const [key, value] of Object.entries(data)) {
 			formData.append(key, value);
 		}
-		createProfile(formData);
+		userData?.user?.profile?.id
+			? updateProfile({ id: userData?.user?.id, formData })
+			: createProfile(formData);
+
 		handleProfile();
 	};
 

@@ -9,24 +9,17 @@ export const profileApi = apiSlice.injectEndpoints({
 				body: data,
 			}),
 			invalidatesTags: ['user'],
-
-			/**
-			 *
-			 * @pTODO: when will refactor time and caching ,
-			 * I Will transfer this code into getProfile
-			 */
-
-			// async onQueryStarted(arg, { queryFulfilled, dispatch }) {
-			// 	try {
-			// 		const result = await queryFulfilled;
-
-			// 		dispatch(userProfileData(result.data));
-			// 	} catch (err) {
-			// 		console.log('profileApi - crateData Error: ', err);
-			// 	}
-			// },
+		}),
+		updateProfile: builder.mutation({
+			query: ({ id, data }) => ({
+				url: `/profile/${id}`,
+				method: 'PUT',
+				body: data,
+			}),
+			invalidatesTags: ['user'],
 		}),
 	}),
 });
 
-export const { useCreateProfileMutation } = profileApi;
+export const { useCreateProfileMutation, useUpdateProfileMutation } =
+	profileApi;
