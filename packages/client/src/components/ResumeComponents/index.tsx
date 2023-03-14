@@ -19,7 +19,7 @@ const Resume = () => {
   const [secondaryColor, setSecondaryColor] = useState("#336699");
   const [textColor, setTextColor] = useState("#000000");
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
-  const [SelectedTemplate, setSelectedTemplate] = useState("3");
+  const [SelectedTemplate, setSelectedTemplate] = useState("1");
 
   localStorage.setItem("TitleColor", secondaryColor);
   localStorage.setItem("TextColor", textColor);
@@ -90,7 +90,7 @@ const Resume = () => {
   return (
     <Layout>
       <Grid container sx={{ display: "flex", flexDirection: "row" }}>
-        <Grid item>
+        <Grid item sx={{ marginTop: "30px" }}>
           <Templates SelectedTemplate={setSelectedTemplate} />
         </Grid>
         <ThemeProvider theme={theme}>
@@ -106,24 +106,24 @@ const Resume = () => {
               </ThemeProvider>
             </Box>
           </Grid>
-          <Grid item>
-            <Typography variant="h3">Choose Color</Typography>
+          <Grid item sx={{ marginTop: "30px" }}>
+            <Typography
+              variant="h3"
+              sx={{ color: "white", marginLeft: "30px", fontWeight: "bold" }}
+            >
+              Choose Color
+            </Typography>
 
             <ColorItem
               title="Title Color"
               handleCapture={handleSecondary}
               defaultValue={secondaryColor}
             />
-            <ColorItem
-              title="Text Color"
-              handleCapture={handleText}
-              defaultValue={textColor}
-            />
-            <center>
+            <Box sx={{ marginLeft: "30px" }}>
               <a href="resume/pdf">
                 <img src={printDownload} width="150px" alt="Print & Download" />
               </a>
-            </center>
+            </Box>
           </Grid>
         </ThemeProvider>
       </Grid>

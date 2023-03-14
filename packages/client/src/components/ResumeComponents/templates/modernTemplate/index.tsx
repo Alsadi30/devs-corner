@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import Data from "../../../../assets/Data.json";
+// import Data from "../../../../assets/Data.json";
 import BasicIntro from "./BasicIntro";
 import Credentials from "./Credential/Credentials";
 import Education from "./education/Education";
@@ -15,7 +15,11 @@ const style = {
   },
 };
 
-const ModernTemplate = () => {
+const ModernTemplate = ({ Data }: any) => {
+  // const localData = localStorage.getItem("dynamicData");
+  // const Data = JSON.parse(localData);
+  // console.log(Data.)
+
   return (
     <Box sx={style.pageWrapper}>
       <BasicIntro
@@ -26,12 +30,33 @@ const ModernTemplate = () => {
         Location={Data.profile.location}
         Linkedin="arif.btkrm"
       />
-      <Summary About={Data.profile.about} />
-      <Skill Skills={Data.skills} />
-      <Experience Experience={Data.experience} />
-      <Education Education={Data.education} />
-      <Credentials Credentials={Data.credentials} />
-      <Projects Projects={Data.projects} />
+
+      {Data.profile.about.length > 0 ? (
+        <Summary About={Data.profile.about} />
+      ) : (
+        ""
+      )}
+
+      {Data.skills.length > 0 ? <Skill Skills={Data.skills} /> : ""}
+
+      {Data.experience.length > 0 ? (
+        <Experience Experience={Data.experience} />
+      ) : (
+        ""
+      )}
+
+      {Data.education.length > 0 ? (
+        <Education Education={Data.education} />
+      ) : (
+        ""
+      )}
+      {Data.credentials.length > 0 ? (
+        <Credentials Credentials={Data.credentials} />
+      ) : (
+        ""
+      )}
+
+      {Data.projects.length > 0 ? <Projects Projects={Data.projects} /> : ""}
     </Box>
   );
 };

@@ -1,5 +1,5 @@
 import { Box, Grid } from "@mui/material";
-import Data from "../../../../assets/Data.json";
+// import staticData from "../../../../assets/Data.json";
 
 import BasicIntro from "./BasicIntro";
 import Contact from "./contact/contact";
@@ -8,7 +8,6 @@ import Education from "./education/Education";
 import Experience from "./experience/Experience";
 import Projects from "./projects/Project";
 import Skill from "./skill/Skill";
-
 const style = {
   pageWrapper: {
     padding: "40px 0",
@@ -18,9 +17,7 @@ const style = {
   },
 };
 
-const BasicTemplate = () => {
-  localStorage.setItem("TitleColor", "#336699");
-
+const BasicTemplate = ({ Data }: any) => {
   return (
     <>
       <Grid container display={"flex"}>
@@ -42,7 +39,8 @@ const BasicTemplate = () => {
               Location={Data.profile.location}
               Linkedin="arifbtkrm"
             />
-            <Skill Skills={Data.skills} />
+            {Data.skills.length > 0 ? <Skill Skills={Data.skills} /> : ""}
+
             {Data.experience.length > 0 ? (
               <Experience Experience={Data.experience} />
             ) : (
