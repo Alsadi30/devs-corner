@@ -8,7 +8,9 @@ import { useState } from 'react';
 type item = {
     name: string,
     thumbnail: string,
-    type: string
+    skilltype: {
+        name: string
+    }
 }
 
 

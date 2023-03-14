@@ -16,7 +16,7 @@ const credentialRepository = MyDataSource.getRepository(Credentials);
 const userRepository = MyDataSource.getRepository(User);
 const createCredentialController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const userId = req.user.id;
-    const { title, institution, cartificateUrl, cartificateId, courseDuration, achivedAt } = req.body;
+    const { title, institution, cartificateUrl, cartificateId, courseDuration, achivedAt, } = req.body;
     const image = req.file.filename;
     const user = yield userRepository.findOneBy({ id: userId });
     if (!user) {
@@ -41,11 +41,17 @@ const createCredentialController = (req, res, next) => __awaiter(void 0, void 0,
 });
 const updateCredentialController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const id = req.params.Id;
-    const { title, institution, cartificateUrl, cartificateId, courseDuration, achivedAt } = req.body;
+    const { title, institution, cartificateUrl, cartificateId, courseDuration, achivedAt, } = req.body;
     const image = req.file.filename;
     try {
         const newCredential = yield credentialRepository.update(id, {
-            title, institution, cartificateUrl, cartificateId, courseDuration, achivedAt, image
+            title,
+            institution,
+            cartificateUrl,
+            cartificateId,
+            courseDuration,
+            achivedAt,
+            image,
         });
         return res.status(202).json(newCredential);
     }
@@ -55,7 +61,9 @@ const updateCredentialController = (req, res, next) => __awaiter(void 0, void 0,
 });
 const deleteCredentialController = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const credentialId = req.params.Id;
-    const credential = yield credentialRepository.findOneBy({ id: credentialId });
+    const credential = yield credentialRepository.findOneBy({
+        id: credentialId,
+    });
     if (!credential) {
         throw Error('credential not found');
     }
@@ -70,6 +78,6 @@ const deleteCredentialController = (req, res, next) => __awaiter(void 0, void 0,
 module.exports = {
     createCredentialController,
     updateCredentialController,
-    deleteCredentialController
+    deleteCredentialController,
 };
 //# sourceMappingURL=credentialController.js.map

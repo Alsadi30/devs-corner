@@ -3,8 +3,8 @@ import email from "./../../../../../assets/logos/email.png";
 import linkedin from "./../../../../../assets/logos/linkedin.png";
 import location from "./../../../../../assets/logos/location.png";
 import phone from "./../../../../../assets/logos/phone.png";
-import HrBar from "./../components/HrBar";
-import ContactItem from "./contactItem";
+import ContactItem from "./../../sharedComponents/contactItem";
+import HrBar from "./../../sharedComponents/HrBar";
 
 type ContactProps = {
   Email: string;

@@ -6,8 +6,8 @@ type jobPropsType = {
   startAt: string;
   endAt: string;
 };
-const Experience = ({ experience }: any) => {
-  const exp = [...experience].reverse();
+const Experience = ({ Experience }: any) => {
+  const exp = [...Experience].reverse();
   return (
     <Section Header="WORK EXPERIENCE">
       {exp.map((job: jobPropsType, index: number) => {

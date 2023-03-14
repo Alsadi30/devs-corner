@@ -3,7 +3,7 @@ import Section from "../components/Section";
 import { SectionContainerH } from "../components/SectionContainer";
 import { SkillItem } from "./SkillItem";
 
-const Skill = ({ skills }: any) => {
+const Skill = ({ Skills }: any) => {
   type skillType = {
     id: string;
     name: string;
@@ -13,7 +13,7 @@ const Skill = ({ skills }: any) => {
     <Section Header="SKILLS">
       <SectionContainerH>
         <Box sx={{ display: "flex", flexDirection: "row", flexWrap: "wrap" }}>
-          {skills.map((skill: skillType, index: number) => {
+          {Skills.map((skill: skillType, index: number) => {
             return <SkillItem key={index} name={skill.name} />;
           })}
         </Box>

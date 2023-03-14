@@ -3,12 +3,11 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { FocusEvent, useMemo, useState } from "react";
 import printDownload from "./../../assets/printDownload.jpg";
 import Layout from "./../Layout";
-import ColorItem from "./components/ColorItem";
-import Templates from "./components/Templates";
 import MySelectedTemplate from "./templates/MySelectedTemplate";
+import ColorItem from "./templates/sharedComponents/ColorItem";
+import Templates from "./templates/sharedComponents/Templates";
 const style = {
   pageWrapper: {
-    padding: "20px 0",
     width: "800px",
     // background: 'white',
     // height: "1800px",
@@ -20,7 +19,7 @@ const Resume = () => {
   const [secondaryColor, setSecondaryColor] = useState("#336699");
   const [textColor, setTextColor] = useState("#000000");
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
-  const [SelectedTemplate, setSelectedTemplate] = useState("2");
+  const [SelectedTemplate, setSelectedTemplate] = useState("1");
 
   localStorage.setItem("TitleColor", secondaryColor);
   localStorage.setItem("TextColor", textColor);
@@ -39,14 +38,14 @@ const Resume = () => {
           h1: {
             fontSize: "2rem",
             fontWeight: 700,
-            color: "#ffffff",
+            color: "#000",
             lineHeight: 1.2,
             letterSpacing: "-0.01562em",
           },
           h2: {
             fontSize: "1.75rem",
             fontWeight: 700,
-            color: "#ffffff",
+            color: "#000",
             lineHeight: 1.2,
             letterSpacing: "-0.00833em",
           },
@@ -54,7 +53,7 @@ const Resume = () => {
             fontSize: "1.4rem",
             fontWeight: 500,
             lineHeight: 1.2,
-            color: "#ffffff",
+            color: "#000",
             letterSpacing: "0em",
           },
           h4: {
@@ -64,8 +63,8 @@ const Resume = () => {
             letterSpacing: "0.00735em",
           },
           h5: {
-            fontSize: "1.2rem",
-            fontWeight: 400,
+            fontSize: "1.3rem",
+            fontWeight: 700,
             lineHeight: 1.2,
             letterSpacing: "0em",
           },
@@ -91,7 +90,7 @@ const Resume = () => {
   return (
     <Layout>
       <Grid container sx={{ display: "flex", flexDirection: "row" }}>
-        <Grid item>
+        <Grid item sx={{ marginTop: "30px" }}>
           <Templates SelectedTemplate={setSelectedTemplate} />
         </Grid>
         <ThemeProvider theme={theme}>
@@ -107,25 +106,24 @@ const Resume = () => {
               </ThemeProvider>
             </Box>
           </Grid>
-          <Grid item>
-            <center>
-              <Typography variant="h3">Choose Color</Typography>
-            </center>
+          <Grid item sx={{ marginTop: "30px" }}>
+            <Typography
+              variant="h3"
+              sx={{ color: "white", marginLeft: "30px", fontWeight: "bold" }}
+            >
+              Choose Color
+            </Typography>
+
             <ColorItem
               title="Title Color"
               handleCapture={handleSecondary}
               defaultValue={secondaryColor}
             />
-            <ColorItem
-              title="Text Color"
-              handleCapture={handleText}
-              defaultValue={textColor}
-            />
-            <center>
+            <Box sx={{ marginLeft: "30px" }}>
               <a href="resume/pdf">
                 <img src={printDownload} width="150px" alt="Print & Download" />
               </a>
-            </center>
+            </Box>
           </Grid>
         </ThemeProvider>
       </Grid>

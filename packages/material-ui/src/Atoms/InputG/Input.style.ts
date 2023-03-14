@@ -13,7 +13,7 @@ export const DateInputStyle = {
   border: "none",
   borderRadius: '3px',
   display: "flex",
-  flexDirection: 'column',
+  flexDirection: "column",
   ":active": {
     border: 'none'
   }
@@ -41,7 +41,10 @@ export const FileLabelStyle = {
 }
 
 export const Filewarp = {
-  display: 'flex', flexDirection: 'column', width: '100%', margin: '5px 0px'
+  display: 'flex',
+  flexDirection: 'column',
+  width: '100%',
+  margin: '5px 0px'
 }
 
 

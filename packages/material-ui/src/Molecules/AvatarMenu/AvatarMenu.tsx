@@ -1,7 +1,13 @@
 import { IconButton, Menu, MenuItem, Typography } from "@mui/material";
 import * as React from "react";
 import ImageAvatar from "../../Atoms/Avatars/ImageAvatar";
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+import { Link } from "react-router-dom";
+
+
+
+
+
+const settings = ["Dashboard", "Logout"];
 
 
 interface Menutype {
@@ -43,11 +49,16 @@ const AvatarMenu = ({ profilePic }: Menutype) => {
         open={Boolean(anchorElUser)}
         onClose={handleCloseUserMenu}
       >
-        {settings.map((setting) => (
-          <MenuItem key={setting} onClick={handleCloseUserMenu}>
-            <Typography textAlign="center">{setting}</Typography>
-          </MenuItem>
-        ))}
+
+        <MenuItem onClick={handleCloseUserMenu}>
+          <Link to={'/dashboard'} >
+            <Typography textAlign="center" color={'info.light'} >Dashboard</Typography>
+          </Link>
+        </MenuItem>
+        <MenuItem onClick={handleCloseUserMenu}>
+          <Typography textAlign="center" color={'info.light'} >Logout</Typography>
+
+        </MenuItem>
       </Menu>
     </>
   );

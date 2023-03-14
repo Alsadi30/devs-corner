@@ -4,7 +4,8 @@ export const apiSlice = createApi({
 	reducerPath: 'api',
 	baseQuery: fetchBaseQuery({
 		baseUrl: 'https://devs-corner.onrender.com/api/v1',
-		prepareHeaders: async (headers, { getState, endpoint }) => {
+		// baseUrl: 'http://localhost:4000/api/v1',
+		prepareHeaders: async (headers, { getState, endpoint }: any) => {
 			const token = getState()?.auth?.token;
 
 			if (token) {

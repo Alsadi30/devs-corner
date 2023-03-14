@@ -1,6 +1,6 @@
 import { Typography } from "@mui/material";
-import Section from "../components/Section";
-import { SectionContainerV } from "../components/SectionContainer";
+import Section from "../../sharedComponents/Section";
+import { SectionContainerV } from "../../sharedComponents/SectionContainer";
 
 const Education = ({ Education }: any) => {
   const edu = [...Education].reverse();

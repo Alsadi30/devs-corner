@@ -12,7 +12,7 @@ const IconWithText = ({ children, text, variant = 'body2', color = 'info.dark' }
     return (
         <Grid container >
             <Grid item color='info' pt={.5} >{children}</Grid>
-            <Typography p={.6} variant={variant} color={color}>{text}</Typography>
+            <Typography px={.6} pt={.8} variant={variant} color={color}>{text}</Typography>
         </Grid>
     )
 }
