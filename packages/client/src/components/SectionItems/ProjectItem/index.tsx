@@ -31,8 +31,11 @@ const ProjectItem = ({ item }: ProjectItemProps) => {
 	};
 
 	const handleProjectDelete = () => {
-		alert('Do you want to delete this project?');
-		deleteProject(id);
+		let confirmed = window.confirm('Do you really want to delete it??')
+		if (confirmed) {
+			deleteProject(id);
+		}
+
 	};
 
 	const handleProjectSubmit = (data: object) => {
@@ -64,7 +67,7 @@ const ProjectItem = ({ item }: ProjectItemProps) => {
 					<Grid pr={5}>
 						<IconWithText text='Github'>
 							{' '}
-							<GitHubIcon fontSize='12px' color='info' />{' '}
+							<GitHubIcon fontSize='small' color='info' />{' '}
 						</IconWithText>
 					</Grid>
 				</Link>
@@ -72,7 +75,7 @@ const ProjectItem = ({ item }: ProjectItemProps) => {
 					<Grid>
 						<IconWithText text='Live URL'>
 							{' '}
-							<AttachFileIcon fontSize='12px' color='info' />{' '}
+							<AttachFileIcon fontSize='small' color='info' />{' '}
 						</IconWithText>
 					</Grid>
 				</Link>

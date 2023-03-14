@@ -18,7 +18,10 @@ const Skill = ({ item }: SkillProps) => {
   const [showIcon, setShowIcon] = useState(false)
 
   const handleDeleteSkill = () => {
-    alert('Do you want to delete this skill')
+    let confirmed = window.confirm('Do you really want to delete it?')
+    if (confirmed) {
+
+    }
   }
 
   return (

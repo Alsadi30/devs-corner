@@ -41,8 +41,10 @@ const CredentialItem = ({ item }: CredentialProps) => {
 	};
 
 	const handleCredentialDelete = () => {
-		alert('Do you want to delete this Credential?');
-		deleteCredential(id);
+		let confirmed = window.confirm('Do you really want to delete it??')
+		if (confirmed) {
+			deleteCredential(id);
+		}
 	};
 	const formData = new FormData();
 

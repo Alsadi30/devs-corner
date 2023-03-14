@@ -3,14 +3,15 @@ import userEvent from '@testing-library/user-event'
 import '@testing-library/jest-dom'
 import Layout from './index';
 import { LayoutProps } from './index';
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { ReactElement } from 'react';
 
 
 test('loads and displays greeting', () => {
     // ARRANGE
 
     const layoutprops: LayoutProps = {
-        children: ReactNode
+        children: <div></div>
     }
 
     const getByDataCy = render(<Layout {...layoutprops} />)

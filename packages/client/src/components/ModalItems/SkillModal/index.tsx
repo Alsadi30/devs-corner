@@ -1,9 +1,8 @@
+import { Autocomplete, TextField } from '@mui/material';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
 import { useForm } from 'react-hook-form';
 import FormButton from '../../../../../material-ui/src/Atoms/FormButton';
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
-import { TextField, Autocomplete } from '@mui/material';
-import { InputStyle } from '../../../../../material-ui/src/Atoms/InputG/Input.style';
-import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
 import { useGetSkillQuery } from '../../../features/skill/skillApi';
 
 interface Props {
@@ -28,7 +27,8 @@ const OpTheme = createTheme({
 
 const SkillModal = ({ onSubmit }: Props) => {
 
-    const { data: skillData, isLoading, isError } = useGetSkillQuery();
+    let id = ''// to avoid redux ts error
+    const { data: skillData, isLoading, isError } = useGetSkillQuery(id);
 
     const defaultProps = {
         options: skillData,
@@ -44,7 +44,6 @@ const SkillModal = ({ onSubmit }: Props) => {
         <FormContainer
             handleSubmit={handleSubmit(onSubmit)}
         >
-
             <ThemeProvider theme={OpTheme} >
                 skillData && <Autocomplete
                     fullWidth={true}
@@ -66,7 +65,6 @@ const SkillModal = ({ onSubmit }: Props) => {
                 />
             </ThemeProvider>
             <FormButton />
-
         </FormContainer>
     )
 }

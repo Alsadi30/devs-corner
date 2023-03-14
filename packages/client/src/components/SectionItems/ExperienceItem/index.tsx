@@ -27,8 +27,11 @@ const ExperienceItem = ({ item }: ExperienceProps) => {
 	};
 
 	const handleExperienceDelete = () => {
-		alert('Do you want to delete this Experience?');
-		deleteExperience(id);
+		let confirmed = window.confirm('Do you really want to delete it??')
+		if (confirmed) {
+			deleteExperience(id);
+		}
+
 	};
 
 	const handleExpSubmit = (data: object) => {

@@ -27,8 +27,11 @@ const EducationItem = ({ item }: EducationProps) => {
 	};
 
 	const handleEducationDelete = () => {
-		alert('Do you want to delete this Degree?');
-		deleteEducation(id);
+		let confirmed = window.confirm('Do you really want to delete it??')
+		if (confirmed) {
+			deleteEducation(id);
+		}
+
 	};
 
 	const handleEduSubmit = (data: object) => {

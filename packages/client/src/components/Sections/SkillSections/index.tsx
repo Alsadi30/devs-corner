@@ -11,7 +11,8 @@ interface SSProps {
 
 const SkillSections = ({ skills }: SSProps) => {
 
-    const { data: skillData, isLoading, isError } = useGetSkillQuery();
+    let id = ''
+    const { data: skillData, isLoading, isError } = useGetSkillQuery(id);
     const [skillopen, setSOpen] = useState(false);
 
     const handleSkill = () => {
@@ -20,7 +21,7 @@ const SkillSections = ({ skills }: SSProps) => {
 
     const handleSkillSubmit = (data: object) => {
         let skill = skillData && skillData.find((item: any) => item.name === data.skill)
-        console.log(skill.id)
+
         handleSkill()
     };
 
