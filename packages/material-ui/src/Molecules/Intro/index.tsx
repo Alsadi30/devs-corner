@@ -7,7 +7,7 @@ type IntroProps = { Name?: string; Position?: string; Location?: string };
 
 const Intro = ({ Name, Position, Location }: IntroProps) => {
 
-  const auth = useSelector((state) => state?.auth);
+  const auth = useSelector((state: any) => state?.auth);
 
   const username = auth?.user.username
 

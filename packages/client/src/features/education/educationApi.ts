@@ -10,7 +10,26 @@ export const educationApi = apiSlice.injectEndpoints({
 			}),
 			invalidatesTags: ['user'],
 		}),
+		deleteEducation: builder.mutation({
+			query: (id) => ({
+				url: `/education/${id}`,
+				method: 'DELETE',
+			}),
+			invalidatesTags: ['user'],
+		}),
+		updateEducation: builder.mutation({
+			query: ({ id, data }) => ({
+				url: `/education/${id}`,
+				method: 'PUT',
+				body: data,
+			}),
+			invalidatesTags: ['user'],
+		}),
 	}),
 });
 
-export const { useCreateEducationMutation } = educationApi;
+export const {
+	useCreateEducationMutation,
+	useDeleteEducationMutation,
+	useUpdateEducationMutation,
+} = educationApi;

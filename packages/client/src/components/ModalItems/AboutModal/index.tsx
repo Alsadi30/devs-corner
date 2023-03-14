@@ -18,12 +18,12 @@ interface AboutModalProps {
 
 const aboutSchema = yup.object({
     about: yup.string().required().trim(),
-}).required();
+})
 
 const AboutModal = ({ about, onSubmit }: AboutModalProps) => {
 
     const { control, handleSubmit, formState: { errors } } = useForm({
-        defaultValues: !!about && {
+        defaultValues: {
             about: about
         }, resolver: yupResolver(aboutSchema)
     });

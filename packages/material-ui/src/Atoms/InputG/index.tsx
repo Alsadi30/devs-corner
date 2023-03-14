@@ -11,7 +11,7 @@ type InputFieldProps = InputHTMLAttributes<HTMLInputElement> & {
     type: string;
     isRequired?: boolean;
     fullWidth?: boolean;
-    defaultValue?: string | File | Date | number | null;
+    defaultValue?: any
     style?: object;
   };
   other: any;
@@ -42,7 +42,7 @@ const InputG: React.FC<InputFieldProps> = ({ item, other }) => {
                 type="file"
                 name={name}
                 onChange={(e) =>
-                  field.onChange({ target: { value: e.target.files[0], name: field.name } })} />
+                  field.onChange({ target: { value: e.target.files ? e.target.files[0] : '', name: field.name } })} />
             </div>
             {error &&
               <div style={{ backgroundColor: '#ffffff' }} >
@@ -56,7 +56,6 @@ const InputG: React.FC<InputFieldProps> = ({ item, other }) => {
               <input
                 style={DateInStyle}
                 type="date"
-                name={name}
                 {...field}
               />
               {error && <Error message={error.message} />}
@@ -83,3 +82,6 @@ const InputG: React.FC<InputFieldProps> = ({ item, other }) => {
 };
 
 export default InputG;
+
+
+
