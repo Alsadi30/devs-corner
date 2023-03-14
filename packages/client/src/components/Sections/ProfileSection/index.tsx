@@ -25,7 +25,7 @@ interface PSProps {
 const ProfileSection = ({ profile }: PSProps) => {
 	const [profileopen, setProfileOpen] = useState(false);
 
-	const userData = useSelector((state) => state?.user);
+	const userData = useSelector((state: any) => state?.user);
 	const [createProfile] = useCreateProfileMutation();
 	const [updateProfile] = useUpdateProfileMutation();
 
@@ -39,7 +39,7 @@ const ProfileSection = ({ profile }: PSProps) => {
 		for (const [key, value] of Object.entries(data)) {
 			formData.append(key, value);
 		}
-		userData?.user?.profile?.id
+		userData[0]?.user?.profile?.id
 			? updateProfile({ id: userData?.user?.id, formData })
 			: createProfile(formData);
 

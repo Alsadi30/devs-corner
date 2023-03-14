@@ -20,12 +20,12 @@ interface SocialMediaProps {
 }
 
 const SocialMedia = ({ items }: SocialMediaProps) => {
-	console.log(items);
-	let facebook: string;
-	let twitter: string;
-	let linkedIn: string;
-	let github: string;
-	let reddit: string;
+
+	let facebook: string = '';
+	let twitter: string = ''
+	let linkedIn: string = ''
+	let github: string = ''
+	let reddit: string = ''
 
 	const filterItems = items.map((item) => {
 		if (item.type === 'facebook') {
@@ -48,7 +48,7 @@ const SocialMedia = ({ items }: SocialMediaProps) => {
 	};
 
 	return (
-		<Grid container pt={3} justifyContent={'center'}>
+		filterItems && <Grid container pt={3} justifyContent={'center'}>
 			<SectionHead title='Social Media' handleClick={handleSocialMedia} />
 			{github && (
 				<Grid p={1}>

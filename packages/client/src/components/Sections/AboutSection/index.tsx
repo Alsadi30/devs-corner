@@ -14,7 +14,7 @@ interface ASProps {
 
 const AboutSection = ({ text }: ASProps) => {
 	const [aboutopen, setAOpen] = useState(false);
-	const userData = useSelector((state) => state?.user);
+	const userData = useSelector((state: any) => state?.user);
 	const [createProfile] = useCreateProfileMutation();
 	const [updateProfile] = useUpdateProfileMutation();
 

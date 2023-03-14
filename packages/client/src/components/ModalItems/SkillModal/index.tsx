@@ -4,7 +4,6 @@ import { useForm } from 'react-hook-form';
 import FormButton from '../../../../../material-ui/src/Atoms/FormButton';
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
 import { useGetSkillQuery } from '../../../features/skill/skillApi';
-import { Data } from '../../Sections/SkillSections';
 
 interface Props {
     onSubmit: (data: object) => void;
