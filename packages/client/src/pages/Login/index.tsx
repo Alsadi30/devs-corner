@@ -8,6 +8,7 @@ import FormContainer from '../../../../material-ui/src/Atoms/FormContainer';
 import Input from '../../../../material-ui/src/Atoms/InputG';
 import MapListItem from '../../../../material-ui/src/Atoms/MapListItem/index';
 import Layout from '../../components/Layout';
+import ReactToastify from '../../components/ReactToastify';
 import { useLoginMutation } from '../../features/auth/authApi';
 import { loginSchema } from '../../utils/validation/AuthValidation';
 
@@ -28,8 +29,8 @@ let inputs = [
 ];
 
 const Login = () => {
-
-	const [login, { data, isLoading, error: responseError }] = useLoginMutation();
+	const [login, { data, isLoading, error: responseError, isError }] =
+		useLoginMutation();
 
 	const navigate = useNavigate();
 
@@ -60,6 +61,9 @@ const Login = () => {
 		<Layout>
 			<Grid container justifyContent='center' alignItems='center'>
 				<Grid item xs={12} sm={8} md={5} lg={4} xl={4}>
+					{responseError && (
+						<ReactToastify error={'Invalid Credential'} />
+					)}
 					<FormContainer handleSubmit={handleSubmit(onSubmit)}>
 						<Typography mb={2} variant='h2' component='h6'>
 							Login
