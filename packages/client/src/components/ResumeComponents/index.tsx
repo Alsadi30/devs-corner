@@ -90,7 +90,7 @@ const Resume = () => {
   return (
     <Layout>
       <Grid container sx={{ display: "flex", flexDirection: "row" }}>
-        <Grid item>
+        <Grid item sx={{ marginTop: "30px" }}>
           <Templates SelectedTemplate={setSelectedTemplate} />
         </Grid>
         <ThemeProvider theme={theme}>
@@ -106,10 +106,10 @@ const Resume = () => {
               </ThemeProvider>
             </Box>
           </Grid>
-          <Grid item>
+          <Grid item sx={{ marginTop: "30px" }}>
             <Typography
               variant="h3"
-              sx={{ color: "white", textAlign: "center" }}
+              sx={{ color: "white", marginLeft: "30px", fontWeight: "bold" }}
             >
               Choose Color
             </Typography>
@@ -119,16 +119,11 @@ const Resume = () => {
               handleCapture={handleSecondary}
               defaultValue={secondaryColor}
             />
-            <ColorItem
-              title="Text Color"
-              handleCapture={handleText}
-              defaultValue={textColor}
-            />
-            <center>
+            <Box sx={{ marginLeft: "30px" }}>
               <a href="resume/pdf">
                 <img src={printDownload} width="150px" alt="Print & Download" />
               </a>
-            </center>
+            </Box>
           </Grid>
         </ThemeProvider>
       </Grid>
