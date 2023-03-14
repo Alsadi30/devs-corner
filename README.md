@@ -1,8 +1,8 @@
 # Dev's Corner
 
-## lIVE-lINK: https://devs-corner-client.onrender.com/
+## LIVE-LINK: https://devs-corner-client.onrender.com/
 
-### Dev's Corner is a web application that provides a platform for developers to create an account and manage their profiles based on their skills and experience. The application allows users to build and print their resumes, search for jobs, and apply for them. Recruiters can also manage their company accounts, create job posts for various positions, search for targeted candidates, view their profiles, and conduct small screening tests such as quiz contests, as per their requirements.
+Dev's Corner is a web application that provides a platform for developers to create an account and manage their profiles based on their skills and experience. The application allows users to build and print their resumes, search for jobs, and apply for them. Recruiters can also manage their company accounts, create job posts for various positions, search for targeted candidates, view their profiles, and conduct small screening tests such as quiz contests, as per their requirements.
 
 ## Tools Used
 
