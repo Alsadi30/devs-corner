@@ -1,4 +1,4 @@
-import { Skill } from '../models/skill';
+const { Skill } = require('../models/skill')
 const { User } = require('../models/user')
 const { getSingleSkillType } = require('./skillTypeController')
 const MyDataSource = require('../config/database')
@@ -7,8 +7,8 @@ const userRepository = MyDataSource.getRepository(User)
 const skillRepository = MyDataSource.getRepository(Skill)
 
 const createSkillController = async (req, res, next) => {
-    const { name, Type } = req.body;
 
+    const { name, Type } = req.body;
     const thumbnail = req.file.filename
 
     const skillType = await getSingleSkillType(Type)
@@ -135,4 +135,3 @@ module.exports = {
 }
 
 
-export { }
