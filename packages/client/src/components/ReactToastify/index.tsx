@@ -1,12 +1,18 @@
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 
-const ReactToastify = () => {
-	const notify = () => toast('Wow so easy !');
+type ErrProps = {
+	error: string;
+};
+
+const ReactToastify = ({ error }: ErrProps) => {
+	const notify = (ErrorData: any) => toast(ErrorData);
+	if (error) {
+		notify(error);
+	}
 
 	return (
 		<div>
-			<button onClick={notify}>Notify !</button>
 			<ToastContainer />
 		</div>
 	);
