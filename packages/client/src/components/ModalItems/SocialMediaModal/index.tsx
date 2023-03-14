@@ -1,6 +1,6 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { TextField } from '@mui/material';
-import { useForm, Controller } from 'react-hook-form';
+import { Controller, useForm } from 'react-hook-form';
 import FormButton from '../../../../../material-ui/src/Atoms/FormButton';
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
 import Input from '../../../../../material-ui/src/Atoms/InputG';
@@ -9,7 +9,7 @@ import { useCreateSocialMediaMutation } from '../../../features/socialMedia/soci
 import { socialMediaSchema } from '../../../utils/validation/socialMediaValidation';
 
 type Props = {
-	handleClose: () => void
+	handleClose: () => void;
 };
 
 const inputs = ['facebook', 'twitter', 'linkedin', 'github'];
@@ -22,7 +22,7 @@ const SocialMediaModal = ({ handleClose }: Props) => {
 	} = useForm({
 		defaultValues: {
 			url: '',
-			type: '',
+			type: 'facebook',
 		},
 		resolver: yupResolver(socialMediaSchema),
 	});
@@ -32,7 +32,7 @@ const SocialMediaModal = ({ handleClose }: Props) => {
 	const onSubmit = (data: object) => {
 		console.log(data);
 		createSocialMedia(data);
-		handleClose()
+		handleClose();
 	};
 
 	return (
@@ -41,7 +41,11 @@ const SocialMediaModal = ({ handleClose }: Props) => {
 			<Controller
 				name={'type'}
 				control={control}
-				render={({ field, fieldState: { error }, formState: { isValid } }) => (
+				render={({
+					field,
+					fieldState: { error },
+					formState: { isValid },
+				}) => (
 					<TextField
 						{...field}
 						sx={InputStyle}
@@ -63,7 +67,8 @@ const SocialMediaModal = ({ handleClose }: Props) => {
 								{value}
 							</option>
 						))}
-					</TextField>)}
+					</TextField>
+				)}
 			/>
 			/** here We will show the existing socialMedia with edit and delete
 			button */
