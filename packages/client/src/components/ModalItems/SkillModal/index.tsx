@@ -4,40 +4,40 @@ import { useForm } from 'react-hook-form';
 import FormButton from '../../../../../material-ui/src/Atoms/FormButton';
 import FormContainer from '../../../../../material-ui/src/Atoms/FormContainer';
 import { useGetSkillQuery } from '../../../features/skill/skillApi';
+import { Data } from '../../Sections/SkillSections';
 
 interface Props {
-    onSubmit: (data: object) => void
+    onSubmit: (data: object) => void;
 }
 
-
-interface SkillType {
+export interface SkillType {
     name: string;
     id: string;
 }
 
-
 const OpTheme = createTheme({
     palette: {
         secondary: {
-            main: "#ffffff",
+            main: '#ffffff',
         },
-    }
-})
-
+    },
+});
 
 const SkillModal = ({ onSubmit }: Props) => {
 
     let id = ''// to avoid redux ts error
     const { data: skillData, isLoading, isError } = useGetSkillQuery(id);
 
+    if (isLoading) {
+        <div>Loading</div>;
+    }
+
     const defaultProps = {
         options: skillData,
         getOptionLabel: (option: SkillType) => option.name,
     };
 
-    if (isLoading) {
-        <div>Loading</div>
-    }
+
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     return (

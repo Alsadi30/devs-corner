@@ -2,12 +2,13 @@ import React from 'react'
 import SkillSection from '../../SectionItems/SkillSection'
 import { useState } from 'react';
 import CustomizedDialogs from '../../../../../material-ui/src/Atoms/Modal';
-import SkillModal from '../../ModalItems/SkillModal';
+import SkillModal, { SkillType } from '../../ModalItems/SkillModal';
 import { useGetSkillQuery } from '../../../features/skill/skillApi';
 
 interface SSProps {
     skills: Array<object>
 }
+
 
 const SkillSections = ({ skills }: SSProps) => {
 
@@ -19,7 +20,7 @@ const SkillSections = ({ skills }: SSProps) => {
         setSOpen(!skillopen);
     };
 
-    const handleSkillSubmit = (data: object) => {
+    const handleSkillSubmit = (data: any) => {
         let skill = skillData && skillData.find((item: any) => item.name === data.skill)
 
         handleSkill()

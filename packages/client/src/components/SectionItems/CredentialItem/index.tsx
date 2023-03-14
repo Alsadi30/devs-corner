@@ -1,10 +1,14 @@
 import { Grid, Typography } from '@mui/material';
 import { useState } from 'react';
+import { useSelector } from 'react-redux';
 import Image from '../../../../../material-ui/src/Atoms/Avatars/Image';
 import KeyValue from '../../../../../material-ui/src/Atoms/KeyValue';
 import CustomizedDialogs from '../../../../../material-ui/src/Atoms/Modal';
 import ItemTitle from '../../../../../material-ui/src/Molecules/ItemTitleWithIcon';
-import { useDeleteCredentialMutation } from '../../../features/credential/credentialApi';
+import {
+	useDeleteCredentialMutation,
+	useUpdateCredentialMutation,
+} from '../../../features/credential/credentialApi';
 import CredentialModel from '../../ModalItems/CredentialModal';
 
 export interface CredentialProps {
@@ -34,7 +38,10 @@ const CredentialItem = ({ item }: CredentialProps) => {
 	const [credopen, setCredOpen] = useState(false);
 	const [showIcon, setShowIcon] = useState(false);
 
+	const userData = useSelector((state: any) => state?.user);
+
 	const [deleteCredential] = useDeleteCredentialMutation();
+	const [updateCredential] = useUpdateCredentialMutation();
 
 	const handleCredential = () => {
 		setCredOpen(!credopen);
@@ -54,7 +61,7 @@ const CredentialItem = ({ item }: CredentialProps) => {
 			formData.append(key, value);
 		}
 
-		console.log(formData, id);
+		updateCredential({ id: userData?.user?.id, formData });
 		handleCredential();
 	};
 

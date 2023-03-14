@@ -2,7 +2,10 @@ import { Grid, Typography } from '@mui/material';
 import { useState } from 'react';
 import CustomizedDialogs from '../../../../../material-ui/src/Atoms/Modal';
 import ItemTitle from '../../../../../material-ui/src/Molecules/ItemTitleWithIcon/index';
-import { useDeleteExperienceMutation } from '../../../features/experience/expeienceApi';
+import {
+	useDeleteExperienceMutation,
+	useUpdateExperienceMutation,
+} from '../../../features/experience/expeienceApi';
 import ExperienceModal from '../../ModalItems/ExperienceModal';
 
 export interface ExperienceProps {
@@ -20,6 +23,8 @@ const ExperienceItem = ({ item }: ExperienceProps) => {
 
 	const [expopen, setExpOpen] = useState(false);
 	const [showIcon, setShowIcon] = useState(false);
+
+	const [updateExperience] = useUpdateExperienceMutation();
 	const [deleteExperience] = useDeleteExperienceMutation();
 
 	const handleExperience = () => {
@@ -35,7 +40,7 @@ const ExperienceItem = ({ item }: ExperienceProps) => {
 	};
 
 	const handleExpSubmit = (data: object) => {
-		console.log(data, id);
+		updateExperience({ id, data });
 		handleExperience();
 	};
 
