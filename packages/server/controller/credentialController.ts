@@ -51,17 +51,21 @@ const updateCredentialController = async (req, res, next) => {
 		courseDuration,
 		achivedAt,
 	} = req.body;
-	const image = req.file.filename;
+	const image = req.file?.filename ? req.file?.filename : '';
+
+	console.log('=======================================================');
+	console.log(req.body);
+	console.log('=======================================================');
 
 	try {
 		const newCredential = await credentialRepository.update(id, {
-			title,
-			institution,
-			cartificateUrl,
-			cartificateId,
-			courseDuration,
-			achivedAt,
-			image,
+			title: title,
+			image: image,
+			institution: institution,
+			cartificateUrl: cartificateUrl,
+			cartificateId: cartificateId,
+			courseDuration: courseDuration,
+			achivedAt: achivedAt,
 		});
 		return res.status(202).json(newCredential);
 	} catch (e) {

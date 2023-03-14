@@ -23,7 +23,7 @@ const AboutSection = ({ text }: ASProps) => {
 	};
 
 	const handleAboutSubmit = (data: object) => {
-		userData?.user?.profile?.id
+		userData[0]?.user?.profile?.id
 			? updateProfile({ id: userData?.user?.id, data })
 			: createProfile(data);
 		handleAbout();

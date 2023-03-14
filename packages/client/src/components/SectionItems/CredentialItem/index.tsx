@@ -48,20 +48,18 @@ const CredentialItem = ({ item }: CredentialProps) => {
 	};
 
 	const handleCredentialDelete = () => {
-		let confirmed = window.confirm('Do you really want to delete it??')
+		let confirmed = window.confirm('Do you really want to delete it??');
 		if (confirmed) {
 			deleteCredential(id);
 		}
 	};
-	const formData = new FormData();
 
+	const formData = new FormData();
 	const handleCredSubmit = (data: object) => {
 		for (const [key, value] of Object.entries(data)) {
-			console.log(`${key}: ${value}`);
 			formData.append(key, value);
 		}
-
-		updateCredential({ id: userData?.user?.id, formData });
+		updateCredential({ id: userData?.user?.id, data });
 		handleCredential();
 	};
 

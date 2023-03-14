@@ -8,6 +8,13 @@ export const projectApi = apiSlice.injectEndpoints({
 				method: 'GET',
 			}),
 		}),
+		addSkill: builder.mutation({
+			query: (id) => ({
+				url: `/skill/${id}`,
+				method: 'POST',
+			}),
+			invalidatesTags: ['user'],
+		}),
 		deleteSkill: builder.mutation({
 			query: (id) => ({
 				url: `/skill/${id}`,
@@ -18,4 +25,5 @@ export const projectApi = apiSlice.injectEndpoints({
 	}),
 });
 
-export const { useGetSkillQuery, useDeleteSkillMutation } = projectApi;
+export const { useGetSkillQuery, useDeleteSkillMutation, useAddSkillMutation } =
+	projectApi;
