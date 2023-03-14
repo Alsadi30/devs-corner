@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import Data from "../../../../assets/Data.json";
+// import Data from "../../../../assets/Data.json";
 import BasicIntro from "./BasicIntro";
 import Contact from "./contact/contact";
 import Credentials from "./Credential/Credentials";
@@ -18,7 +18,8 @@ const style = {
   },
 };
 
-const ModernTemplate = () => {
+const StylishTemplate = ({ Data }: any) => {
+  // console.log(Data);
   return (
     <Box sx={style.pageWrapper}>
       <Box
@@ -41,16 +42,35 @@ const ModernTemplate = () => {
           Location={Data.profile.location}
           Linkedin="arif.btkrm"
         />
-        <Education Education={Data.education} />
-        <Skill Skills={Data.skills} />
+        {Data.education.length > 0 ? (
+          <Education Education={Data.education} />
+        ) : (
+          ""
+        )}
+        {Data.skills.length > 0 ? <Skill Skills={Data.skills} /> : ""}
       </Box>
       <Box sx={{ width: "65%" }}>
-        <Summary About={Data.profile.about} />
-        <Experience Experience={Data.experience} />
-        <Projects Projects={Data.projects} />
-        <Credentials Credentials={Data.credentials} />
+        {Data.profile.about.length > 0 ? (
+          <Summary About={Data.profile.about} />
+        ) : (
+          ""
+        )}
+
+        {Data.experience.length > 0 ? (
+          <Experience Experience={Data.experience} />
+        ) : (
+          ""
+        )}
+
+        {Data.projects.length > 0 ? <Projects Projects={Data.projects} /> : ""}
+
+        {Data.credentials.length > 0 ? (
+          <Credentials Credentials={Data.credentials} />
+        ) : (
+          ""
+        )}
       </Box>
     </Box>
   );
 };
-export default ModernTemplate;
+export default StylishTemplate;

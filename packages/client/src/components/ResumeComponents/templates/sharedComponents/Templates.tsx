@@ -15,7 +15,7 @@ const Templates = ({ SelectedTemplate }: any) => {
       <Typography
         variant="h3"
         color="initial"
-        sx={{ textAlign: "center", color: "white" }}
+        sx={{ color: "white", fontWeight: "bold" }}
       >
         Select Template
       </Typography>
