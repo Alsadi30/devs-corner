@@ -1,5 +1,5 @@
 import { Document, Page, StyleSheet } from "@react-pdf/renderer";
-import BasicPdfTemplate from "./templates/basicTemplate/";
+import SelectedPDFTemplate from "./templates/selectedPDFTemplate";
 const styles = StyleSheet.create({
   page: {
     margin: "0 0",
@@ -7,11 +7,11 @@ const styles = StyleSheet.create({
     width: "100%",
   },
 });
-const MainColor = localStorage.getItem("TitleColor");
+const selectedTemplate = localStorage.getItem("SelectedTemplate");
 const MyPdfDocument = () => (
   <Document>
     <Page size="A4" style={styles.page}>
-      <BasicPdfTemplate MainColor={MainColor} />
+      <SelectedPDFTemplate SelectedTemplate={selectedTemplate} />
     </Page>
   </Document>
 );

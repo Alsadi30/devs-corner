@@ -7,7 +7,7 @@ import Experience from "./experience//Experience";
 import Projects from "./projects/Projects";
 import Skills from "./skill/Skills";
 
-const BasicPdfTemplate = ({ MainColor }: any) => {
+const BasicPDFTemplate = ({ MainColor }: any) => {
   return (
     <>
       <BasicIntro
@@ -31,4 +31,4 @@ const BasicPdfTemplate = ({ MainColor }: any) => {
     </>
   );
 };
-export default BasicPdfTemplate;
+export default BasicPDFTemplate;

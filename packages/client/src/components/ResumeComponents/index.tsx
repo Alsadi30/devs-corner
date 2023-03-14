@@ -19,7 +19,7 @@ const Resume = () => {
   const [secondaryColor, setSecondaryColor] = useState("#336699");
   const [textColor, setTextColor] = useState("#000000");
   const [backgroundColor, setBackgroundColor] = useState("#ffffff");
-  const [SelectedTemplate, setSelectedTemplate] = useState("3");
+  const [SelectedTemplate, setSelectedTemplate] = useState("1");
 
   localStorage.setItem("TitleColor", secondaryColor);
   localStorage.setItem("TextColor", textColor);
@@ -107,7 +107,12 @@ const Resume = () => {
             </Box>
           </Grid>
           <Grid item>
-            <Typography variant="h3">Choose Color</Typography>
+            <Typography
+              variant="h3"
+              sx={{ color: "white", textAlign: "center" }}
+            >
+              Choose Color
+            </Typography>
 
             <ColorItem
               title="Title Color"
