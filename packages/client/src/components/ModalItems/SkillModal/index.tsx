@@ -22,6 +22,10 @@ const OpTheme = createTheme({
     },
 });
 
+const Props = {
+
+}
+
 const SkillModal = ({ onSubmit }: Props) => {
 
     let id = ''// to avoid redux ts error
